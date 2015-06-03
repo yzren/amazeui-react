@@ -1,11 +1,34 @@
 'use strict';
 
-module.exports = {
-  ownerDocument: function(componentOrElement) {
-    var element = React.findDOMNode(componentOrElement);
+var React = require('react');
 
-    return (element && element.ownerDocument) || document;
-  },
+/**
+ * Get ownerDocument
+ * @param {ReactComponent|HTMLElement} componentOrElement
+ * @returns {HTMLDocument}
+ */
+function ownerDocument(componentOrElement) {
+  var element = React.findDOMNode(componentOrElement);
+
+  return (element && element.ownerDocument) || document;
+}
+
+/**
+ * Get ownerWindow
+ * @param {HTMLElement} element
+ * @returns {DocumentView|Window}
+ * @refer https://github.com/jquery/jquery/blob/6df669f0fb87cd9975a18bf6bbe3c3548afa4fee/src/event.js#L294-L297
+ */
+function ownerWindow(element) {
+  var doc = ownerDocument(element);
+
+  return doc.defaultView || doc.parentWindow || window;
+}
+
+module.exports = {
+  ownerDocument: ownerDocument,
+
+  ownerWindow: ownerWindow,
 
   scrollTop: function(element, value) {
     if (!element) {

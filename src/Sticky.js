@@ -45,12 +45,12 @@ var Sticky = React.createClass({
   componentDidMount: function() {
     this._init();
     this.checkPosition();
+    var ownerWindow = domUtils.ownerWindow(React.
+      findDOMNode(this.refs.sticker));
 
-    var curWindow = getCurFrameInfo(React.findDOMNode(this.refs.sticker)).curWindow;
-
-    this._scrollListener = Events.on(curWindow, 'scroll',
+    this._scrollListener = Events.on(ownerWindow, 'scroll',
       debounce(this.checkPosition, 10).bind(this));
-    this._resizeListener = Events.on(curWindow, 'resize',
+    this._resizeListener = Events.on(ownerWindow, 'resize',
       debounce(this.checkPosition, 50).bind(this));
   },
 
