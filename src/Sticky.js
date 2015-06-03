@@ -7,7 +7,6 @@ var ClassNameMixin = require('./mixins/ClassNameMixin');
 var Events = require('./utils/Events');
 var debounce = require('./utils/debounce');
 var domUtils = require('./utils/domUtils');
-var getCurFrameInfo = require('./utils/getCurFrameInfo');
 
 var Sticky = React.createClass({
   mixins: [ClassNameMixin],
