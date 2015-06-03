@@ -222,6 +222,7 @@ gulp.task('release:tag', function(done) {
   });
 });
 
+// Publish to npm
 gulp.task('npm', function(cb) {
   runSequence(
     'npm:clean',
@@ -238,6 +239,56 @@ gulp.task('zip', function() {
 
 gulp.task('release', function(cb) {
   runSequence('npm', 'realese:tag', cb);
+});
+
+// Examples server
+gulp.task('examples', function() {
+  var app = browserSync({
+    files: 'examples/**/*',
+    notify: false,
+    logPrefix: 'AMR',
+    server: {
+      baseDir: ['examples'],
+      routes: {
+        '/lib': 'node_modules'
+      },
+      middleware: [
+        function(req, res, next) {
+          if (path.extname(req.url) === '.js' &&
+            req.url.indexOf('/lib/') === -1) {
+            return browserify({
+              entries: path.join(__dirname, 'examples', req.url),
+            }).transform('browserify-shim', {global: true})
+              .transform('reactify')
+              .bundle(function(err, src) {
+              res.setHeader('Content-Type', 'application/javascript');
+              res.end(src.toString());
+            });
+          }
+          next();
+        },
+        function(req, res, next) {
+          if (path.extname(req.url) === '.less') {
+            var file = path.join(__dirname, 'examples', req.url);
+            var src = require('fs').readFileSync(file).toString();
+
+            return require('less').render(src, {
+              compress: false,
+              paths: ['./', path.dirname(file)]
+            }).then(function(result) {
+              res.setHeader('Content-Type', 'text/css');
+              res.end(result.css);
+            }, function(err) {
+              console.log(err.message);
+            });
+          }
+          next();
+        }
+      ]
+    }
+  });
+
+  gulp.watch('examples/**/*', app.reload);
 });
 
 gulp.task('default', ['dev', 'build', 'watch']);

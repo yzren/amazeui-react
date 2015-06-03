@@ -13,3 +13,4 @@ gulpfile.js
 /bower.json
 /src
 preprocessor.js
+/examples
