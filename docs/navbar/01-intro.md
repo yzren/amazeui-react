@@ -9,7 +9,7 @@
 数据格式：
 
 ```js
-vara data = [
+var data = [
   {
     "title": "", // title 值：要显示的文本
     "link": "", // link 值 ：链接地址，电话则写 "tel:0101245678"
