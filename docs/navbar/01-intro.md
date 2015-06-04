@@ -4,7 +4,7 @@
 
 - `theme`: `string` - 主题名称
 - `data`: `array` - 数据
-- `onSelect`: `func` - 点击时的处理函数，第一个参数为点击的链接，第二个参数为 `event` 对象。
+- `onSelect`: `func` - 点击时的处理函数，第一个参数为点击的链接，第二个参数为 `event` 对象
 
 数据格式：
 
