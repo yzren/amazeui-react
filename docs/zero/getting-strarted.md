@@ -70,7 +70,7 @@ Amaze UI React 源代码托管在 GitHub 上，你可以点击下面的按钮获
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.0/css/amazeui.min.css"/>
-  <script src="https://fb.me/react-0.13.3.min.js"></script>
+  <script src="http://cdn.amazeui.org/react/0.13.3/react.min.js"></script>
   <script src="path/to/amazeui.react.min.js"></script>
 </head>
 <body>
@@ -99,7 +99,7 @@ React.render(<Button>Button</Button>, mountNode);
 #### 全局方式
 
 ```html
-<script src="https://fb.me/react-0.13.3.min.js"></script>
+<script src="http://cdn.amazeui.org/react/0.13.3/react.min.js"></script>
 <script src="path/to/amazeui.react.min.js"></script>
 <script>
   var Button = AMUIReact.Button;
