@@ -10,6 +10,11 @@
 [![Dependency Status](https://img.shields.io/david/amazeui/amazeui-react.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-react)
 [![devDependency Status](https://img.shields.io/david/dev/amazeui/amazeui-react.svg?style=flat-square)](https://david-dm.org/amazeui/amazeui-react#info=devDependencies)
 
+**规范及工具**：
+
+- [React 编码规范](https://github.com/Minwe/style-guide/blob/master/React.js.md)
+- [React JetBrains 编辑器 Live Templates](https://github.com/Minwe/jetbrains-react)
+
 ## 开发及构建
 
 ### 目录结构
