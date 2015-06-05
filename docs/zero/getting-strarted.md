@@ -6,7 +6,7 @@ Amaze UI React 基于 React.js 开发，如果你没有使用过 React，请先�
 
 ### 了解 Amaze UI 基础样式
 
-**Amaze UI React 与 [Amaze UI (jQuery 版) v2.4+](https://github.com/allmobilize/amazeui) 公用 CSS**，如果你以前没有接触过 Amaze UI，请先[点击此查看以下内容](http://amazeui.org/css?_ver=2.x)：
+**Amaze UI React 与 [Amaze UI (jQuery 版) v2.4+](https://github.com/allmobilize/amazeui) 共用 CSS**，如果你以前没有接触过 Amaze UI，请先[点击此查看以下内容](http://amazeui.org/css?_ver=2.x)：
 
 - [样式统一](http://amazeui.org/css/normalize?_ver=2.x)
 - [基础设置](http://amazeui.org/css/base?_ver=2.x)
