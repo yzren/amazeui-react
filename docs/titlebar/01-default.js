@@ -4,7 +4,7 @@ var data = [{
 }];
 
 var imgTitle= <img
-  src="http://a.static.amazeui.org/assets/i/brand/amazeui-b.png" />;
+  src="http://s.amazeui.org/media/i/brand/amazeui-b.png" />;
 
 var titlebarIntance = (
   <div>

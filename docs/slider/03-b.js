@@ -1,7 +1,7 @@
-var data = ['http://7jpqbr.com1.z0.glb.clouddn.com/bing-1.jpg',
-'http://7jpqbr.com1.z0.glb.clouddn.com/bing-2.jpg',
-'http://7jpqbr.com1.z0.glb.clouddn.com/bing-3.jpg',
-'http://7jpqbr.com1.z0.glb.clouddn.com/bing-4.jpg'];
+var data = ['http://s.amazeui.org/media/i/demos/bing-1.jpg',
+'http://s.amazeui.org/media/i/demos/bing-2.jpg',
+'http://s.amazeui.org/media/i/demos/bing-3.jpg',
+'http://s.amazeui.org/media/i/demos/bing-4.jpg'];
 
 var themes = ['b1', 'b2', 'b3', 'b4'];
 

@@ -1,6 +1,6 @@
 var imageInstance = (
   <Image
-    src="http://7jpqbr.com1.z0.glb.clouddn.com/bw-2014-06-19.jpg"
+    src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg"
     responsive />
 );
 

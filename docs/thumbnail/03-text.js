@@ -17,12 +17,12 @@ var thumbnailInstance = (
     <Col sm={6}>
       <Thumbnail
         caption={caption}
-        src="http://7jpqbr.com1.z0.glb.clouddn.com/bing-1.jpg"/>
+        src="http://s.amazeui.org/media/i/demos/bing-1.jpg"/>
     </Col>
     <Col sm={6}>
       <Thumbnail
         href="#"
-        src="http://7jpqbr.com1.z0.glb.clouddn.com/bing-2.jpg">
+        src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
         {caption}
       </Thumbnail>
     </Col>
