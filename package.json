@@ -55,6 +55,7 @@
     "gulp-if": "^1.2.5",
     "gulp-less": "^3.0.2",
     "gulp-load-plugins": "^0.10.0",
+    "gulp-qndn": "0.0.3",
     "gulp-react": "^3.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",

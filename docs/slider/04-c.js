@@ -1,4 +1,4 @@
-var data= [{img:"http://7jpqbr.com1.z0.glb.clouddn.com/bing-1.jpg",desc:"这是标题标题标题标题标题标题标题0"},{img:"http://7jpqbr.com1.z0.glb.clouddn.com/bing-2.jpg",desc:"这是标题标题标题标题标题标题标题1"},{img:"http://7jpqbr.com1.z0.glb.clouddn.com/bing-3.jpg",desc:"这是标题标题标题标题标题标题标题2"},{img:"http://7jpqbr.com1.z0.glb.clouddn.com/bing-4.jpg",desc:"这是标题标题标题标题标题标题标题3"}]
+var data= [{img:"http://s.amazeui.org/media/i/demos/bing-1.jpg",desc:"这是标题标题标题标题标题标题标题0"},{img:"http://s.amazeui.org/media/i/demos/bing-2.jpg",desc:"这是标题标题标题标题标题标题标题1"},{img:"http://s.amazeui.org/media/i/demos/bing-3.jpg",desc:"这是标题标题标题标题标题标题标题2"},{img:"http://s.amazeui.org/media/i/demos/bing-4.jpg",desc:"这是标题标题标题标题标题标题标题3"}]
 
 var themes = ['c1', 'c2', 'c3', 'c4'];
 

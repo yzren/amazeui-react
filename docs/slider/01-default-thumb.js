@@ -1,19 +1,19 @@
 var data = [
 {
-  thumb: 'http://7jpqbr.com1.z0.glb.clouddn.com/bing-1.jpg',
-  img: 'http://7jpqbr.com1.z0.glb.clouddn.com/bing-1.jpg'
+  thumb: 'http://s.amazeui.org/media/i/demos/bing-1.jpg',
+  img: 'http://s.amazeui.org/media/i/demos/bing-1.jpg'
 },
 {
-  thumb: 'http://7jpqbr.com1.z0.glb.clouddn.com/bing-2.jpg',
-  img: 'http://7jpqbr.com1.z0.glb.clouddn.com/bing-2.jpg'
+  thumb: 'http://s.amazeui.org/media/i/demos/bing-2.jpg',
+  img: 'http://s.amazeui.org/media/i/demos/bing-2.jpg'
 },
 {
-  thumb: 'http://7jpqbr.com1.z0.glb.clouddn.com/bing-3.jpg',
-  img: 'http://7jpqbr.com1.z0.glb.clouddn.com/bing-3.jpg'
+  thumb: 'http://s.amazeui.org/media/i/demos/bing-3.jpg',
+  img: 'http://s.amazeui.org/media/i/demos/bing-3.jpg'
 },
 {
-  thumb: 'http://7jpqbr.com1.z0.glb.clouddn.com/bing-4.jpg',
-  img: 'http://7jpqbr.com1.z0.glb.clouddn.com/bing-4.jpg'
+  thumb: 'http://s.amazeui.org/media/i/demos/bing-4.jpg',
+  img: 'http://s.amazeui.org/media/i/demos/bing-4.jpg'
 }];
 
 var sliderIntance = (

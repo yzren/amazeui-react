@@ -144,7 +144,7 @@ gulp.task('docs:copy:html', function() {
         file = $1.replace(extname, '.') + $2 + extname;
       }
       // return isProduction ? '/react/' + file : file;
-      return isProduction ? 'http://a.static.amazeui.org/assets/react/' + file : file;
+      return isProduction ? 'http://s.amazeui.org/assets/react/' + file : file;
     }))
     .pipe($.replace(/<script id="stat">[\s\S]*<\/script>/g, function(match) {
       return isProduction ? match : '';
@@ -163,6 +163,20 @@ gulp.task('docs:copy:i', function() {
 gulp.task('docs:copy', ['docs:copy:ui', 'docs:copy:html', 'docs:copy:i']);
 
 gulp.task('docs', ['docs:less', 'docs:js', 'docs:copy']);
+
+// upload docs assets to Qiniu
+gulp.task('docs:qn', function() {
+  gulp.src('dist/docs/**/*')
+    .pipe($.qndn.upload({
+      prefix: 'assets/react',
+      qn: {
+        accessKey: process.env.qnAK,
+        secretKey: process.env.qnSK,
+        bucket: process.env.qnBucketUIS,
+        domain: process.env.qnDomainUIS
+      }
+    }));
+});
 
 gulp.task('dev', ['docs'], function() {
   browserSync({
