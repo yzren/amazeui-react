@@ -55,7 +55,7 @@ gulp.task('build', function() {
     entries: [paths.src.build],
     standalone: 'AMUIReact'
   }).transform('browserify-shim', {global: true}) // put shim first!
-    .transform('reactify')
+    .transform('babelify')
     .plugin(collapser)
     .plugin('browserify-derequire')
     .bundle()
@@ -90,8 +90,9 @@ var b = watchify(browserify({
   packageCache: {},
   entries: ['./docs/app.js'],
   // debug: true,
+  noParse: ['./node_modules/babel-core/browser.js'],
   extensions: ['.md'],
-  transform: [markedify, 'reactify', 'brfs', 'envify']
+  transform: [markedify, 'babelify', 'brfs', 'envify']
 }));
 
 isProduction && b.plugin(collapser);
@@ -166,7 +167,7 @@ gulp.task('docs', ['docs:less', 'docs:js', 'docs:copy']);
 
 // upload docs assets to Qiniu
 gulp.task('docs:qn', function() {
-  gulp.src('dist/docs/**/*')
+  gulp.src(['dist/docs/**/*', '!dist/docs/**/*.html'])
     .pipe($.qndn.upload({
       prefix: 'assets/react',
       qn: {
@@ -209,7 +210,7 @@ gulp.task('npm:jsx', function() {
     .pipe($.if(function(file) {
       return file.path.indexOf('AMUIReact.js') > -1;
     }, $.replace('__VERSION__', pkg.version)))
-    .pipe($.react())
+    .pipe($.babel())
     .pipe(gulp.dest(paths.dist.lib));
 });
 
@@ -273,7 +274,7 @@ gulp.task('examples', function() {
             return browserify({
               entries: path.join(__dirname, 'examples', req.url),
             }).transform('browserify-shim', {global: true})
-              .transform('reactify')
+              .transform('babelify')
               .bundle(function(err, src) {
               res.setHeader('Content-Type', 'application/javascript');
               res.end(src.toString());

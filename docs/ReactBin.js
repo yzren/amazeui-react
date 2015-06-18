@@ -1,8 +1,10 @@
 'use strict';
 
 var React = require('react');
+// TODO: replace JSXTransformer with babel
 var JSXTransformer = require('react/dist/JSXTransformer');
 var CodeMirror = require('codemirror');
+
 require('codemirror/mode/javascript/javascript');
 require('codemirror/addon/runmode/runmode');
 
@@ -183,26 +185,6 @@ var ReactBin = React.createClass({
     };
   },
 
-  handleCodeChange: function(val) {
-    this.setState({code: val});
-    this.executeCode();
-  },
-
-  render: function() {
-    return (
-      <div className='doc-codebin'>
-        <div className='doc-example'>
-          <div ref='example' />
-        </div>
-        <CodeEditor
-          key='jsx'
-          onChange={this.handleCodeChange}
-          className='doc-code'
-          code={this.state.code}/>
-      </div>
-    );
-  },
-
   componentDidMount: function() {
     this.executeCode();
   },
@@ -250,6 +232,26 @@ var ReactBin = React.createClass({
         console.log(err.stack);
       }, 500);
     }
+  },
+
+  handleCodeChange: function(val) {
+    this.setState({code: val});
+    this.executeCode();
+  },
+
+  render: function() {
+    return (
+      <div className='doc-codebin'>
+        <div className='doc-example'>
+          <div ref='example' />
+        </div>
+        <CodeEditor
+          key='jsx'
+          onChange={this.handleCodeChange}
+          className='doc-code'
+          code={this.state.code}/>
+      </div>
+    );
   }
 });
 
