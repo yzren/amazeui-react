@@ -27,7 +27,7 @@ var socails = [
 
 var modal = (<Modal
   className="amr-wechat-modal">
-  <img src="http://a.static.amazeui.org/assets/2.x/i/am/qr-ui.jpg" alt=""/>
+  <img src="http://s.amazeui.org/assets/2.x/i/am/qr-ui.jpg" alt=""/>
   在微信上关注我们！
 </Modal>);
 
