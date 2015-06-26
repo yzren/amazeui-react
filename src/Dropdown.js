@@ -44,6 +44,10 @@ var Dropdown = React.createClass({
     this.unbindOuterHandlers();
   },
 
+  componentWillUnmount: function () {
+    this.unbindOuterHandlers();
+  },
+
   setDropdownState: function(state, callback) {
     if (state) {
       this.bindOuterHandlers();
