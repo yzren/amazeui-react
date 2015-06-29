@@ -23,7 +23,10 @@ var Selected = React.createClass({
     dropup: React.PropTypes.bool,
     btnWidth: React.PropTypes.number,
     btnStyle: React.PropTypes.string,
-    maxHeight: React.PropTypes.number
+    maxHeight: React.PropTypes.number,
+
+    // delimiter to use to join multiple values
+    delimiter: React.PropTypes.string
   },
 
   getDefaultProps: function() {
@@ -31,6 +34,7 @@ var Selected = React.createClass({
       classPrefix: 'selected',
       placeholder: '点击选择...',
       onChange: function() {},
+      delimiter: ',',
       optionFilter: function(filterText, option) {
         return (option.label.toLowerCase().indexOf(filterText) > -1);
       }
@@ -59,7 +63,7 @@ var Selected = React.createClass({
   },
 
   getValueArray: function() {
-    return this.state.value ? this.state.value.split(',') : [];
+    return this.state.value ? this.state.value.split(this.props.delimiter) : [];
   },
 
   hasValue: function(value) {
@@ -90,7 +94,7 @@ var Selected = React.createClass({
         values.push(clickedValue);
       }
 
-      this.setValue(values.join(','));
+      this.setValue(values.join(this.props.delimiter));
     } else {
       this.setValue(clickedValue);
       this.refs.dropdown.setDropdownState(false);
