@@ -1,20 +1,25 @@
 var props = {
-  "title": "Amaze UI",
-  "link": "#title-link",
+  title: 'Amaze UI',
+  link: '#title-link',
   data: {
-    "left": [
+    left: [
       {
-        "link": "#left-link",
-        "icon": "home"
+        link: '#left-link',
+        icon: 'home'
       }
     ],
-    "right": [
+    right: [
       {
-        "link": "#right-link",
-        "icon": "bars"
+        link: '#right-link',
+        icon: 'bars'
       }
     ]
+  },
+  onSelect: function(nav, e) {
+    e.preventDefault();
+    console.log('你点击了', nav);
+    // do something
   }
-}
+};
 
 React.render(<Header {...props} />, mountNode);

@@ -5,7 +5,16 @@
 - `theme`: `string` - 主题名称
 - `data`: `array` - 左右厕链接数据
 - `title`: `string` - 标题
-- `link`: `link` - 链接
+- `link`: `string` - 链接
+- `onSelect`: `func` - 链接点击处理函数，默认为 `function(){}`，接受两个参数：
+
+  ```js
+  var handleClick = function(nav, e) {
+    // nav: object, 包含点击链接的相关数据
+    // e: 事件对象
+  }
+  ```
+
 
 数据格式：
 
