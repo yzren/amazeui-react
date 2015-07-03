@@ -1,20 +1,25 @@
 var props = {
-  "title": "Amaze UI",
+  title: 'Amaze UI',
   data: {
-    "left": [
+    left: [
       {
-        "link": "#left-link",
-        "title": "首页",
-        "icon": "home"
+        link: '#left-link',
+        title: '首页',
+        icon: 'home'
       }
     ],
-    "right": [
+    right: [
       {
-        "link": "#right-link",
-        "icon": "bars",
-        "title": "菜单"
+        link: '#right-link',
+        icon: 'bars',
+        title: '菜单'
       }
     ]
+  },
+  onSelect: function(nav, e) {
+    e.preventDefault();
+    console.log('你点击了', nav);
+    // do something
   }
 };
 
