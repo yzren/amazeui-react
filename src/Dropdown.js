@@ -98,6 +98,8 @@ var Dropdown = React.createClass({
   render: function() {
     var classSet = this.getClassSet();
     var Component = this.props.navItem ? 'li' : 'div';
+    var btnClassPrefix = this.props.navItem ? '' : 'btn';
+    var btnComponentTag = this.props.navItem ? 'a' : null;
     var caret = (<Icon
       className={this.props.caretClassName}
       icon={'caret-' + (this.props.dropup ? 'up' : 'down')} />);
@@ -119,6 +121,8 @@ var Dropdown = React.createClass({
           style={this.props.btnInlineStyle}
           className={classNames(this.prefixClass('toggle'),
           this.props.toggleClassName)}
+          classPrefix={btnClassPrefix}
+          componentTag={btnComponentTag}
           ref="dropdownToggle">
           {this.props.title}
           {' '}
