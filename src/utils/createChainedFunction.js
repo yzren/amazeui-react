@@ -33,8 +33,7 @@ function createChainedFunction(one, two) {
   }
 
   return function chainedFunction() {
-    one.apply(this, arguments);
-    two.apply(this, arguments);
+    one.apply(this, arguments) === false || two.apply(this, arguments);
   };
 }
 
