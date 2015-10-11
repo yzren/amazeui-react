@@ -3,7 +3,7 @@
   "title": "Amaze UI React",
   "version": "1.0.0-beta1",
   "description": "Amaze UI components build with React.",
-  "main": "lib/AMUIReact.js",
+  "main": "src/AMUIReact.js",
   "scripts": {
     "test": "node ./node_modules/.bin/jest"
   },
