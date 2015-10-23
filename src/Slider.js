@@ -5,7 +5,7 @@ var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var TransitionEvents = require('./utils/TransitionEvents');
 
-React.initializeTouchEvents(true);
+//React.initializeTouchEvents(true);
 
 var Slider = React.createClass({
   mixins: [ClassNameMixin],
