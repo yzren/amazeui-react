@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var TransitionEvents = require('./utils/TransitionEvents');
@@ -342,7 +343,7 @@ Slider.Item = React.createClass({
 
   componentDidUpdate: function(prevProps) {
     if (!this.props.active && prevProps.active) {
-      TransitionEvents.on(React.findDOMNode(this), this.handleAnimateOutEnd);
+      TransitionEvents.on(ReactDOM.findDOMNode(this), this.handleAnimateOutEnd);
     }
 
     if (this.props.active !== prevProps.active) {

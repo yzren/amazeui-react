@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var cloneElement = React.cloneElement;
 var assign = require('object-assign');
 var classNames = require('classnames');
@@ -47,7 +48,7 @@ var ScrollSpyNav = React.createClass({
   },
 
   _init: function() {
-    this._linkNodes = React.findDOMNode(this).querySelectorAll('a[href^="#"]');
+    this._linkNodes = ReactDOM.findDOMNode(this).querySelectorAll('a[href^="#"]');
     this._anchorNodes = [];
 
     Array.prototype.forEach.call(this._linkNodes, function(link) {
@@ -88,7 +89,7 @@ var ScrollSpyNav = React.createClass({
           CSSCore.removeClass(link, this.props.activeClass);
         }.bind(this));
 
-        var targetLink = React.findDOMNode(this).
+        var targetLink = ReactDOM.findDOMNode(this).
           querySelector('a[href="#' + targetNode.id + '"]');
 
         targetLink && CSSCore.addClass(targetLink, this.props.activeClass);

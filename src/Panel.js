@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var CollapseMixin = require('./mixins/CollapseMixin');
@@ -44,7 +45,7 @@ var Panel = React.createClass({
   },
 
   getCollapsibleDimensionValue: function() {
-    return React.findDOMNode(this.refs.panel).scrollHeight;
+    return ReactDOM.findDOMNode(this.refs.panel).scrollHeight;
   },
 
   getCollapsibleDOMNode: function() {
@@ -52,7 +53,7 @@ var Panel = React.createClass({
       return null;
     }
 
-    return React.findDOMNode(this.refs.panel);
+    return ReactDOM.findDOMNode(this.refs.panel);
   },
 
   renderHeader: function() {

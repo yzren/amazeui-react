@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 /**
  * Overlay Mixin
@@ -46,7 +47,7 @@ module.exports = {
     var overlay = this.renderOverlay();
 
     if (overlay !== null) {
-      this._overlayInstance = React.render(overlay, this._overlayWrapper);
+      this._overlayInstance = ReactDOM.render(overlay, this._overlayWrapper);
     } else {
       // Unmount if the component is null for transitions to null
       this._unmountOverlay();
@@ -55,7 +56,7 @@ module.exports = {
 
   // Remove a mounted Overlay from wrapper
   _unmountOverlay: function() {
-    React.unmountComponentAtNode(this._overlayWrapper);
+    ReactDOM.unmountComponentAtNode(this._overlayWrapper);
     this._overlayInstance = null;
   },
 
@@ -66,13 +67,13 @@ module.exports = {
     }
 
     if (this._overlayInstance) {
-      return React.findDOMNode(this._overlayInstance);
+      return ReactDOM.findDOMNode(this._overlayInstance);
     }
 
     return null;
   },
 
   getContainerDOMNode: function() {
-    return React.findDOMNode(this.props.container) || document.body;
+    return ReactDOM.findDOMNode(this.props.container) || document.body;
   }
 };
