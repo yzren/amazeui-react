@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var getScrollbarWidth = require('../utils/getScrollbarWidth');
 var CSSCore = require('../utils/CSSCore');
@@ -8,7 +9,7 @@ var CSSCore = require('../utils/CSSCore');
 module.exports = {
   setDimmerContainer: function() {
     var container = (this.props.container &&
-      React.findDOMNode(this.props.container)) || document.body;
+      ReactDOM.findDOMNode(this.props.container)) || document.body;
     var bodyPaddingRight = parseInt((container.style.paddingRight || 0), 10);
     var barWidth = getScrollbarWidth();
 
@@ -21,7 +22,7 @@ module.exports = {
 
   resetDimmerContainer: function(nextProps, nextState) {
     var container = (this.props.container &&
-      React.findDOMNode(this.props.container)) || document.body;
+      ReactDOM.findDOMNode(this.props.container)) || document.body;
 
     CSSCore.removeClass(container, this.setClassNamespace('dimmer-active'));
 

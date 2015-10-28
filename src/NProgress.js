@@ -6,6 +6,7 @@
  */
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 
 function clamp(n, min, max) {
@@ -82,7 +83,7 @@ var NProgress = React.createClass({
     });
 
     if (n === 1) {
-      var progress = React.findDOMNode(this.refs.progress);
+      var progress = ReactDOM.findDOMNode(this.refs.progress);
 
       progress.style.opacity = 1;
       progress.style.transition = 'none';

@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var Dropdown = require('./Dropdown');
@@ -55,7 +56,7 @@ var Selected = React.createClass({
 
   setDropdownWidth: function() {
     if (this.isMounted) {
-      var toggleButton = React.findDOMNode(this.refs.dropdown.
+      var toggleButton = ReactDOM.findDOMNode(this.refs.dropdown.
         refs.dropdownToggle);
 
       toggleButton && this.setState({dropdownWidth: toggleButton.offsetWidth});
@@ -105,7 +106,7 @@ var Selected = React.createClass({
     e.preventDefault();
 
     this.setState({
-      filterText: React.findDOMNode(this.refs.filterInput).value
+      filterText: ReactDOM.findDOMNode(this.refs.filterInput).value
     });
   },
 
@@ -115,7 +116,7 @@ var Selected = React.createClass({
       this.setState({
         filterText: null
       });
-      React.findDOMNode(this.refs.filterInput).value = null;
+      ReactDOM.findDOMNode(this.refs.filterInput).value = null;
     }
   },
 

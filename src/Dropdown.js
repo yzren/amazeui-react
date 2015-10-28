@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var constants = require('./constants');
@@ -72,7 +73,7 @@ var Dropdown = React.createClass({
 
   // close dropdown when click outer dropdown
   handleOuterClick: function(e) {
-    if (isNodeInTree(e.target, React.findDOMNode(this))) {
+    if (isNodeInTree(e.target, ReactDOM.findDOMNode(this))) {
       return false;
     }
 

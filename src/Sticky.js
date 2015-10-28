@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var assign = require('object-assign');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
@@ -44,7 +45,7 @@ var Sticky = React.createClass({
   componentDidMount: function() {
     this._init();
     this.checkPosition();
-    var ownerWindow = domUtils.ownerWindow(React.
+    var ownerWindow = domUtils.ownerWindow(ReactDOM.
       findDOMNode(this.refs.sticker));
 
     this._scrollListener = Events.on(ownerWindow, 'scroll',
@@ -63,7 +64,7 @@ var Sticky = React.createClass({
       return;
     }
 
-    var sticker = React.findDOMNode(this.refs.sticker);
+    var sticker = ReactDOM.findDOMNode(this.refs.sticker);
     var elStyle = getComputedStyle(sticker);
     var outerHeight = parseInt(elStyle.height, 10) +
       parseInt(elStyle.marginTop, 10) + parseInt(elStyle.marginBottom, 10);
@@ -87,7 +88,7 @@ var Sticky = React.createClass({
       var scrollTop = domUtils.scrollTop(window);
       var offsetTop = this.props.top;
       var offsetBottom = this.props.bottom;
-      var holder = React.findDOMNode(this);
+      var holder = ReactDOM.findDOMNode(this);
 
       if (typeof offsetBottom === 'function') {
         offsetBottom = offsetBottom();

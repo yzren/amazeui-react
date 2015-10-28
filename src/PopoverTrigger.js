@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var cloneElement = React.cloneElement;
 var OverlayMixin = require('./mixins/OverlayMixin');
 var assign = require('object-assign');
@@ -166,7 +167,7 @@ var PopoverTrigger = React.createClass({
   },
 
   getPosition: function() {
-    var node = React.findDOMNode(this);
+    var node = ReactDOM.findDOMNode(this);
     var container = this.getContainerDOMNode();
 
     var offset = container.tagName === 'BODY' ?

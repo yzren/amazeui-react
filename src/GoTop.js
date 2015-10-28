@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var SmoothScrollMixin = require('./mixins/SmoothScrollMixin');
@@ -46,7 +47,7 @@ var GoTop = React.createClass({
   checkPosition: function() {
     var action = (dom.scrollTop(window) > 50 ? 'add' : 'remove') + 'Class';
 
-    CSSCore[action](React.findDOMNode(this), this.setClassNamespace('active'));
+    CSSCore[action](ReactDOM.findDOMNode(this), this.setClassNamespace('active'));
   },
 
   isAutoHide: function() {
