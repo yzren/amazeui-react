@@ -1,9 +1,9 @@
 {
   "name": "amazeui-react",
   "title": "Amaze UI React",
-  "version": "1.0.0-beta1",
+  "version": "1.0.0-beta2",
   "description": "Amaze UI components build with React.",
-  "main": "src/AMUIReact.js",
+  "main": "lib/AMUIReact.js",
   "scripts": {
     "test": "node ./node_modules/.bin/jest"
   },
@@ -74,7 +74,8 @@
     "watchify": "^3.2.1"
   },
   "browserify-shim": {
-    "react": "global:React"
+    "react": "global:React",
+    "react-dom": "global:ReactDOM"
   },
   "jest": {
     "rootDir": "./src",
