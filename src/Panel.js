@@ -41,7 +41,7 @@ var Panel = React.createClass({
   },
 
   handleToggle: function() {
-    this.setState({expanded:!this.state.expanded});
+    this.setState({expanded: !this.state.expanded});
   },
 
   getCollapsibleDimensionValue: function() {
