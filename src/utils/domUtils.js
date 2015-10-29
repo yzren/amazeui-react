@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 /**
  * Get ownerDocument
@@ -8,7 +9,7 @@ var React = require('react');
  * @returns {HTMLDocument}
  */
 function ownerDocument(componentOrElement) {
-  var element = React.findDOMNode(componentOrElement);
+  var element = ReactDOM.findDOMNode(componentOrElement);
 
   return (element && element.ownerDocument) || document;
 }

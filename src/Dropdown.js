@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var constants = require('./constants');
@@ -44,6 +45,10 @@ var Dropdown = React.createClass({
     this.unbindOuterHandlers();
   },
 
+  componentWillUnmount: function () {
+    this.unbindOuterHandlers();
+  },
+
   setDropdownState: function(state, callback) {
     if (state) {
       this.bindOuterHandlers();
@@ -68,7 +73,7 @@ var Dropdown = React.createClass({
 
   // close dropdown when click outer dropdown
   handleOuterClick: function(e) {
-    if (isNodeInTree(e.target, React.findDOMNode(this))) {
+    if (isNodeInTree(e.target, ReactDOM.findDOMNode(this))) {
       return false;
     }
 
@@ -94,6 +99,8 @@ var Dropdown = React.createClass({
   render: function() {
     var classSet = this.getClassSet();
     var Component = this.props.navItem ? 'li' : 'div';
+    var btnClassPrefix = this.props.navItem ? '' : 'btn';
+    var btnComponentTag = this.props.navItem ? 'a' : null;
     var caret = (<Icon
       className={this.props.caretClassName}
       icon={'caret-' + (this.props.dropup ? 'up' : 'down')} />);
@@ -115,6 +122,8 @@ var Dropdown = React.createClass({
           style={this.props.btnInlineStyle}
           className={classNames(this.prefixClass('toggle'),
           this.props.toggleClassName)}
+          classPrefix={btnClassPrefix}
+          componentTag={btnComponentTag}
           ref="dropdownToggle">
           {this.props.title}
           {' '}

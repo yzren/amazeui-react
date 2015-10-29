@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var DimmerMixin = require('./mixins/DimmerMixin');
@@ -85,7 +86,7 @@ var Modal = React.createClass({
   // Get input data for prompt modal
   getPromptData: function() {
     var data = [];
-    var inputs = React.findDOMNode(this).querySelectorAll('input');
+    var inputs = ReactDOM.findDOMNode(this).querySelectorAll('input');
 
     if (inputs) {
       var i = 0;

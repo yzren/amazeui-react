@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 
@@ -40,7 +41,7 @@ var Pagination = React.createClass({
 
   handleChange: function(e) {
     if (this.props.onSelect) {
-      var select = React.findDOMNode(this.refs.select);
+      var select = ReactDOM.findDOMNode(this.refs.select);
 
       this.props.onSelect.call(this, select && select.value, e);
     }

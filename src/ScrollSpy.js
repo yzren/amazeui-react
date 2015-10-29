@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var cloneElement = React.cloneElement;
 var assign = require('object-assign');
 var classNames = require('classnames');
@@ -58,7 +59,7 @@ var ScrollSpy = React.createClass({
     }
 
     if (this.isMounted) {
-      var isInView = isInViewport(React.findDOMNode(this));
+      var isInView = isInViewport(ReactDOM.findDOMNode(this));
 
       if (isInView && !this.state.inViewport) {
         if (this._timer) {

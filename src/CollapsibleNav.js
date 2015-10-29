@@ -5,6 +5,7 @@
 * */
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var CollapseMixin = require('./mixins/CollapseMixin');
@@ -32,7 +33,7 @@ var CollapsibleNav = React.createClass({
 
     for (var key in nodes) {
       if (nodes.hasOwnProperty(key)) {
-        var n = React.findDOMNode(nodes[key]);
+        var n = ReactDOM.findDOMNode(nodes[key]);
         var h = n.offsetHeight;
         var computedStyles = getComputedStyle(n, null);
 
@@ -47,7 +48,7 @@ var CollapsibleNav = React.createClass({
   },
 
   getCollapsibleDOMNode: function() {
-    return React.findDOMNode(this);
+    return ReactDOM.findDOMNode(this);
   },
 
   getChildActiveProp: function(child) {

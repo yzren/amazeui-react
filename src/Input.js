@@ -6,6 +6,7 @@
  */
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var FormGroup = require('./FormGroup');
@@ -48,7 +49,7 @@ var Input = React.createClass({
   },
 
   getFieldDOMNode: function() {
-    return React.findDOMNode(this.refs.field);
+    return ReactDOM.findDOMNode(this.refs.field);
   },
 
   getValue: function() {

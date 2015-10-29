@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var CollapseMixin = require('./mixins/CollapseMixin');
@@ -80,7 +81,7 @@ Accordion.Item = React.createClass({
   },
 
   getCollapsibleDimensionValue: function() {
-    return React.findDOMNode(this.refs.panel).scrollHeight;
+    return ReactDOM.findDOMNode(this.refs.panel).scrollHeight;
   },
 
   getCollapsibleDOMNode: function() {
@@ -88,7 +89,7 @@ Accordion.Item = React.createClass({
       return null;
     }
 
-    return React.findDOMNode(this.refs.panel);
+    return ReactDOM.findDOMNode(this.refs.panel);
   },
 
   render: function() {

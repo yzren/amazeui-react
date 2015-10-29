@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var fecha = require('fecha');
 var Events = require('./utils/Events');
 var isNodeInTree = require('./utils/isNodeInTree');
@@ -28,7 +29,7 @@ var DateTimeInput = React.createClass({
   },
 
   handleOuterClick: function(event) {
-    var picker = React.findDOMNode(this.refs.DateTimePicker.getDOMNode());
+    var picker = ReactDOM.findDOMNode(this.refs.DateTimePicker.getDOMNode());
 
     if (!isNodeInTree(event.target, picker)) {
       this.handleClose();
