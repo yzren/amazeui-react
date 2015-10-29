@@ -81,7 +81,7 @@ if (canUseDOM) {
 }
 
 if (support.animationend) {
-  CSSCore.addClass(document.documentElement,  'cssanimations');
+  CSSCore.addClass(document.documentElement, 'cssanimations');
 }
 
 // We use the raw {add|remove}EventListener() call because EventListener

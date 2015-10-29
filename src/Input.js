@@ -256,7 +256,6 @@ var Input = React.createClass({
   },
 
   renderIcon: function() {
-    // TODO: replace with Icon component
     var props = this.props;
     var feedbackIcon = {
       success: 'check',
