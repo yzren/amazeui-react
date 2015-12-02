@@ -29,7 +29,7 @@ var DateTimeInput = React.createClass({
   },
 
   handleOuterClick: function(event) {
-    var picker = ReactDOM.findDOMNode(this.refs.DateTimePicker.getDOMNode());
+    var picker = ReactDOM.findDOMNode(this.refs.DateTimePicker);
 
     if (!isNodeInTree(event.target, picker)) {
       this.handleClose();
@@ -53,7 +53,7 @@ var DateTimeInput = React.createClass({
 
   handleClick: function() {
     this.bindOuterHandlers();
-    var posObj = this.refs.dateInput.getDOMNode();
+    var posObj = this.refs.dateInput;
 
     var offset = {
       top: posObj.offsetTop + posObj.offsetHeight,
