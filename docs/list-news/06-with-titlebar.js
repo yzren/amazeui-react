@@ -19,6 +19,6 @@ var data = {
 };
 
 
-React.render(<ListNews
+ReactDOM.render(<ListNews
   header={<Titlebar title="栏目标题" />}
   data={data} />, mountNode);

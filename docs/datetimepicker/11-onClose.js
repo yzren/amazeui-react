@@ -35,4 +35,4 @@ var DateTimePickerInstance = (
   <DateTimeText />
 );
 
-React.render(DateTimePickerInstance, mountNode);
+ReactDOM.render(DateTimePickerInstance, mountNode);

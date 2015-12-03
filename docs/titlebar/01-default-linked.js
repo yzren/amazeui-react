@@ -25,4 +25,4 @@ var data = [
   }
 ];
 
-React.render(<Gallery data={data} />, mountNode);
+ReactDOM.render(<Gallery data={data} />, mountNode);

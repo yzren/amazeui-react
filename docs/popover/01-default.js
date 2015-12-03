@@ -6,4 +6,4 @@ var popoverInstance = (
   </div>
 );
 
-React.render(popoverInstance, mountNode);
+ReactDOM.render(popoverInstance, mountNode);

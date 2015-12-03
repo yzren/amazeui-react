@@ -20,4 +20,4 @@ var CloseableAlert = React.createClass({
   }
 });
 
-React.render(<CloseableAlert />, mountNode);
+ReactDOM.render(<CloseableAlert />, mountNode);

@@ -1,8 +1,9 @@
 'use strict';
 
 var React = require('react');
-// TODO: replace JSXTransformer with babel
-var JSXTransformer = require('react/dist/JSXTransformer');
+var ReactDOM = require('react-dom');
+var babel = require('babel-core');
+var babelPresetReact = require('babel-preset-react');
 var CodeMirror = require('codemirror');
 
 require('codemirror/mode/javascript/javascript');
@@ -24,7 +25,6 @@ var Panel = require('../src/Panel');
 var PanelGroup = require('../src/PanelGroup');
 var Progress = require('../src/Progress');
 
-// var babel = require('babel-core/browser.js');
 var DateTimeInput = require('../src/DateTimeInput');
 var DateTimePicker = require('../src/DateTimePicker');
 
@@ -91,7 +91,7 @@ var CodeExample = React.createClass({
     CodeMirror.runMode(
       this.props.code,
       this.props.mode,
-      React.findDOMNode(this).children[0]
+      ReactDOM.findDOMNode(this).children[0]
     );
   },
 
@@ -117,7 +117,7 @@ var CodeEditor = React.createClass({
       return;
     }
 
-    this.editor = CodeMirror.fromTextArea(React.findDOMNode(this.refs.editor), {
+    this.editor = CodeMirror.fromTextArea(this.refs.editor, {
       mode: 'javascript',
       lineNumbers: false,
       lineWrapping: false,
@@ -198,29 +198,31 @@ var ReactBin = React.createClass({
   },
 
   componentWillUnmount: function() {
-    var mountNode = React.findDOMNode(this.refs.example);
+    var mountNode = ReactDOM.findDOMNode(this.refs.example);
 
     try {
-      React.unmountComponentAtNode(mountNode);
+      ReactDOM.unmountComponentAtNode(mountNode);
     } catch (e) {
       console.error(e);
     }
   },
 
   executeCode: function() {
-    var mountNode = React.findDOMNode(this.refs.example);
+    var mountNode = this.refs.example;
 
     try {
-      React.unmountComponentAtNode(mountNode);
+      ReactDOM.unmountComponentAtNode(mountNode);
     } catch (e) {
       console.error(e);
     }
 
     try {
-      var code = JSXTransformer.transform(this.state.code).code;
+      var code = babel.transform(this.state.code, {
+        presets: [babelPresetReact]
+      }).code;
 
       if (this.props.renderCode) {
-        React.render(<CodeEditor code={code} readOnly={true} />, mountNode);
+        ReactDOM.render(<CodeEditor code={code} readOnly={true} />, mountNode);
       } else {
         /* eslint-disable */
         eval(code);

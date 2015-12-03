@@ -62,6 +62,7 @@ var DocHeader = React.createClass({
             <Nav pills topbar>
               {linkElements}
               <li><a href="http://amazeui.org" target="_blank">jQuery 版</a></li>
+              <li><a href="http://t.amazeui.org" target="_blank">Touch</a></li>
             </Nav>
           </div>
         </Container>

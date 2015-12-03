@@ -2,14 +2,13 @@
 
 var React = require('react');
 var Link = require('react-router').Link;
-var State = require('react-router').State;
+var History = require('react-router').History;
 
 var LinkItem = React.createClass({
-  mixins: [State],
+  mixins: [History],
 
   render: function() {
-    var isActive = this.isActive(this.props.to, this.props.params,
-      this.props.query);
+    var isActive = this.history.isActive(this.props.to, this.props.query);
     var activeClassName = isActive ? 'am-active' : '';
     var link = (
       <Link {...this.props} />

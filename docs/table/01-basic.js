@@ -27,4 +27,4 @@ var tabelInstance = (
   </Table>
 );
 
-React.render(tabelInstance, mountNode);
+ReactDOM.render(tabelInstance, mountNode);

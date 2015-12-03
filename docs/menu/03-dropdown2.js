@@ -21,4 +21,4 @@ var menuIntance = (
   </div>
 );
 
-React.render(menuIntance, mountNode);
+ReactDOM.render(menuIntance, mountNode);

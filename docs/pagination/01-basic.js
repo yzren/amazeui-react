@@ -19,4 +19,4 @@ var PaginationInstance = (
   </div>
 );
 
-React.render(PaginationInstance, mountNode);
+ReactDOM.render(PaginationInstance, mountNode);

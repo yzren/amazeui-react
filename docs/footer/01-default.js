@@ -8,4 +8,4 @@ var footerIntance = (
   </Footer>
 );
 
-React.render(footerIntance, mountNode);
+ReactDOM.render(footerIntance, mountNode);

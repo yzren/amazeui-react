@@ -18,4 +18,4 @@ var popoverInstance = (
   </ButtonToolbar>
 );
 
-React.render(popoverInstance, mountNode);
+ReactDOM.render(popoverInstance, mountNode);

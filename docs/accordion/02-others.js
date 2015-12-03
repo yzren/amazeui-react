@@ -31,4 +31,4 @@ var accordionInstance = (
   </div>
 );
 
-React.render(accordionInstance, mountNode);
+ReactDOM.render(accordionInstance, mountNode);

@@ -27,4 +27,4 @@ var listInstance = (
 //<ListItem href="http://www.amazeui.org"><Badge>5</Badge>让我享受这感觉</ListItem>
 //</List>
 
-React.render(listInstance, mountNode);
+ReactDOM.render(listInstance, mountNode);

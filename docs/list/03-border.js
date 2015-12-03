@@ -27,4 +27,4 @@ var listInstance = (
   </div>
 );
 
-React.render(listInstance, mountNode);
+ReactDOM.render(listInstance, mountNode);

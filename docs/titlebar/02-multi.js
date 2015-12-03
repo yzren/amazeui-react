@@ -13,7 +13,7 @@ var nav = [
   }
 ];
 
-React.render(<Titlebar
+ReactDOM.render(<Titlebar
   theme="multi"
   title="科技频道"
   nav={nav} />, mountNode);

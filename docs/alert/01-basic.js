@@ -4,4 +4,4 @@ var alertInstance = (
   </Alert>
 );
 
-React.render(alertInstance, mountNode);
+ReactDOM.render(alertInstance, mountNode);

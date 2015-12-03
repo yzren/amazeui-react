@@ -14,4 +14,4 @@ var data = [
   }
 ];
 
-React.render(<Tabs data={data} theme="d2" />, mountNode);
+ReactDOM.render(<Tabs data={data} theme="d2" />, mountNode);

@@ -2,7 +2,6 @@
 
 var React = require('react');
 var Link = require('react-router').Link;
-var RouteHandler = require('react-router').RouteHandler;
 var StateMixin = require('react-router').State;
 
 var Grid = require('../../src/Grid');
@@ -45,7 +44,7 @@ var PageComponents = React.createClass({
   },
 
   activeDefault: function() {
-    var component = this.getParams().component;
+    var component = this.props.params.component;
     var categoryIndex = null;
 
     if (component) {
@@ -94,8 +93,8 @@ var PageComponents = React.createClass({
                   return (
                     <li key={index}>
                       <Link
-                        to="component"
-                        params={{component: component.id}}>
+                        to={'/components/' + component.id}
+                      >
                         {component.title}
                         <span className="amr-nav-en">{component.name}</span>
                       </Link>
@@ -118,7 +117,7 @@ var PageComponents = React.createClass({
         </Banner>
         <Grid fixed className="amr-content">
           <Col sm={12} md={9}>
-            <RouteHandler />
+            {this.props.children}
           </Col>
           <Col sm={12} md={3}>
             {this.renderNavs()}

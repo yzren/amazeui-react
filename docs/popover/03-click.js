@@ -9,4 +9,4 @@ var popoverInstance = (
   </PopoverTrigger>
 );
 
-React.render(popoverInstance, mountNode);
+ReactDOM.render(popoverInstance, mountNode);

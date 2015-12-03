@@ -13,4 +13,4 @@ var formInstance = (
   </Grid>
 );
 
-React.render(formInstance, mountNode);
+ReactDOM.render(formInstance, mountNode);

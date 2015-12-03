@@ -5,4 +5,4 @@ var progressInstance = (
   </div>
 );
 
-React.render(progressInstance, mountNode);
+ReactDOM.render(progressInstance, mountNode);

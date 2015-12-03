@@ -10,4 +10,4 @@ var topbarInstance = (
   </Topbar>
 );
 
-React.render(topbarInstance, mountNode);
+ReactDOM.render(topbarInstance, mountNode);

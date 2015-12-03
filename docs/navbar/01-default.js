@@ -26,4 +26,4 @@ var handleSelect = function(link, e) {
   console.log('你点击了：', link);
 };
 
-React.render(<Navbar onSelect={handleSelect} data={data} />, mountNode);
+ReactDOM.render(<Navbar onSelect={handleSelect} data={data} />, mountNode);

@@ -19,4 +19,4 @@ var selectedInstance = (
   </ButtonToolbar>
 );
 
-React.render(selectedInstance, mountNode);
+ReactDOM.render(selectedInstance, mountNode);

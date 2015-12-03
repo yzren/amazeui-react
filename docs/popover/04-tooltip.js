@@ -23,4 +23,4 @@ var tlInstance = (
   </p>
 );
 
-React.render(tlInstance, mountNode);
+ReactDOM.render(tlInstance, mountNode);

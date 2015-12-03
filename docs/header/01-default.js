@@ -22,4 +22,4 @@ var props = {
   }
 };
 
-React.render(<Header {...props} />, mountNode);
+ReactDOM.render(<Header {...props} />, mountNode);

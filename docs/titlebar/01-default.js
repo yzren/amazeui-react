@@ -16,4 +16,4 @@ var titlebarIntance = (
   </div>
 );
 
-React.render(titlebarIntance, mountNode);
+ReactDOM.render(titlebarIntance, mountNode);

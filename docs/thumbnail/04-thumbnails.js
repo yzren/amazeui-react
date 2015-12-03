@@ -14,4 +14,4 @@ var thumbnailInstance = (
   </Thumbnails>
 );
 
-React.render(thumbnailInstance, mountNode);
+ReactDOM.render(thumbnailInstance, mountNode);

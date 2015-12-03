@@ -39,4 +39,4 @@ var gallerIntance = (
   </div>
 )
 
-React.render(gallerIntance, mountNode);
+ReactDOM.render(gallerIntance, mountNode);

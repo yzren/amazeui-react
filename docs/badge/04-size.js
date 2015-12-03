@@ -8,4 +8,4 @@ var badgeInstance = (
   </div>
 );
 
-React.render(badgeInstance, mountNode);
+ReactDOM.render(badgeInstance, mountNode);

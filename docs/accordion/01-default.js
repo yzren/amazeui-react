@@ -14,4 +14,4 @@ var data = [{
   }
 ];
 
-React.render(<Accordion data={data} />, mountNode);
+ReactDOM.render(<Accordion data={data} />, mountNode);

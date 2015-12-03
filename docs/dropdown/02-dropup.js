@@ -10,4 +10,4 @@ var dropdownInstance = (
   </Dropdown>
 );
 
-React.render(dropdownInstance, mountNode);
+ReactDOM.render(dropdownInstance, mountNode);

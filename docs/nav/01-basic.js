@@ -6,4 +6,4 @@ var navInstance = (
   </Nav>
 );
 
-React.render(navInstance, mountNode);
+ReactDOM.render(navInstance, mountNode);

@@ -12,4 +12,4 @@ var tabsInstance = (
   </Tabs>
 );
 
-React.render(tabsInstance, mountNode);
+ReactDOM.render(tabsInstance, mountNode);

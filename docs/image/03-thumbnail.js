@@ -8,4 +8,4 @@ var imageInstance = (
   </p>
 );
 
-React.render(imageInstance, mountNode);
+ReactDOM.render(imageInstance, mountNode);

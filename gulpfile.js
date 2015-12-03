@@ -1,16 +1,13 @@
 'use strict';
 
+var path = require('path');
 var pkg = require('./package.json');
 var isProduction = process.env.NODE_ENV === 'production';
-var path = require('path');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var del = require('del');
 var runSequence = require('run-sequence');
-
 var browserSync = require('browser-sync');
-var reload = browserSync.reload;
-
 var browserify = require('browserify');
 var watchify = require('watchify');
 var collapser = require('bundle-collapser/plugin');
@@ -180,29 +177,37 @@ gulp.task('docs:qn', function() {
 });
 
 gulp.task('dev', ['docs'], function() {
-  browserSync({
+  var bs = browserSync.create();
+  bs.init({
     notify: false,
     logPrefix: 'AMR',
     server: {
-      baseDir: 'dist/docs'
+      baseDir: 'dist/docs',
+      // @see https://github.com/BrowserSync/browser-sync/issues/204
+      middleware: function(req, res, next) {
+        var match = req.url.match(/\/[css|fonts|i].+\..+|\/app\.js/g);
+        req.url = match ? match[0] : '/index.html';
+
+        return next();
+      }
     }
   });
 
   gulp.watch('docs/**/*.less', ['docs:less']);
   gulp.watch(paths.src.docs.i, ['docs:copy:i']);
   gulp.watch(paths.src.docs.html, ['docs:copy:html']);
-  gulp.watch(['dist/**/*'], reload);
+  gulp.watch(['dist/**/*'], bs.reload);
 });
 
 gulp.task('watch', function() {
   gulp.watch('src/**/*.js', ['build']);
 });
 
-gulp.task('npm:clean', function(cb) {
-  del([
+gulp.task('npm:clean', function() {
+  return del([
     paths.dist.lib,
     paths.dist.build
-  ], cb);
+  ]);
 });
 
 gulp.task('npm:jsx', function() {
@@ -258,7 +263,7 @@ gulp.task('release', function(cb) {
 
 // Examples server
 gulp.task('examples', function() {
-  var app = browserSync({
+  var app = browserSync.create().init({
     files: 'examples/**/*',
     notify: false,
     logPrefix: 'AMR',

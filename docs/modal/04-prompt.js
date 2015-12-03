@@ -23,4 +23,4 @@ var modalInstance = (
   </ModalTrigger>
 );
 
-React.render(modalInstance, mountNode);
+ReactDOM.render(modalInstance, mountNode);

@@ -25,4 +25,4 @@ var data = {
   ]
 };
 
-React.render(<ListNews data={data} thumbPosition="top" />, mountNode);
+ReactDOM.render(<ListNews data={data} thumbPosition="top" />, mountNode);

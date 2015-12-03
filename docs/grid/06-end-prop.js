@@ -17,4 +17,4 @@ var gridInstance = (
   </div>
 );
 
-React.render(gridInstance, mountNode);
+ReactDOM.render(gridInstance, mountNode);

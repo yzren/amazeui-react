@@ -12,4 +12,4 @@ var panelInstance = (
   </PanelGroup>
 );
 
-React.render(panelInstance, mountNode);
+ReactDOM.render(panelInstance, mountNode);
