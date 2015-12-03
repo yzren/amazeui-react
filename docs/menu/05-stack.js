@@ -11,7 +11,7 @@ var handleClick = function(nav, index, e) {
   }
 };
 
-React.render(<Menu
+ReactDOM.render(<Menu
   data={data}
   theme="stack"
   onSelect={handleClick} />, mountNode);

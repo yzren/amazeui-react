@@ -7,4 +7,4 @@ var avgGridInstance = (
   </AvgGrid>
 );
 
-React.render(avgGridInstance, mountNode);
+ReactDOM.render(avgGridInstance, mountNode);

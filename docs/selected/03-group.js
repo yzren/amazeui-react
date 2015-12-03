@@ -18,4 +18,4 @@ var props = {
   btnStyle: 'primary'
 };
 
-React.render(<Selected {...props} />, mountNode);
+ReactDOM.render(<Selected {...props} />, mountNode);

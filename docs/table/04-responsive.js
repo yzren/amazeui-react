@@ -32,4 +32,4 @@ var gridInstance = (
   </Table>
 );
 
-React.render(gridInstance, mountNode);
+ReactDOM.render(gridInstance, mountNode);

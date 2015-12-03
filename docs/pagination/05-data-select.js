@@ -32,6 +32,6 @@ var selectHandle = function(link, e) {
   console.log('你点击了：', link);
 };
 
-React.render(<Pagination
+ReactDOM.render(<Pagination
   onSelect={selectHandle}
   theme="select" data={data} />, mountNode);

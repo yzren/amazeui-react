@@ -26,4 +26,4 @@ var sliderIntance = (
   </div>
 );
 
-React.render(sliderIntance, mountNode);
+ReactDOM.render(sliderIntance, mountNode);

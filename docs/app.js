@@ -1,11 +1,17 @@
 'use strict';
 
 var React = require('react');
-
-var Router = require('react-router');
-var Route = Router.Route;
-var DefaultRoute = Router.DefaultRoute;
-var RouteHandler = Router.RouteHandler;
+var ReactDOM = require('react-dom');
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var IndexRoute = ReactRouter.IndexRoute;
+var History = require('history');
+var createHistory = History.createHistory;
+var useBasename = History.useBasename;
+var history = useBasename(createHistory)({
+  basename: '/react'
+});
 
 var GoTop = require('../src/GoTop');
 var production = require('./utils').isProduction;
@@ -17,7 +23,7 @@ var App = React.createClass({
     return (
       <div className="amr-page">
         <DocHeader />
-        <RouteHandler />
+        {this.props.children}
         <DocFooter />
         <GoTop theme="fixed" autoHide icon="arrow-up" />
       </div>
@@ -33,19 +39,18 @@ var PageComponentsIndex = require('./zero/PageComponentsIndex');
 var PageComponentsDoc = require('./zero/PageComponentsDoc');
 
 var routes = (
-  <Route name='app' path={production ? '/react/' : '/'} handler={App}>
-    <Route name='getting-started' handler={PageGettingStarted} />
-    <Route name='components' handler={PageComponents}>
-      <Route name='component' path=':component' handler={PageComponentsDoc} />
-      <DefaultRoute handler={PageComponentsIndex} />
+  <Router history={history}>
+    <Route path="/" component={App}>
+      <Route path="getting-started" component={PageGettingStarted} />
+      <Route path="components" component={PageComponents}>
+        <Route path=":component" component={PageComponentsDoc} />
+        <IndexRoute component={PageComponentsIndex} />
+      </Route>
+      <IndexRoute component={PageIndex} />
     </Route>
-    <DefaultRoute handler={PageIndex} />
-  </Route>
+  </Router>
 );
 
 document.addEventListener('DOMContentLoaded', function() {
-  Router.run(routes, production ? Router.HistoryLocation : Router.HashLocation,
-    function(Handler) {
-    React.render(<Handler />, document.body);
-  });
+  ReactDOM.render(routes, document.getElementById('root'));
 });

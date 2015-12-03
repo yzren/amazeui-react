@@ -1,1 +1,1 @@
-React.render(<Divider />, mountNode);
+ReactDOM.render(<Divider />, mountNode);

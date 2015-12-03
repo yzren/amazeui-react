@@ -46,7 +46,7 @@ var handler = function() {
   }.bind(this), 2000);
 };
 
-React.render((
+ReactDOM.render((
     <LoadingButton
       clickHandler={handler}
       loadingText="正在加载..."

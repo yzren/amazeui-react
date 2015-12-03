@@ -10,4 +10,4 @@ var formInstance = (
   </form>
 );
 
-React.render(formInstance, mountNode);
+ReactDOM.render(formInstance, mountNode);

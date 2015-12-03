@@ -35,4 +35,4 @@ var ValidationExample = React.createClass({
   }
 });
 
-React.render(<ValidationExample />, mountNode);
+ReactDOM.render(<ValidationExample />, mountNode);

@@ -62,7 +62,7 @@ var PageComponentsDoc = React.createClass({
   },
 
   render: function() {
-    var component = this.getParams().component;
+    var component = this.props.params.component;
     var Doc = Docs[component] || EmptyComponent;
 
     return <Doc />;

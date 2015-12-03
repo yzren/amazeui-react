@@ -4,4 +4,4 @@ var scrollSpyNavInstance = (
   </Sticky>
 );
 
-React.render(scrollSpyNavInstance, mountNode);
+ReactDOM.render(scrollSpyNavInstance, mountNode);

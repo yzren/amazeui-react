@@ -5,4 +5,4 @@ var paginationInstance = (
   </Pagination>
 );
 
-React.render(paginationInstance, mountNode);
+ReactDOM.render(paginationInstance, mountNode);

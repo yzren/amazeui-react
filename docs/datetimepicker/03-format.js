@@ -10,4 +10,4 @@ var DateTimeInputInstance = (
   </div>
 );
 
-React.render(DateTimeInputInstance, mountNode);
+ReactDOM.render(DateTimeInputInstance, mountNode);

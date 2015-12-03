@@ -17,4 +17,4 @@ var thumbnailInstance = (
   </Grid>
 );
 
-React.render(thumbnailInstance, mountNode);
+ReactDOM.render(thumbnailInstance, mountNode);

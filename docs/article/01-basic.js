@@ -47,4 +47,4 @@ var articleInstance = (
   </Article>
 );
 
-React.render(articleInstance, mountNode);
+ReactDOM.render(articleInstance, mountNode);

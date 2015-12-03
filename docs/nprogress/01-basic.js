@@ -35,4 +35,4 @@ var NProgressExample = React.createClass({
   }
 });
 
-React.render(<NProgressExample />, mountNode);
+ReactDOM.render(<NProgressExample />, mountNode);

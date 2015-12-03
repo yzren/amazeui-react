@@ -30,4 +30,4 @@ var TabsSelect = React.createClass({
   }
 });
 
-React.render(<TabsSelect />, mountNode);
+ReactDOM.render(<TabsSelect />, mountNode);

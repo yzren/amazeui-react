@@ -32,4 +32,4 @@ var listnewsInstance = (
   </div>
 );
 
-React.render(listnewsInstance, mountNode);
+ReactDOM.render(listnewsInstance, mountNode);

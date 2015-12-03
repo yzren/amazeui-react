@@ -27,4 +27,4 @@ var scrollToInstance = (
   </ButtonToolbar>
 );
 
-React.render(scrollToInstance, mountNode);
+ReactDOM.render(scrollToInstance, mountNode);

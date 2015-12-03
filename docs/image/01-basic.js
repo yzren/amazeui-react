@@ -4,4 +4,4 @@ var imageInstance = (
     responsive />
 );
 
-React.render(imageInstance, mountNode);
+ReactDOM.render(imageInstance, mountNode);

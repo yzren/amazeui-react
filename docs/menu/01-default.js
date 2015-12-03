@@ -11,4 +11,4 @@ var handleClick = function(nav, index, e) {
   }
 };
 
-React.render(<Menu cols={3} data={data} onSelect={handleClick} />, mountNode);
+ReactDOM.render(<Menu cols={3} data={data} onSelect={handleClick} />, mountNode);

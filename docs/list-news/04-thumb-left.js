@@ -34,4 +34,4 @@ var listNewsIntance = (
   </div>
 )
 
-React.render(listNewsIntance, mountNode);
+ReactDOM.render(listNewsIntance, mountNode);

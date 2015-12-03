@@ -2,7 +2,7 @@
 
 ### 学习 React
 
-Amaze UI React 基于 React.js 开发，如果你没有使用过 React，请先访问 [React 官网](https://facebook.github.io/react/index.html)学习。
+Amaze UI React 基于 React.js（`v0.14+`）开发，如果你没有使用过 React，请先访问 [React 官网](https://facebook.github.io/react/index.html)学习。
 
 ### 了解 Amaze UI 基础样式
 
@@ -69,8 +69,9 @@ Amaze UI React 源代码托管在 GitHub 上，你可以点击下面的按钮获
   <meta name="apple-mobile-web-app-title" content="AMUI React"/>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.0/css/amazeui.min.css"/>
-  <script src="http://cdn.amazeui.org/react/0.13.3/react.min.js"></script>
+  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.5.0/css/amazeui.min.css"/>
+  <script src="http://cdn.amazeui.org/react/0.14.3/react.min.js"></script>
+  <script src="http://cdn.amazeui.org/react/0.14.3/react-dom.min.js"></script>
   <script src="path/to/amazeui.react.min.js"></script>
 </head>
 <body>
@@ -90,16 +91,18 @@ npm install amazeui-react
 
 ```js
 var React = require('react');
+var ReactDOM = require('react-dom');
 var AMUIReact = require('amazeui-react');
 var Button = AMUIReact.Button;
 
-React.render(<Button>Button</Button>, mountNode);
+ReactDOM.render(<Button>Button</Button>, mountNode);
 ```
 
 #### 全局方式
 
 ```html
-<script src="http://cdn.amazeui.org/react/0.13.3/react.min.js"></script>
+<script src="http://cdn.amazeui.org/react/0.14.3/react.min.js"></script>
+<script src="http://cdn.amazeui.org/react/0.14.3/react-dom.min.js"></script>
 <script src="path/to/amazeui.react.min.js"></script>
 <script>
   var Button = AMUIReact.Button;

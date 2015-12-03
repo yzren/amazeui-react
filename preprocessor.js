@@ -11,7 +11,10 @@ module.exports = {
 
     // Ignore all files within node_modules
     if (filename.indexOf('node_modules') === -1) {
-      return babel.transform(src, {filename: filename}).code;
+      return babel.transform(src, {
+        filename: filename,
+        presets: ['react']
+      }).code;
     }
 
     return src;

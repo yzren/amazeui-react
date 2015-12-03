@@ -7,4 +7,4 @@ var panelGroupInstance = (
   </PanelGroup>
 );
 
-React.render(panelGroupInstance, mountNode);
+ReactDOM.render(panelGroupInstance, mountNode);

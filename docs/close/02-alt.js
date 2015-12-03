@@ -5,4 +5,4 @@ var closeInstance = (
   </div>
 );
 
-React.render(closeInstance, mountNode);
+ReactDOM.render(closeInstance, mountNode);

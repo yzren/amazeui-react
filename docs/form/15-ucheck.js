@@ -50,4 +50,4 @@ var uCheckExample = (
   </div>
 );
 
-React.render(uCheckExample, mountNode);
+ReactDOM.render(uCheckExample, mountNode);

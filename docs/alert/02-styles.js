@@ -12,4 +12,4 @@ var alertInstance = (
   </div>
 );
 
-React.render(alertInstance, mountNode);
+ReactDOM.render(alertInstance, mountNode);

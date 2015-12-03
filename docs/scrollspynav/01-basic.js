@@ -70,4 +70,4 @@ var scrollSpyNavInstance = (
   </div>
 );
 
-React.render(scrollSpyNavInstance, mountNode);
+ReactDOM.render(scrollSpyNavInstance, mountNode);

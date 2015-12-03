@@ -114,4 +114,4 @@ var scrollSpyInstance = (
   </div>
 );
 
-React.render(scrollSpyInstance, mountNode);
+ReactDOM.render(scrollSpyInstance, mountNode);

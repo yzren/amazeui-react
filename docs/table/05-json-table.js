@@ -39,4 +39,4 @@ var EventsTable = React.createClass({
   }
 });
 
-React.render(<EventsTable events={data} responsive bordered />, mountNode);
+ReactDOM.render(<EventsTable events={data} responsive bordered />, mountNode);

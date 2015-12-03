@@ -18,4 +18,4 @@ var buttonsInstance = (
   </ButtonToolbar>
 );
 
-React.render(buttonsInstance, mountNode);
+ReactDOM.render(buttonsInstance, mountNode);

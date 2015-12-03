@@ -11,4 +11,4 @@ var iconInstance = (
   </div>
 );
 
-React.render(iconInstance, mountNode);
+ReactDOM.render(iconInstance, mountNode);
