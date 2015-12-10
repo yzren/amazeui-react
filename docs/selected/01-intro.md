@@ -2,7 +2,7 @@
 
 属性说明：
 
-- `data`: `array` - 选项数据，必须设置，格式为 `{value: 'one', label: 'One'}`；
+- `data`: `array` - 选项数据，必须设置，格式为 `{value: 'one', label: 'One'}`，**注意**：`value` 字段的值只能是字符串，否则运行会出错；
 - `placeholder`: `string` - 没有选中项时显示的文字，默认为 `点击选择...`；
 - `value`: `string` - 默认值，多个值使用 `,` 分隔，必须与 `data` 中某一项的 `value` 对应；
 - `name`: `string` - 保存值的隐藏 `<input>` 字段名称；
