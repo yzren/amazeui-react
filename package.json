@@ -29,7 +29,7 @@
   "homepage": "https://github.com/amazeui/amazeui-react",
   "dependencies": {
     "classnames": "^2.2.1",
-    "fecha": "^1.1.0",
+    "fecha": "^0.2.2",
     "object-assign": "^4.0.1",
     "object.omit": "^2.0.0"
   },

@@ -252,6 +252,7 @@ var DatePicker = React.createClass({
         setSelectedDate={this.setSelectedDate}
         showMonths={this.showMonths}
 
+        format={this.props.format}
         locale={this.state.locale}
         weekStart={this.props.weekStart}
         daysOfWeekDisabled={this.props.daysOfWeekDisabled}
@@ -401,7 +402,8 @@ var DaysPicker = React.createClass({
         <td
           key={prevMonth.getMonth() + '-' + prevMonth.getDate()}
           className={classNames(classes)}
-          onClick={this.props.setSelectedDate}>
+          onClick={this.props.setSelectedDate}
+        >
           {prevMonth.getDate()}
         </td>
       );

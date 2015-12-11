@@ -39,7 +39,7 @@ var PageComponentsIndex = require('./zero/PageComponentsIndex');
 var PageComponentsDoc = require('./zero/PageComponentsDoc');
 
 var routes = (
-  <Router history={history}>
+  <Router history={production ? history : null}>
     <Route path="/" component={App}>
       <Route path="getting-started" component={PageGettingStarted} />
       <Route path="components" component={PageComponents}>
