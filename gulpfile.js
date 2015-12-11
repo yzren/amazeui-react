@@ -86,7 +86,7 @@ var b = watchify(browserify({
   cache: {},
   packageCache: {},
   entries: ['./docs/app.js'],
-  // debug: true,
+  debug: !isProduction,
   noParse: ['./node_modules/babel-core/browser.js'],
   extensions: ['.md'],
   transform: [markedify, 'babelify', 'brfs', 'envify']

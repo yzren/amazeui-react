@@ -53,13 +53,12 @@ var DateTimeInput = React.createClass({
 
   handleClick: function() {
     this.bindOuterHandlers();
-    var posObj = this.refs.dateInput;
 
+    var positionNode = ReactDOM.findDOMNode(this.refs.dateInput);
     var offset = {
-      top: posObj.offsetTop + posObj.offsetHeight,
-      left: posObj.offsetLeft
+      top: positionNode.offsetTop + positionNode.offsetHeight,
+      left: positionNode.offsetLeft
     };
-
     var styles = {
       display: 'block',
       top: offset.top,
@@ -105,7 +104,8 @@ var DateTimeInput = React.createClass({
           format={this.props.format}
           locale={this.props.locale}
           maxDate={this.props.maxDate}
-          minDate={this.props.minDate} />
+          minDate={this.props.minDate}
+        />
       );
     }
   },
@@ -116,10 +116,11 @@ var DateTimeInput = React.createClass({
         <Input
           {...this.props}
           type="text"
-          onClick={this.handleClick}
           value={this.state.value}
+          onClick={this.handleClick}
           onChange={this.handleChange}
-          ref="dateInput" />
+          ref="dateInput"
+        />
         {this.renderPicker()}
       </div>
     );

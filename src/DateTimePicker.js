@@ -15,7 +15,7 @@ var DateTimePicker = React.createClass({
     showTimePicker: React.PropTypes.bool,
     showDatePicker: React.PropTypes.bool,
     caretDisplayed: React.PropTypes.bool,
-    amStyle: React.PropTypes.oneOfType(['success', 'danger', 'warning']),
+    amStyle: React.PropTypes.oneOf(['success', 'danger', 'warning']),
     viewMode: React.PropTypes.string,
     minViewMode: React.PropTypes.string,
     onSelect: React.PropTypes.func.isRequired,
@@ -60,8 +60,12 @@ var DateTimePicker = React.createClass({
       showToggle: showToggle,
       date: fecha.parse(this.props.dateTime, this.props.format),
       toggleDisplay: {
-        toggleTime: {display: 'block'},
-        toggleDate: {display: 'none'}
+        toggleTime: {
+          display: 'block'
+        },
+        toggleDate: {
+          display: 'none'
+        }
       }
     };
   },
@@ -71,8 +75,12 @@ var DateTimePicker = React.createClass({
       showDatePicker: false,
       showTimePicker: true,
       toggleDisplay: {
-        toggleTime: {display: 'none'},
-        toggleDate: {display: 'block'}
+        toggleTime: {
+          display: 'none'
+        },
+        toggleDate: {
+          display: 'block'
+        }
       }
     });
   },
@@ -82,8 +90,12 @@ var DateTimePicker = React.createClass({
       showDatePicker: true,
       showTimePicker: false,
       toggleDisplay: {
-        toggleTime: {display: 'block'},
-        toggleDate: {display: 'none'}
+        toggleTime: {
+          display: 'block'
+        },
+        toggleDate: {
+          display: 'none'
+        }
       }
     });
   },
@@ -98,7 +110,11 @@ var DateTimePicker = React.createClass({
   renderToggleTime: function() {
     if (this.state.showToggle) {
       return (
-        <div style={this.state.toggleDisplay.toggleTime} className={this.prefixClass('toggle')} onClick={this.handleToggleTime}>
+        <div
+          style={this.state.toggleDisplay.toggleTime}
+          className={this.prefixClass('toggle')}
+          onClick={this.handleToggleTime}
+        >
           <Icon icon="clock-o" />
         </div>
       );
@@ -108,7 +124,11 @@ var DateTimePicker = React.createClass({
   renderToggleDate: function() {
     if (this.state.showToggle) {
       return (
-        <div style={this.state.toggleDisplay.toggleDate} className={this.prefixClass('toggle')} onClick={this.handleToggleDate}>
+        <div
+          style={this.state.toggleDisplay.toggleDate}
+          className={this.prefixClass('toggle')}
+          onClick={this.handleToggleDate}
+        >
           <Icon icon="calendar" />
         </div>
       );
@@ -129,7 +149,8 @@ var DateTimePicker = React.createClass({
           date={this.state.date}
           locale={this.props.locale}
           minDate={this.props.minDate}
-          maxDate={this.props.maxDate} />
+          maxDate={this.props.maxDate}
+        />
       );
     }
   },
@@ -140,7 +161,8 @@ var DateTimePicker = React.createClass({
         <TimePicker
           onSelect={this.handleSelect}
           date={this.state.date}
-          format={this.props.format} />
+          format={this.props.format}
+        />
       );
     }
   },
@@ -161,7 +183,7 @@ var DateTimePicker = React.createClass({
       <div
         {...this.props}
         className={classNames(classSet, this.props.className)}
-        style={this.props.style}>
+      >
         {this.renderCaret()}
         <div className={this.prefixClass('date')}>
           {this.renderDatePicker()}
