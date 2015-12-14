@@ -34,7 +34,8 @@ var Header = React.createClass({
         onClick={this.props.onSelect.bind(this, {
           title: this.props.title,
           link: this.props.link
-        })}>
+        })}
+      >
         {this.props.link ? (
           <a href={this.props.link}>
             {this.props.title}
@@ -47,10 +48,13 @@ var Header = React.createClass({
   renderNav: function(position) {
     var data = this.props.data;
     var renderItem = function(item, i) {
+      var handleClick = item.onSelect || this.props.onSelect;
+
       return (
         <a href={item.link}
-           onClick={this.props.onSelect.bind(this, item)}
-           key={'headerNavItem' + i}>
+           onClick={handleClick.bind(this, item)}
+           key={'headerNavItem' + i}
+        >
           {item.title ? (
             <span className={this.prefixClass('nav-title')}>
               {item.title}
@@ -58,11 +62,12 @@ var Header = React.createClass({
           ) : null}
 
           {item.customIcon ? (
-            <img src={item.customIcon} alt={item.title || null}/>
+            <img src={item.customIcon} alt={item.title || null} />
           ) : item.icon ? (
             <Icon
               className={this.prefixClass('icon')}
-              icon={item.icon}/>
+              icon={item.icon}
+            />
           ) : null}
         </a>
       );
@@ -71,7 +76,8 @@ var Header = React.createClass({
     return data && data[position] ? (
       <div
         className={classNames(this.prefixClass('nav'),
-        this.prefixClass(position))}>
+          this.prefixClass(position))}
+      >
         {data[position].map(function(item, i) {
           return renderItem(item, i);
         })}
