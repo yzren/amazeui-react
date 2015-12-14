@@ -8,7 +8,7 @@ var List = React.createClass({
   mixins: [ClassNameMixin],
 
   propTypes: {
-    border: React.PropTypes.bool,
+    bordered: React.PropTypes.bool,
     striped: React.PropTypes.bool,
     static: React.PropTypes.bool,
     componentTag: React.PropTypes.node.isRequired
@@ -28,7 +28,7 @@ var List = React.createClass({
     var prefixClass = this.prefixClass;
 
     // am-list-border
-    classes[prefixClass('border')] = props.border;
+    classes[prefixClass('border')] = props.border || props.bordered;
 
     // am-list-striped
     classes[prefixClass('striped')] = props.striped;
