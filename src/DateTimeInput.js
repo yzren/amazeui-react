@@ -11,7 +11,8 @@ var DateTimePicker = require('./DateTimePicker');
 var DateTimeInput = React.createClass({
   propTypes: {
     format: React.PropTypes.string,
-    dateTime: React.PropTypes.string
+    dateTime: React.PropTypes.string,
+    onSelect: React.PropTypes.func
   },
 
   getDefaultProps: function() {
@@ -74,15 +75,17 @@ var DateTimeInput = React.createClass({
   },
 
   handleChange: function(event) {
-    return this.setState({
+    this.setState({
       value: event.target.value
     });
   },
 
   handleSelect: function(date) {
-    return this.setState({
+    this.setState({
       value: date
     });
+
+    this.props.onSelect && this.props.onSelect.call(this, date);
   },
 
   renderPicker: function() {
@@ -119,6 +122,7 @@ var DateTimeInput = React.createClass({
           value={this.state.value}
           onClick={this.handleClick}
           onChange={this.handleChange}
+          onSelect={null}
           ref="dateInput"
         />
         {this.renderPicker()}

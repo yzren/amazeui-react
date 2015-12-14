@@ -1,11 +1,12 @@
 提供两个组件：`<DateTimeInput>` 是在 `<DateTimePicker>` 基础上的组件，`<DateTimeInput>` 会传递到 `<DateTimePicker>`。
 
 **`<DateTimeInput>` props:**
-- `dateTime`: `string` 设置显示的时间，不填则为当前时间
+- `dateTime`: `string` 显示的时间，默认为当前时间
+- `onSelect`: `func` 选定日期后的回调函数，接受一个参数（值为选中的日期）
 
 **`<DateTimePicker>` props:**
 - `dateTime`: `string` 设置显示的时间，不填则为当前时间
-- `onSelect`: `func` 返回选择后的值（required）
+- `onSelect`: `func` 返回选择后的值（**必需**）
 - `onClose`: `func` 关闭选择器回调函数
 - `showTimePicker`: `bool` 默认为 `true`，是否显示时间控件
 - `showDatePicker`: `bool` 默认为 `true`，是否显示日期控件
