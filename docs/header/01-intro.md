@@ -24,6 +24,7 @@ var data = {
     {
       "link": "",         // url : http://xxx.xxx.xxx
       "title": "",        // 链接标题
+      "onSelect": function() {},
       "icon": "",         // 字体图标名称: 使用 Amaze UI 字体图标 http://www.amazeui.org/css/icon
       "customIcon": ""    // 自定义图标 URL，设置此项后当前链接不再显示 icon
     }
@@ -33,6 +34,7 @@ var data = {
     {
       "link": "",
       "title": "",
+      "onSelect": function() {},
       "icon": "",
       "customIcon": ""
     }
