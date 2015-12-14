@@ -3,7 +3,7 @@
 - `<List>`: 为外层容器，对应 `.am-list` ，默认渲染 `<ul>` 标签。属性说明：
 	- `componentTag`: `string` - 可以接受 `ol` 字符串，渲染 `<ol>` 标签；
 	- `static`: `bool` - 如果内容为纯文字列表，需要增加该属性；
-	- `border`: `bool` - 为 `list` 添加边框；
+	- `bordered`: `bool` - 为 `list` 添加边框；
 	- `striped`: `bool` - 为 `list` 添加斑马纹。
 
 - `<ListItem>`: 子组件，渲染 `<li>` 标签。属性说明：
