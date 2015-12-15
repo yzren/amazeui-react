@@ -13,20 +13,20 @@ var NavItem = React.createClass({
     header: React.PropTypes.bool,
     divider: React.PropTypes.bool,
     href: React.PropTypes.any,
-    componentTag: React.PropTypes.node.isRequired
+    component: React.PropTypes.node.isRequired
   },
 
   getDefaultProps: function() {
     return {
       classPrefix: 'nav',
-      componentTag: 'li'
+      component: 'li'
     };
   },
 
   render: function() {
     var classes = this.getClassSet();
     var props = this.props;
-    var Component = props.componentTag;
+    var Component = props.component;
 
     // del am-nav
     classes[this.setClassNamespace(props.classPrefix)] = false;
@@ -42,14 +42,15 @@ var NavItem = React.createClass({
     return (
       <Component
         {...props}
-        className={classNames(classes, props.className)}>
+        className={classNames(classes, props.className)}
+      >
           {this.props.children}
       </Component>
     );
   },
 
   renderAnchor: function(classes) {
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
 
     var linkProps = {
       href: this.props.href,
@@ -60,7 +61,8 @@ var NavItem = React.createClass({
     return (
       <Component
         {...this.props}
-        className={classNames(classes, this.props.className)}>
+        className={classNames(classes, this.props.className)}
+      >
         <a {...linkProps}>
           {this.props.children}
         </a>

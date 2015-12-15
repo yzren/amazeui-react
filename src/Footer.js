@@ -36,13 +36,15 @@ var Footer = React.createClass({
       <footer
         {...this.props}
         data-am-widget={this.props.classPrefix}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         <div className={this.prefixClass('switch')}>
           <MobileTag
             className={this.prefixClass('ysp')}
             onClick={this.props.onRequestMobile}
             href={this.props.mobileLink}
-            data-rel="mobile">
+            data-rel="mobile"
+          >
             {this.props.mobileTitle}
           </MobileTag>
           <span className={this.prefixClass('divider')}>|</span>
@@ -50,7 +52,8 @@ var Footer = React.createClass({
             data-rel="desktop"
             href={this.props.desktopLink}
             onClick={this.props.onRequestDesktop}
-            className={this.prefixClass('desktop')}>
+            className={this.prefixClass('desktop')}
+          >
             {this.props.desktopTitle}
           </a>
         </div>

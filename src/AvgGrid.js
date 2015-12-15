@@ -9,7 +9,7 @@ var AvgGrid = React.createClass({
 
   propTypes: {
     classPrefix: React.PropTypes.string.isRequired,
-    componentTag: React.PropTypes.node,
+    component: React.PropTypes.node,
     sm: React.PropTypes.number,
     md: React.PropTypes.number,
     lg: React.PropTypes.number
@@ -18,12 +18,12 @@ var AvgGrid = React.createClass({
   getDefaultProps: function() {
     return {
       classPrefix: 'avg',
-      componentTag: 'ul'
+      component: 'ul'
     };
   },
 
   render: function() {
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
     var classSet = {};
     var prefixClass = this.prefixClass;
     var props = this.props;
@@ -37,7 +37,8 @@ var AvgGrid = React.createClass({
     return (
       <Component
         {...this.props}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.props.children}
       </Component>
     );

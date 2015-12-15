@@ -50,7 +50,8 @@ var Accordion = React.createClass({
       <section
         {...this.props}
         data-am-widget={this.props.classPrefix}
-        className={classNames(classSet, this.props.className)}>
+        className={classNames(classSet, this.props.className)}
+      >
         {this.props.data.map(function(item, index) {
           return (
             <Accordion.Item
@@ -58,7 +59,8 @@ var Accordion = React.createClass({
               expanded={item.active && item.disabled}
               defaultExpanded={item.active && !item.disabled}
               eventKey={index}
-              key={index}>
+              key={index}
+            >
               {item.content}
             </Accordion.Item>
           );
@@ -77,7 +79,9 @@ Accordion.Item = React.createClass({
   },
 
   handleToggle: function() {
-    this.setState({expanded: !this.state.expanded});
+    this.setState({
+      expanded: !this.state.expanded
+    });
   },
 
   getCollapsibleDimensionValue: function() {
@@ -94,13 +98,16 @@ Accordion.Item = React.createClass({
 
   render: function() {
     return (
-      <dl className={classNames(this.setClassNamespace('accordion-item'),
-       this.isExpanded() ? this.setClassNamespace('active') : null,
-       this.props.expanded ? this.setClassNamespace('disabled') : null
-      )}>
+      <dl
+        className={classNames(this.setClassNamespace('accordion-item'),
+          this.isExpanded() ? this.setClassNamespace('active') : null,
+          this.props.expanded ? this.setClassNamespace('disabled') : null
+        )}
+      >
         <dt
           onClick={this.handleToggle}
-          className={this.setClassNamespace('accordion-title')}>
+          className={this.setClassNamespace('accordion-title')}
+        >
           {this.props.title}
         </dt>
         <dd
@@ -108,7 +115,8 @@ Accordion.Item = React.createClass({
           ref="panel">
           <div
             className={this.setClassNamespace('accordion-content')}
-            dangerouslySetInnerHTML={{__html: this.props.children}} />
+            dangerouslySetInnerHTML={{__html: this.props.children}}
+          />
         </dd>
       </dl>
     );

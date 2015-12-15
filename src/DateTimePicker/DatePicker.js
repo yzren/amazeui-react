@@ -3,8 +3,8 @@
 var React = require('react');
 var classNames = require('classnames');
 var fecha = require('fecha');
-var ClassNameMixin = require('./mixins/ClassNameMixin');
-var dateUtils = require('./utils/dateUtils');
+var ClassNameMixin = require('../mixins/ClassNameMixin');
+var dateUtils = require('../utils/dateUtils');
 
 var DatePicker = React.createClass({
   mixins: [ClassNameMixin],

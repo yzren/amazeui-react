@@ -10,7 +10,7 @@ var Close = React.createClass({
 
   propTypes: {
     classPrefix: React.PropTypes.string.isRequired,
-    componentTag: React.PropTypes.node,
+    component: React.PropTypes.node,
     spin: React.PropTypes.bool,
     alt: React.PropTypes.bool,
     icon: React.PropTypes.bool
@@ -24,7 +24,7 @@ var Close = React.createClass({
   },
 
   render: function() {
-    var Component = this.props.componentTag || 'button';
+    var Component = this.props.component || 'button';
     var classSet = this.getClassSet();
     var props = this.props;
 
@@ -41,7 +41,8 @@ var Close = React.createClass({
       <Component
         {...props}
         className={classNames(classSet, this.props.className)}
-        role="close">
+        role="close"
+      >
         {this.props.icon ? <Icon icon="times" /> : '\u00D7'}
       </Component>
     );

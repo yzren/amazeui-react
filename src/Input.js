@@ -108,7 +108,9 @@ var Input = React.createClass({
           <select
             {...this.props}
             className={classes}
-            ref="field" key="field">
+            ref="field"
+            key="field"
+          >
             {this.props.children}
           </select>
         );
@@ -119,7 +121,8 @@ var Input = React.createClass({
             {...this.props}
             className={classes}
             ref="field"
-            key="field"/>
+            key="field"
+          />
         );
         break;
       case 'submit':
@@ -129,7 +132,8 @@ var Input = React.createClass({
             {...this.props}
             componentTag="input"
             ref="field"
-            key="field"/>
+            key="field"
+          />
         );
         break;
       default:
@@ -138,7 +142,8 @@ var Input = React.createClass({
             {...this.props}
             className={classes}
             ref="field"
-            key="field"/>
+            key="field"
+          />
         );
     }
 
@@ -150,7 +155,8 @@ var Input = React.createClass({
     return this.props.wrapperClassName ? (
       <div
         className={this.props.wrapperClassName}
-        key="wrapper">
+        key="wrapper"
+      >
         {children}
       </div>
     ) : children;
@@ -163,7 +169,8 @@ var Input = React.createClass({
       (
       <div
         className={this.setClassNamespace(this.props.type)}
-        key="checkboxAndRadioWrapper">
+        key="checkboxAndRadioWrapper"
+      >
         {children}
       </div>
     );
@@ -179,8 +186,8 @@ var Input = React.createClass({
 
     if (this.isCheckboxOrRadio()) {
       // inline checkbox and radio
-      this.props.inline &&
-      (classSet[this.setClassNamespace(this.props.type + '-inline')] = true);
+      classSet[this.setClassNamespace(this.props.type + '-inline')] =
+        this.props.inline;
     } else {
       // normal form label
       classSet[this.setClassNamespace('form-label')] = true;
@@ -190,7 +197,8 @@ var Input = React.createClass({
       <label
         htmlFor={this.props.id}
         className={classNames(this.props.labelClassName, classSet)}
-        key="label">
+        key="label"
+      >
         {children}
         {this.props.label}
       </label>
@@ -234,7 +242,8 @@ var Input = React.createClass({
     return addonBefore || addonAfter || btnBefore || btnAfter ? (
       <div
         className={classNames(groupPrefix, classSet)}
-        key="inputGroup">
+        key="inputGroup"
+      >
         {addonBefore}
         {btnBefore}
         {children}
@@ -250,7 +259,8 @@ var Input = React.createClass({
       <p
         className={classNames(this.setClassNamespace('form-help'),
         this.props.helpClassName)}
-        key="help">
+        key="help"
+      >
         {this.props.help}
       </p>
     ) : '';
@@ -298,7 +308,8 @@ var Input = React.createClass({
         className={groupClassName}
         validation={this.props.validation}
         amSize={this.props.amSize}
-        hasFeedback={this.props.hasFeedback}>
+        hasFeedback={this.props.hasFeedback}
+      >
         {[
           this.renderLabel(),
           this.renderWrapper(

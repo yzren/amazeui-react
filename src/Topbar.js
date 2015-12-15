@@ -12,7 +12,7 @@ var Topbar = React.createClass({
   mixins: [ClassNameMixin],
 
   propTypes: {
-    componentTag: React.PropTypes.node,
+    component: React.PropTypes.node,
     brand: React.PropTypes.node,
     brandLink: React.PropTypes.string,
     inverse: React.PropTypes.bool,
@@ -32,7 +32,7 @@ var Topbar = React.createClass({
   getDefaultProps: function() {
     return {
       classPrefix: 'topbar',
-      componentTag: 'header'
+      component: 'header'
     };
   },
 
@@ -108,7 +108,8 @@ var Topbar = React.createClass({
         amSize="sm"
         onClick={this.handleToggle}
         className={classNames(this.prefixClass('btn'),
-        this.prefixClass('toggle'), this.setClassNamespace('show-sm-only'))}>
+        this.prefixClass('toggle'), this.setClassNamespace('show-sm-only'))}
+      >
         <span className={this.setClassNamespace('sr-only')}>导航切换</span>
         <Icon icon="bars" />
       </Button>
@@ -131,7 +132,7 @@ var Topbar = React.createClass({
 
   render: function() {
     var classes = this.getClassSet();
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
 
     // set classes
     classes[this.prefixClass('inverse')] = this.props.inverse;
@@ -141,10 +142,12 @@ var Topbar = React.createClass({
     return (
       <Component
         {...this.props}
-        className={classNames(classes, this.props.className)}>
+        className={classNames(classes, this.props.className)}
+      >
         <div
           className={!this.props.fluid ?
-          this.setClassNamespace('container') : null}>
+          this.setClassNamespace('container') : null}
+        >
           {this.renderBrand()}
           {this.renderToggleButton()}
           {React.Children.map(this.props.children, this.renderChild)}

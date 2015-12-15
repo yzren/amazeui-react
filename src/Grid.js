@@ -9,7 +9,7 @@ var Grid = React.createClass({
 
   propTypes: {
     classPrefix: React.PropTypes.string.isRequired,
-    componentTag: React.PropTypes.node.isRequired,
+    component: React.PropTypes.node.isRequired,
     collapse: React.PropTypes.bool,
     fixed: React.PropTypes.bool
   },
@@ -17,12 +17,12 @@ var Grid = React.createClass({
   getDefaultProps: function() {
     return {
       classPrefix: 'g',
-      componentTag: 'div'
+      component: 'div'
     };
   },
 
   render: function() {
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
     var classSet = this.getClassSet();
     var props = this.props;
 
@@ -35,7 +35,8 @@ var Grid = React.createClass({
     return (
       <Component
         {...this.props}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.props.children}
       </Component>
     );

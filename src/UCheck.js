@@ -8,6 +8,7 @@ var React = require('react');
 var classNames = require('classnames');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var Input = require('./Input');
+var Icon = require('./Icon');
 var constants = require('./constants');
 
 var UCheck = React.createClass({
@@ -44,11 +45,13 @@ var UCheck = React.createClass({
         <Input
           {...this.props}
           ref="field"
-          className={this.setClassNamespace('ucheck-checkbox')} standalone />
+          className={this.setClassNamespace('ucheck-checkbox')}
+          standalone
+        />
 
         <span className={this.setClassNamespace('ucheck-icons')}>
-          <i className="am-icon-unchecked"></i>
-          <i className="am-icon-checked"></i>
+          <Icon icon="unchecked" />
+          <Icon icon="checked" />
         </span>
 
         {this.props.label}
@@ -58,5 +61,3 @@ var UCheck = React.createClass({
 });
 
 module.exports = UCheck;
-
-// TODO: replace icon with Icon component

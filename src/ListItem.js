@@ -10,18 +10,18 @@ var ListItem = React.createClass({
   propTypes: {
     href: React.PropTypes.string,
     truncate: React.PropTypes.bool,
-    componentTag: React.PropTypes.node.isRequired
+    component: React.PropTypes.node.isRequired
   },
 
   getDefaultProps: function() {
     return {
-      componentTag: 'li'
+      component: 'li'
     };
   },
 
   render: function() {
     var classes = {};
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
 
     // set .am-text-truncate
     classes['am-text-truncate'] = this.props.truncate;
@@ -34,7 +34,8 @@ var ListItem = React.createClass({
     return (
       <Component
         {...this.props}
-        className={classNames(classes, this.props.className)}>
+        className={classNames(classes, this.props.className)}
+      >
         {this.props.children}
       </Component>
     );
@@ -42,7 +43,7 @@ var ListItem = React.createClass({
 
   renderAnchor: function(classes) {
     var props = this.props;
-    var Component = props.componentTag;
+    var Component = props.component;
     var truncate = props.truncate ? 'am-text-truncate' : '';
 
     return (
@@ -53,7 +54,8 @@ var ListItem = React.createClass({
           className={truncate}
           href={this.props.href}
           title={this.props.title}
-          target={this.props.target}>
+          target={this.props.target}
+        >
           {this.props.children}
         </a>
       </Component>

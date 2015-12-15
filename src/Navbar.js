@@ -34,23 +34,28 @@ var Navbar = React.createClass({
         {...props}
         data-am-widget={this.props.classPrefix}
         cf
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         <ul className={this.prefixClass('nav')}>
           {this.props.data.map(function(item, i) {
             return (
               <li key={i}
-                  onClick={this.props.onSelect.bind(this, item.link)}>
+                  onClick={this.props.onSelect.bind(this, item.link)}
+              >
                 <a href={item.link}>
                   {item.customIcon ? (
-                    <img src={item.customIcon} alt={item.title}/>
+                    <img
+                      src={item.customIcon}
+                      alt={item.title}
+                    />
                   ) : item.icon ? (
-                    <Icon icon={item.icon}/>
+                    <Icon icon={item.icon} />
                   ) : null}
 
                   {item.title ? (
                     <span className={this.prefixClass('label')}>
-                    {item.title}
-                  </span>
+                      {item.title}
+                    </span>
                   ) : null}
                 </a>
               </li>

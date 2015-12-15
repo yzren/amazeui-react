@@ -11,19 +11,19 @@ var Nav = React.createClass({
     justify: React.PropTypes.bool,
     pills: React.PropTypes.bool,
     tabs: React.PropTypes.bool,
-    componentTag: React.PropTypes.node.isRequired
+    component: React.PropTypes.node.isRequired
   },
 
   getDefaultProps: function() {
     return {
       classPrefix: 'nav',
-      componentTag: 'ul'
+      component: 'ul'
     };
   },
 
   render: function() {
     var classes = this.getClassSet();
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
 
     // set classes
     classes[this.prefixClass('pills')] = this.props.pills || this.props.topbar;
@@ -36,7 +36,8 @@ var Nav = React.createClass({
     return (
       <Component
         {...this.props}
-        className={classNames(classes, this.props.className)}>
+        className={classNames(classes, this.props.className)}
+      >
         {this.props.children}
       </Component>
     );

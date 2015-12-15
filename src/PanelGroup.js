@@ -75,7 +75,8 @@ var PanelGroup = React.createClass({
     return (
       <div
         {...this.props}
-        className={classNames(classes, this.props.className)}>
+        className={classNames(classes, this.props.className)}
+      >
         {React.Children.map(this.props.children, this.renderPanel)}
       </div>
     );

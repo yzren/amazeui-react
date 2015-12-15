@@ -55,7 +55,8 @@ var ButtonCheck = React.createClass({
       <ButtonGroup
         {...this.props}
         onClick={this.handleClick}
-        className={this.setClassNamespace('btn-group-check')}>
+        className={this.setClassNamespace('btn-group-check')}
+      >
         {this.props.children}
       </ButtonGroup>
     );

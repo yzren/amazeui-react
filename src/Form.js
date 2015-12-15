@@ -28,7 +28,8 @@ var Form = React.createClass({
     return (
       <form
         {...this.props}
-        className={classNames(classSet, this.props.className)}>
+        className={classNames(classSet, this.props.className)}
+      >
         {this.props.children}
       </form>
     );

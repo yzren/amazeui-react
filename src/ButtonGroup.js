@@ -28,7 +28,8 @@ var ButtonGroup = React.createClass({
     return (
       <div
         {...this.props}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.props.children}
       </div>
     );

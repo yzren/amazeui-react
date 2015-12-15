@@ -32,18 +32,21 @@ var Gallery = React.createClass({
       <img
         src={item.img}
         key="galeryImg"
-        alt={item.alt || item.title || null}/>
+        alt={item.alt || item.title || null}
+      />
     ) : null;
     var title = item.title ? (
       <h3
         key="galleryTitle"
-        className={this.prefixClass('title')}>
+        className={this.prefixClass('title')}
+      >
         {item.title}
       </h3>) : null;
     var desc = item.desc ? (
       <div
         key="galleryDesc"
-        className={this.prefixClass('desc')}>
+        className={this.prefixClass('desc')}
+      >
         {item.desc}
       </div>
     ) : null;
@@ -57,7 +60,8 @@ var Gallery = React.createClass({
 
     return (
       <div
-        className={classNames(this.props.className, this.prefixClass('item'))}>
+        className={classNames(this.props.className, this.prefixClass('item'))}
+      >
         {galleryItem}
       </div>
     );
@@ -74,7 +78,8 @@ var Gallery = React.createClass({
         md={this.props.md || 3}
         lg={this.props.lg || 4}
         data-am-widget={this.props.classPrefix}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.props.data.map(function(item, i) {
           return (
             <li key={i}>

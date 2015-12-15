@@ -70,7 +70,8 @@ var Panel = React.createClass({
             data-am-collapse // just for `pointer` style
             className={classNames(this.prefixClass('title'),
             this.isExpanded() ? null : this.setClassNamespace('collapsed'))}
-            onClick={this.handleClick}>
+            onClick={this.handleClick}
+          >
             {header}
           </h4>) : header}
       </div>
@@ -142,7 +143,8 @@ var Panel = React.createClass({
       <div
         className={classNames(this.getCollapsibleClassSet(collapseClass))}
         id={this.props.id}
-        ref='panel'>
+        ref='panel'
+      >
         {this.renderBody()}
       </div>
     );
@@ -172,7 +174,8 @@ var Panel = React.createClass({
       <div
         {...this.props}
         id={collapsible ? null : this.props.id}
-        className={classNames(classes, this.props.className)}>
+        className={classNames(classes, this.props.className)}
+      >
         {this.renderHeader()}
         {collapsible ? this.renderCollapsibleBody() : this.renderBody()}
         {this.renderFooter()}

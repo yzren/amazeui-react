@@ -14,21 +14,21 @@ var Icon = React.createClass({
     button: React.PropTypes.bool,
     size: React.PropTypes.string,
     href: React.PropTypes.string,
-    componentTag: React.PropTypes.node.isRequired,
+    component: React.PropTypes.node.isRequired,
     icon: React.PropTypes.string.isRequired
   },
 
   getDefaultProps: function() {
     return {
       classPrefix: 'icon',
-      componentTag: 'span'
+      component: 'span'
     };
   },
 
   render: function() {
     var classes = this.getClassSet(true);
     var props = this.props;
-    var Component = props.href ? 'a' : props.componentTag;
+    var Component = props.href ? 'a' : props.component;
     var prefixClass = this.prefixClass;
     var setClassNamespace = this.setClassNamespace;
 
@@ -51,7 +51,8 @@ var Icon = React.createClass({
     return (
       <Component
         {...props}
-        className={classNames(classes, this.props.className)}>
+        className={classNames(classes, this.props.className)}
+      >
         {this.props.children}
       </Component>
     );

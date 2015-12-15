@@ -181,13 +181,21 @@ var Sticky = React.createClass({
         {...this.props}
         style={this.state.holderStyle}
         className={classNames(this.props.className,
-        this.prefixClass('placeholder'))}>
-        {React.cloneElement(child, assign({}, child.props, {
-          style: this.state.stickerStyle,
-          ref: 'sticker',
-          className: classNames(child.props.className,
-            this.state.sticked ? stickyClass : null, animation)
-        }))}
+        this.prefixClass('placeholder'))}
+      >
+        {React.cloneElement(
+          child,
+          assign(
+            {},
+            child.props,
+            {
+              style: this.state.stickerStyle,
+              ref: 'sticker',
+              className: classNames(child.props.className, this.state.sticked ?
+                stickyClass : null, animation)
+            }
+          )
+        )}
       </div>
     );
   }

@@ -119,10 +119,18 @@ var ScrollSpyNav = React.createClass({
     var child = React.Children.only(this.props.children);
 
     // transfer child's props to cloned element
-    return cloneElement(child, assign({}, this.props, child.props, {
-      onClick: createChainedFunction(this.handleClick, child.props.onClick),
-      className: classNames(this.props.className, child.props.className)
-    }));
+    return cloneElement(
+      child,
+      assign(
+        {},
+        this.props,
+        child.props,
+        {
+          onClick: createChainedFunction(this.handleClick, child.props.onClick),
+          className: classNames(this.props.className, child.props.className)
+        }
+      )
+    );
   }
 });
 

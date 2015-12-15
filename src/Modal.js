@@ -115,7 +115,8 @@ var Modal = React.createClass({
         style={{display: 'block'}}
         className={classNames(this.props.className,
         this.setClassNamespace('modal-actions'),
-        this.setClassNamespace('modal-active'))}>
+        this.setClassNamespace('modal-active'))}
+      >
         {this.props.children}
       </div>
     );
@@ -127,7 +128,8 @@ var Modal = React.createClass({
         style={{display: 'block'}}
         className={classNames(this.props.className,
         this.setClassNamespace('popup'),
-        this.setClassNamespace('modal-active'))}>
+        this.setClassNamespace('modal-active'))}
+      >
         <div className={this.setClassNamespace('popup-inner')}>
           <div className={this.setClassNamespace('popup-hd')}>
             {this.props.title ? (
@@ -150,14 +152,19 @@ var Modal = React.createClass({
     var closeIcon = this.props.closeIcon && !this.props.type ? (
       <Close
         spin
-        onClick={this.props.onRequestClose}/>) : null;
+        onClick={this.props.onRequestClose}
+      />
+    ) : null;
 
     return (this.props.title || closeIcon) ? (
       <div className={this.prefixClass('hd')}>
-        {title ? <h4
-          className={this.setClassNamespace('margin-bottom-sm')}>
-          {title}
-        </h4> : null}
+        {title ? (
+          <h4
+            className={this.setClassNamespace('margin-bottom-sm')}
+          >
+            {title}
+          </h4>
+        ) : null}
         {closeIcon}
       </div>) : null;
   },
@@ -173,7 +180,8 @@ var Modal = React.createClass({
         buttons = (
           <span
             onClick={this.props.onConfirm}
-            className={btnClass}>
+            className={btnClass}
+          >
             {this.props.confirmText}
           </span>);
         break;
@@ -184,7 +192,8 @@ var Modal = React.createClass({
             <span
               key={i}
               onClick={i === 0 ? this.props.onCancel : this.handleConfirm}
-              className={btnClass}>
+              className={btnClass}
+            >
               {text}
             </span>
           );
@@ -233,7 +242,8 @@ var Modal = React.createClass({
         style={style}
         ref="modal"
         title={null}
-        className={classNames(classSet, props.className)}>
+        className={classNames(classSet, props.className)}
+      >
         <div className={this.prefixClass('dialog')}>
           {this.renderHeader()}
           <div className={this.prefixClass('bd')} ref="modalBody">

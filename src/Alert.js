@@ -25,7 +25,8 @@ var Alert = React.createClass({
       <button
         type='button'
         className={this.setClassNamespace('close')}
-        onClick={this.props.onClose}>
+        onClick={this.props.onClose}
+      >
         &times;
       </button>
     );
@@ -44,7 +45,8 @@ var Alert = React.createClass({
     return (
       <div
         {...this.props}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {isCloseable ? this.renderCloseBtn() : null}
         {this.props.children}
       </div>

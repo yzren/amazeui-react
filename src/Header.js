@@ -95,7 +95,8 @@ var Header = React.createClass({
       <header
         {...omit(this.props, ['data', 'title'])}
         data-am-widget={this.props.classPrefix}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.renderNav('left')}
         {this.renderTitle()}
         {this.renderNav('right')}
