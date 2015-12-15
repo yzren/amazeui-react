@@ -64,10 +64,14 @@ var GoTop = React.createClass({
       <img
         className={this.prefixClass('icon-custom')}
         src={this.props.src}
-        alt={this.props.title} />
-    ) : <Icon
-      className={this.prefixClass('icon')}
-      icon={this.props.icon || 'chevron-up'} />;
+        alt={this.props.title}
+      />
+    ) : (
+      <Icon
+        className={this.prefixClass('icon')}
+        icon={this.props.icon || 'chevron-up'}
+      />
+    );
   },
 
   render: function() {
@@ -80,14 +84,18 @@ var GoTop = React.createClass({
       <div
         {...this.props}
         data-am-widget={this.props.classPrefix}
-        className={classNames(classSet, this.props.className)}>
+        className={classNames(classSet, this.props.className)}
+      >
         <a
           href="#top"
           onClick={this.handleClick}
-          title={this.props.title}>
-          {this.props.title ? (<span className={this.prefixClass('title')}>
-            {this.props.title}
-          </span>) : null}
+          title={this.props.title}
+        >
+          {this.props.title ? (
+            <span className={this.prefixClass('title')}>
+              {this.props.title}
+            </span>
+          ) : null}
           {this.renderIcon()}
         </a>
       </div>

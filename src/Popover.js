@@ -37,7 +37,8 @@ var Popover = React.createClass({
       <div
         {...this.props}
         style={style}
-        className={classNames(classSet, this.props.className)}>
+        className={classNames(classSet, this.props.className)}
+      >
         <div className={this.prefixClass('inner')}>
           {this.props.children}
         </div>

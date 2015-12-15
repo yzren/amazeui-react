@@ -9,7 +9,7 @@ var Pagination = React.createClass({
   mixins: [ClassNameMixin],
 
   PropTypes: {
-    componentTag: React.PropTypes.node.isRequired,
+    component: React.PropTypes.node.isRequired,
     centered: React.PropTypes.bool,
     right: React.PropTypes.bool,
     theme: React.PropTypes.oneOf(['default', 'select']),
@@ -20,7 +20,7 @@ var Pagination = React.createClass({
   getDefaultProps: function() {
     return {
       classPrefix: 'pagination',
-      componentTag: 'ul'
+      component: 'ul'
     };
   },
 
@@ -33,7 +33,8 @@ var Pagination = React.createClass({
         this.props.onSelect.bind(this, data[type + 'Link'])}
         key={type}
         href={data[type + 'Link']}
-        className={this.prefixClass(type)}>
+        className={this.prefixClass(type)}
+      >
         {data[type + 'Title']}
       </Pagination.Item>
     ) : null;
@@ -55,7 +56,8 @@ var Pagination = React.createClass({
         <li className={this.prefixClass('select')}>
           <select
             onChange={this.handleChange}
-            ref="select">
+            ref="select"
+          >
             {data.pages.map(function(page, i) {
               return (
                 <option value={page.link} key={i}>
@@ -74,7 +76,8 @@ var Pagination = React.createClass({
                 this.props.onSelect.bind(this, page.link)}
               active={page.active}
               disabled={page.disabled}
-              href={page.link}>
+              href={page.link}
+            >
               {page.title}
             </Pagination.Item>);
         }.bind(this)));
@@ -83,7 +86,7 @@ var Pagination = React.createClass({
 
   render: function() {
     var props = this.props;
-    var Component = props.componentTag;
+    var Component = props.component;
     var classSet = this.getClassSet();
     var notSelect = props.theme !== 'select';
 
@@ -96,7 +99,8 @@ var Pagination = React.createClass({
     return props.data ? (
       <Component
         {...props}
-        className={classNames(classSet, props.className)}>
+        className={classNames(classSet, props.className)}
+      >
         {notSelect && this.renderItem('first')}
         {this.renderItem('prev')}
         {this.renderPages()}
@@ -106,7 +110,8 @@ var Pagination = React.createClass({
     ) : (
       <Component
         {...props}
-        className={classNames(classSet, props.className)}>
+        className={classNames(classSet, props.className)}
+      >
         {this.props.children}
       </Component>
     );
@@ -122,19 +127,19 @@ Pagination.Item = React.createClass({
     prev: React.PropTypes.bool,
     next: React.PropTypes.bool,
     href: React.PropTypes.string,
-    componentTag: React.PropTypes.node.isRequired
+    component: React.PropTypes.node.isRequired
   },
 
   getDefaultProps: function() {
     return {
       classPrefix: 'pagination',
       href: '#',
-      componentTag: 'li'
+      component: 'li'
     };
   },
 
   render: function() {
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
     var classSet = this.getClassSet(true);
     var props = this.props;
 
@@ -147,12 +152,14 @@ Pagination.Item = React.createClass({
     return (
       <Component
         {...this.props}
-        className={classNames(classSet, this.props.className)}>
+        className={classNames(classSet, this.props.className)}
+      >
         <a
           href={this.props.href}
           title={this.props.title}
           target={this.props.target}
-          ref="anchor">
+          ref="anchor"
+        >
           {this.props.children}
         </a>
       </Component>

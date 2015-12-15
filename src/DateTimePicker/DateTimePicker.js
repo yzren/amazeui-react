@@ -2,11 +2,11 @@
 
 var React = require('react');
 var classNames = require('classnames');
-var ClassNameMixin = require('./mixins/ClassNameMixin');
+var fecha = require('fecha');
+var ClassNameMixin = require('../mixins/ClassNameMixin');
+var Icon = require('../Icon');
 var DatePicker = require('./DatePicker');
 var TimePicker = require('./TimePicker');
-var fecha = require('fecha');
-var Icon = require('./Icon');
 
 var DateTimePicker = React.createClass({
   mixins: [ClassNameMixin],

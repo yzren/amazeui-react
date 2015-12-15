@@ -232,7 +232,8 @@ var Slider = React.createClass({
         return (
           <li
             onClick={this.handleSelect.bind(this, i, null)}
-            key={i}>
+            key={i}
+          >
             {thumb ? (
               <img className={className} src={thumb} />
             ) : (
@@ -294,10 +295,12 @@ var Slider = React.createClass({
         {...this.props}
         className={classNames(classSet, this.props.className)}
         onMouseOver={this.handleMouseOver}
-        onMouseOut={this.handleMouseOut}>
+        onMouseOut={this.handleMouseOut}
+      >
         <div
           className={this.setClassNamespace('viewport')}
-          style={viewportStyle}>
+          style={viewportStyle}
+        >
           <ul className={this.setClassNamespace('slides')}>
             {React.Children.map(this.props.children, this.renderItem)}
           </ul>
@@ -385,7 +388,8 @@ Slider.Item = React.createClass({
 
     return (
       <li
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.props.children}
       </li>
     );

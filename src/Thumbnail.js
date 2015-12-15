@@ -12,13 +12,13 @@ var Thumbnail = React.createClass({
     classPrefix: React.PropTypes.string,
     standalone: React.PropTypes.bool,
     caption: React.PropTypes.node,
-    componentTag: React.PropTypes.node
+    component: React.PropTypes.node
   },
 
   getDefaultProps: function() {
     return {
       classPrefix: 'thumbnail',
-      componentTag: 'figure'
+      component: 'figure'
     };
   },
 
@@ -28,7 +28,9 @@ var Thumbnail = React.createClass({
     return props.src ? (
       <img
         {...props}
-        className={classes} />) : null;
+        className={classes}
+      />
+    ) : null;
   },
 
   render: function() {
@@ -38,7 +40,7 @@ var Thumbnail = React.createClass({
       return this.renderImg(classes, this.props);
     }
 
-    var Component = this.props.href ? 'a' : this.props.componentTag;
+    var Component = this.props.href ? 'a' : this.props.component;
     var imgProps = {
       alt: this.props.alt,
       src: this.props.src,
@@ -51,12 +53,14 @@ var Thumbnail = React.createClass({
     return (
       <Component
         {...props}
-        className={classes}>
+        className={classes}
+      >
         {this.renderImg(null, imgProps)}
 
         {caption || this.props.children ? (
           <Thumbnail.Caption
-            componentTag={typeof caption === 'string' ? 'figcaption' : 'div'}>
+            component={typeof caption === 'string' ? 'figcaption' : 'div'}
+          >
             {this.props.caption || this.props.children}
           </Thumbnail.Caption>
         ) : null}
@@ -69,25 +73,27 @@ Thumbnail.Caption = React.createClass({
   mixins: [ClassNameMixin],
 
   propTypes: {
-    componentTag: React.PropTypes.node
+    component: React.PropTypes.node
   },
 
   getDefaultProps: function() {
     return {
-      componentTag: 'div'
+      component: 'div'
     };
   },
 
   render: function() {
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
     var classes = classNames(
       this.props.className,
-      this.setClassNamespace('thumbnail-caption'));
+      this.setClassNamespace('thumbnail-caption')
+    );
 
     return (
       <Component
         {...this.props}
-        className={classes}>
+        className={classes}
+      >
         {this.props.children}
       </Component>
     );

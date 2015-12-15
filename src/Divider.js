@@ -26,7 +26,8 @@ var Divider = React.createClass({
       <hr
         {...this.props}
         data-am-widget={this.props.classPrefix}
-        className={classNames(this.props.className, classSet)} />
+        className={classNames(this.props.className, classSet)}
+      />
     );
   }
 });

@@ -3,9 +3,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var fecha = require('fecha');
-var Events = require('./utils/Events');
-var isNodeInTree = require('./utils/isNodeInTree');
-var Input = require('./Input');
+var Events = require('../utils/Events');
+var isNodeInTree = require('../utils/isNodeInTree');
+var Input = require('../Input');
 var DateTimePicker = require('./DateTimePicker');
 
 var DateTimeInput = React.createClass({

@@ -19,7 +19,8 @@ var FormFile = React.createClass({
   render: function() {
     return (
       <FormGroup
-        className={this.setClassNamespace('form-file')}>
+        className={this.setClassNamespace('form-file')}
+      >
         <Input type='file' standalone />
       </FormGroup>
     );

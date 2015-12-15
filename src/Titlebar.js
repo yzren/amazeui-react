@@ -32,7 +32,8 @@ var Titlebar = React.createClass({
       <div
         {...props}
         data-am-widget={this.props.classPrefix}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         <h2 className={this.prefixClass('title')}>
           {this.props.href ? (
             <a href={this.props.href}>

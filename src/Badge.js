@@ -8,7 +8,7 @@ var Badge = React.createClass({
   mixins: [ClassNameMixin],
 
   propTypes: {
-    componentTag: React.PropTypes.node,
+    component: React.PropTypes.node,
     href: React.PropTypes.string,
     round: React.PropTypes.bool,
     radius: React.PropTypes.bool
@@ -17,12 +17,12 @@ var Badge = React.createClass({
   getDefaultProps: function () {
     return {
       classPrefix: 'badge',
-      componentTag: 'span'
+      component: 'span'
     };
   },
 
   renderAnchor: function (classSet) {
-    var Component = this.props.componentTag || 'a';
+    var Component = this.props.component || 'a';
     var href = this.props.href || '#';
 
     return (
@@ -30,7 +30,8 @@ var Badge = React.createClass({
         {...this.props}
         href={href}
         className={classNames(classSet, this.props.className)}
-        role="badge">
+        role="badge"
+      >
         {this.props.children}
       </Component>
     );
@@ -38,7 +39,7 @@ var Badge = React.createClass({
 
   render: function () {
     var classSet = this.getClassSet();
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
     var renderAnchor = this.props.href;
 
     if (renderAnchor) {
@@ -48,7 +49,8 @@ var Badge = React.createClass({
     return (
       <Component
         {...this.props}
-        className={classNames(classSet, this.props.className)}>
+        className={classNames(classSet, this.props.className)}
+      >
         {this.props.children}
       </Component>
     );

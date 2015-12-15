@@ -87,16 +87,22 @@ var Menu = React.createClass({
 
   renderMenuToggle: function() {
     var title = this.props.toggleTitle ? (
-      <span className={this.prefixClass('toggle-title')}>
+      <span
+        className={this.prefixClass('toggle-title')}
+      >
         {this.props.toggleTitle}
       </span>
     ) : null;
     var icon = this.props.toggleCustomIcon ? (
-      <img src={this.props.toggleCustomIcon} alt="Menu Toggle"/>
+      <img
+        src={this.props.toggleCustomIcon}
+        alt="Menu Toggle"
+      />
     ) : (
       <Icon
         className={this.prefixClass('toggle-icon')}
-        icon={this.props.toggleIcon || 'bars'}/>
+        icon={this.props.toggleIcon || 'bars'}
+      />
     );
 
     return (
@@ -104,7 +110,8 @@ var Menu = React.createClass({
         href="#"
         onClick={this.handleToggle}
         className={classNames(this.prefixClass('toggle'),
-        this.state.expanded ? this.setClassNamespace('active') : null)}>
+        this.state.expanded ? this.setClassNamespace('active') : null)}
+      >
         {title}
         {icon}
       </a>);
@@ -121,10 +128,12 @@ var Menu = React.createClass({
           key={i}
           className={classNames(nav.subMenu ?
           _this.setClassNamespace('parent') : null,
-          nav.subActive ? openClassName : null)}>
+          nav.subActive ? openClassName : null)}
+        >
           <a
             onClick={_this.handleClick.bind(_this, nav, i, false)}
-            href={nav.link}>
+            href={nav.link}
+          >
             {nav.title}
           </a>
           {nav.subMenu ? (
@@ -132,7 +141,8 @@ var Menu = React.createClass({
               sm={nav.subCols || 1}
               className={classNames(_this.prefixClass('sub'),
               _this.setClassNamespace('collapse'),
-              nav.subActive ? inClassName : null)}>
+              nav.subActive ? inClassName : null)}
+            >
               {nav.subMenu.map(function(subNav, index) {
                 return (
                   <li key={index}>
@@ -140,7 +150,8 @@ var Menu = React.createClass({
                       onClick={_this.handleClick.bind(_this, subNav,
                       [i, index], false)}
                       target={subNav.target}
-                      href={subNav.link}>
+                      href={subNav.link}
+                    >
                       {subNav.title}
                     </a>
                   </li>
@@ -163,11 +174,13 @@ var Menu = React.createClass({
       <nav
         {...props}
         data-am-widget={this.props.classPrefix}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.renderMenuToggle()}
         <AvgGrid
           sm={this.props.cols}
-          className={classNames(this.prefixClass('nav'), hideTopLevel)}>
+          className={classNames(this.prefixClass('nav'), hideTopLevel)}
+        >
           {this.renderNavs()}
         </AvgGrid>
       </nav>

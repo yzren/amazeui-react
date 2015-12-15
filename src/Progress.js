@@ -41,7 +41,8 @@ var Progress = React.createClass({
       <div
         className={classNames(classes)}
         style={styleSheet}
-        role="progressbar">
+        role="progressbar"
+      >
         {this.props.label}
       </div>
     );
@@ -70,7 +71,7 @@ var Progress = React.createClass({
           <div
             {...this.props}
             className={classNames(classes, this.props.className)}
-            >
+          >
             {this.renderProgressBar()}
           </div>
         );
@@ -84,7 +85,7 @@ var Progress = React.createClass({
         <div
           {...this.props}
           className={classNames(classes, this.props.className)}
-          >
+        >
           {React.Children.map(this.props.children, this.renderChildBar)}
         </div>
       );

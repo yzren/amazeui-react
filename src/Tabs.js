@@ -105,7 +105,8 @@ var Tabs = React.createClass({
           key={key}
           onClick={this.handleClick.bind(this, key, disabled)}
           active={child.props.eventKey === activeKey}
-          disabled={disabled}>
+          disabled={disabled}
+        >
           {child.props.title}
         </NavItem>
       );
@@ -119,7 +120,8 @@ var Tabs = React.createClass({
       return (
         <Tabs.Item
           active={child.props.eventKey === activeKey}
-          key={child.props.key ? child.props.key : index}>
+          key={child.props.key ? child.props.key : index}
+        >
           {child.props.children}
         </Tabs.Item>
       );
@@ -135,14 +137,15 @@ var Tabs = React.createClass({
     this.props.data.forEach(function(item, key) {
       navs.push(
         <NavItem
-        href="#"
-        ref={'ref' + key}
-        key={key}
-        onClick={this.handleClick.bind(this, key, item.disabled)}
-        active={key === activeKey}
-        disabled={item.disabled}>
-        {item.title}
-      </NavItem>);
+          href="#"
+          ref={'ref' + key}
+          key={key}
+          onClick={this.handleClick.bind(this, key, item.disabled)}
+          active={key === activeKey}
+          disabled={item.disabled}
+        >
+          {item.title}
+        </NavItem>);
 
       panels.push(
         <Tabs.Item
@@ -169,7 +172,8 @@ var Tabs = React.createClass({
       <div
         {...props}
         data-am-widget={this.props.theme ? this.props.classPrefix : null}
-        className={classNames(classSet, this.props.className)}>
+        className={classNames(classSet, this.props.className)}
+      >
         {children}
       </div>
     );
@@ -184,7 +188,8 @@ var Tabs = React.createClass({
         tabs
         className={classNames(this.prefixClass('nav'),
           this.setClassNamespace('cf'))}
-        justify={this.props.justify}>
+        justify={this.props.justify}
+      >
         {children}
       </TabsNav>
     );
@@ -196,7 +201,8 @@ var Tabs = React.createClass({
     return (
       <div
         key="tabsBody"
-        className={classNames(this.prefixClass('bd'), animationClass)}>
+        className={classNames(this.prefixClass('bd'), animationClass)}
+      >
         {children}
       </div>);
   },

@@ -11,19 +11,19 @@ var List = React.createClass({
     bordered: React.PropTypes.bool,
     striped: React.PropTypes.bool,
     static: React.PropTypes.bool,
-    componentTag: React.PropTypes.node.isRequired
+    component: React.PropTypes.node.isRequired
   },
 
   getDefaultProps: function() {
     return {
       classPrefix: 'list',
-      componentTag: 'ul'
+      component: 'ul'
     };
   },
 
   render: function() {
     var classes = this.getClassSet();
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
     var props = this.props;
     var prefixClass = this.prefixClass;
 
@@ -39,7 +39,8 @@ var List = React.createClass({
     return (
       <Component
         {...props}
-        className={classNames(classes, props.className)}>
+        className={classNames(classes, props.className)}
+      >
         {props.children}
       </Component>
     );

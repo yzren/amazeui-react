@@ -26,7 +26,8 @@ var Article = React.createClass({
     return (
       <article
         {...this.props}
-        className={classNames(classSet, this.props.className)}>
+        className={classNames(classSet, this.props.className)}
+      >
         <header className={this.prefixClass('hd')}>
           {this.props.title ? (
             <Article.Child role="title">
@@ -71,7 +72,8 @@ Article.Child = React.createClass({
     var Component;
     var classes = classNames(
       this.props.className,
-      this.setClassNamespace('article-' + role));
+      this.setClassNamespace('article-' + role)
+    );
 
     switch (role) {
       case 'meta':
@@ -88,11 +90,13 @@ Article.Child = React.createClass({
     return role === 'divider' ? (
       <hr
         {...this.props}
-        className={classes}/>
+        className={classes}
+      />
     ) : (
       <Component
         {...this.props}
-        className={classes}>
+        className={classes}
+      >
         {this.props.children}
       </Component>
     );

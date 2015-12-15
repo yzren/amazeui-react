@@ -2,7 +2,7 @@
 
 var React = require('react');
 var classNames = require('classnames');
-var ClassNameMixin = require('./mixins/ClassNameMixin');
+var ClassNameMixin = require('../mixins/ClassNameMixin');
 
 var TimePicker = React.createClass({
   mixins: [ClassNameMixin],

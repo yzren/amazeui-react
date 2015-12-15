@@ -15,7 +15,7 @@ var Button = React.createClass({
     disabled: React.PropTypes.bool,
     radius: React.PropTypes.bool,
     round: React.PropTypes.bool,
-    componentTag: React.PropTypes.node,
+    component: React.PropTypes.node,
     href: React.PropTypes.string,
     target: React.PropTypes.string
   },
@@ -29,7 +29,7 @@ var Button = React.createClass({
   },
 
   renderAnchor: function(classSet) {
-    var Component = this.props.componentTag || 'a';
+    var Component = this.props.component || 'a';
     var href = this.props.href || '#';
     var props = omit(this.props, 'type');
 
@@ -38,19 +38,21 @@ var Button = React.createClass({
         {...props}
         href={href}
         className={classNames(this.props.className, classSet)}
-        role="button">
+        role="button"
+      >
         {this.props.children}
       </Component>
     );
   },
 
   renderButton: function(classSet) {
-    var Component = this.props.componentTag || 'button';
+    var Component = this.props.component || 'button';
 
     return (
       <Component
         {...this.props}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.props.children}
       </Component>
     );
@@ -62,7 +64,7 @@ var Button = React.createClass({
       'renderAnchor' : 'renderButton';
 
     // block button
-    this.props.block && (classSet[this.prefixClass('block')] = true);
+    classSet[this.prefixClass('block')] = this.props.block;
 
     return this[renderType](classSet);
   }

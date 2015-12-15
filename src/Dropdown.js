@@ -106,9 +106,12 @@ var Dropdown = React.createClass({
     var Component = this.props.navItem ? 'li' : 'div';
     var btnClassPrefix = this.props.navItem ? '' : 'btn';
     var btnComponentTag = this.props.navItem ? 'a' : null;
-    var caret = (<Icon
-      className={this.props.caretClassName}
-      icon={'caret-' + (this.props.dropup ? 'up' : 'down')} />);
+    var caret = (
+      <Icon
+        className={this.props.caretClassName}
+        icon={'caret-' + (this.props.dropup ? 'up' : 'down')}
+      />
+    );
     var animation = this.state.open ?
       this.setClassNamespace('animation-slide-top-fixed') :
       this.setClassNamespace('dropdown-animation');

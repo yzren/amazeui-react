@@ -34,8 +34,11 @@ var ListNews = React.createClass({
 
     return data && data.header && data.header.title ? (
       <div
-        className={classNames(this.prefixClass('hd'),
-      this.setClassNamespace('cf'))}>
+        className={classNames(
+            this.prefixClass('hd'),
+            this.setClassNamespace('cf')
+          )}
+      >
         {data.header.link ? (
           <a href={data.header.link}>
             <h2>{data.header.title}</h2>
@@ -101,7 +104,8 @@ var ListNews = React.createClass({
       return (
         <li
           key={i}
-          className={this.getListItemClasses(item)}>
+          className={this.getListItemClasses(item)}
+        >
           {position === 'bottom-left' || position === 'bottom-right' ?
             this.renderThumbItemTitle(item) : null}
 
@@ -139,15 +143,18 @@ var ListNews = React.createClass({
   renderItemThumb: function(item, i) {
     var cols = this.props.thumbPosition === 'top' ? 12 : 4;
 
-    return item.img ? (<Col
-      key={'thumb' + i}
-      sm={cols}
-      className={this.setClassNamespace('list-thumb')}>
-      <a href={item.link}>
-        <img src={item.img} alt={item.title}/>
-      </a>
-      {this.renderItemMisc(item, 'thumbAddition')}
-    </Col>) : null;
+    return item.img ? (
+      <Col
+        key={'thumb' + i}
+        sm={cols}
+        className={this.setClassNamespace('list-thumb')}
+      >
+        <a href={item.link}>
+          <img src={item.img} alt={item.title} />
+        </a>
+        {this.renderItemMisc(item, 'thumbAddition')}
+      </Col>
+    ) : null;
   },
 
   renderItemMain: function(item, i) {
@@ -160,7 +167,8 @@ var ListNews = React.createClass({
       <a
         key={'title' + i}
         className={this.setClassNamespace('list-item-hd')}
-        href={item.link}>
+        href={item.link}
+      >
         {item.title}
       </a>
     ) : null;
@@ -170,7 +178,8 @@ var ListNews = React.createClass({
       <Col
         sm={cols}
         className={this.setClassNamespace('list-main')}
-        key={'itemMain' + i}>
+        key={'itemMain' + i}
+      >
         {position !== 'bottom-left' && position !== 'bottom-right' ?
           this.renderThumbItemTitle(item) : null}
         {date}
@@ -197,7 +206,8 @@ var ListNews = React.createClass({
       <div
         {...this.props}
         data-am-widget={this.props.classPrefix}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.props.header || this.renderHeader()}
         {this.renderBody(
             this.renderList()

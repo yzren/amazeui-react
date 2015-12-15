@@ -33,7 +33,8 @@ var Image = React.createClass({
     return (
       <img
         {...this.props}
-        className={classNames(this.props.className, classSet)} />
+        className={classNames(this.props.className, classSet)}
+      />
     );
   }
 });

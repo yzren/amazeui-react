@@ -25,8 +25,8 @@ var Panel = require('../src/Panel');
 var PanelGroup = require('../src/PanelGroup');
 var Progress = require('../src/Progress');
 
-var DateTimeInput = require('../src/DateTimeInput');
-var DateTimePicker = require('../src/DateTimePicker');
+var DateTimeInput = require('../src/DateTimePicker').DateTimeInput;
+var DateTimePicker = require('../src/DateTimePicker').DateTimePicker;
 
 var ButtonGroup = require('../src/ButtonGroup');
 var ButtonCheck = require('../src/ButtonCheck');

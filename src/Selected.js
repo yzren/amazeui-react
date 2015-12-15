@@ -145,7 +145,8 @@ var Selected = React.createClass({
         items.push(
           <li
             className={this.prefixClass('list-header')}
-            key={'header' + i}>
+            key={'header' + i}
+          >
             {groupHeader}
           </li>
         );
@@ -159,7 +160,8 @@ var Selected = React.createClass({
         <li
           className={checkedClass}
           onClick={this.handleCheck.bind(this, option)}
-          key={i}>
+          key={i}
+        >
           <span className={this.prefixClass('text')}>
             {option.label}
           </span>
@@ -171,11 +173,13 @@ var Selected = React.createClass({
     var status = (
       <span
         className={classNames(this.prefixClass('status'),
-      this.setClassNamespace('fl'))}>
+          this.setClassNamespace('fl'))}
+      >
         {selectedLabel.length ? selectedLabel.join(', ') : (
           <span className={this.prefixClass('placeholder ')}>
             {this.props.placeholder}
-          </span>)}
+          </span>
+        )}
       </span>
     );
     var optionsStyle = {};
@@ -200,25 +204,29 @@ var Selected = React.createClass({
         contentClassName={this.prefixClass('content')}
         contentTag="div"
         dropup={this.props.dropup}
-        ref="dropdown">
+        ref="dropdown"
+      >
         {this.props.searchBox ? (
           <div className={this.prefixClass('search')}>
             <Input
               onChange={this.handleUserInput}
               autoComplete="off"
               standalone
-              ref="filterInput" />
+              ref="filterInput"
+            />
           </div>) : null}
         <ul
           style={optionsStyle}
-          className={this.prefixClass('list')}>
+          className={this.prefixClass('list')}
+        >
           {items}
         </ul>
         <input
           name={this.props.name}
           type="hidden"
           ref="selectedField"
-          value={this.state.value} />
+          value={this.state.value}
+        />
       </Dropdown>
     );
   }

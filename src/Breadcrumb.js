@@ -2,6 +2,7 @@
 
 var React = require('react');
 var classNames = require('classnames');
+var assign = require('object-assign');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 
 var Breadcrumb = React.createClass({
@@ -9,26 +10,27 @@ var Breadcrumb = React.createClass({
 
   propTypes: {
     slash: React.PropTypes.bool,
-    componentTag: React.PropTypes.node.isRequired
+    component: React.PropTypes.node.isRequired
   },
 
   getDefaultProps: function() {
     return {
       classPrefix: 'breadcrumb',
-      componentTag: 'ul'
+      component: 'ul'
     };
   },
 
   render: function() {
     var classes = this.getClassSet();
-    var Component = this.props.componentTag;
+    var Component = this.props.component;
 
     classes[this.prefixClass('slash')] = this.props.slash;
 
     return (
       <Component
         {...this.props}
-        className={classNames(classes, this.props.className)}>
+        className={classNames(classes, this.props.className)}
+      >
         {this.props.children}
       </Component>
     );
@@ -42,20 +44,30 @@ Breadcrumb.Item = React.createClass({
     active: React.PropTypes.bool,
     href: React.PropTypes.string,
     title: React.PropTypes.string,
-    target: React.PropTypes.string
+    target: React.PropTypes.string,
+    linkComponent: React.PropTypes.node,
+    linkProps: React.PropTypes.object
+  },
+
+  getDefaultProps() {
+    return {
+      linkComponent: 'a'
+    };
   },
 
   renderAnchor: function(classes) {
     return (
       <li
         {...this.props}
-        className={classes}>
-        <a
-          href={this.props.href}
-          title={this.props.title}
-          target={this.props.target}>
-          {this.props.children}
-        </a>
+        className={classes}
+      >
+        {
+          React.createElement(this.props.linkComponent, assign({
+            href: this.props.href,
+            title: this.props.title,
+            target: this.props.target
+          }, this.props.linkProps), this.props.children)
+        }
       </li>
     );
   },
@@ -70,7 +82,8 @@ Breadcrumb.Item = React.createClass({
     return (
       <li
         {...this.props}
-        className={classes}>
+        className={classes}
+      >
         {this.props.children}
       </li>
     );

@@ -39,7 +39,8 @@ var Table = React.createClass({
     var table = (
       <table
         {...this.props}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {this.props.children}
       </table>
     );
