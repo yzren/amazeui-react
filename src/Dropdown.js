@@ -49,26 +49,31 @@ var Dropdown = React.createClass({
     this.unbindOuterHandlers();
   },
 
-  setDropdownState: function(state, callback) {
-    if (state) {
+  /**
+   * setDropdown
+   * @param {bool} isOpen - Dropdown state, `true` -> open, `close` -> false
+   * @param {function} [callback]
+   */
+  setDropdown: function(isOpen, callback) {
+    if (isOpen) {
       this.bindOuterHandlers();
     } else {
       this.unbindOuterHandlers();
     }
 
     this.setState({
-      open: state
+      open: isOpen
     }, function() {
       callback && callback();
 
-      state && this.props.onOpen && this.props.onOpen();
-      !state && this.props.onClose && this.props.onClose();
+      isOpen && this.props.onOpen && this.props.onOpen();
+      !isOpen && this.props.onClose && this.props.onClose();
     });
   },
 
   // close dropdown on `esc` keyup
   handleKeyup: function(e) {
-    (e.keyCode === 27) && this.setDropdownState(false);
+    (e.keyCode === 27) && this.setDropdown(false);
   },
 
   // close dropdown when click outer dropdown
@@ -77,7 +82,7 @@ var Dropdown = React.createClass({
       return false;
     }
 
-    this.setDropdownState(false);
+    this.setDropdown(false);
   },
 
   bindOuterHandlers: function() {
@@ -93,7 +98,7 @@ var Dropdown = React.createClass({
   handleDropdownClick: function(e) {
     e.preventDefault();
 
-    this.setDropdownState(!this.state.open);
+    this.setDropdown(!this.state.open);
   },
 
   render: function() {
