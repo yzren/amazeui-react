@@ -90,8 +90,8 @@ var ModalTrigger = React.createClass({
         modalWidth: this.state.modalWidth,
         modalHeight: this.state.modalHeight,
         title: this.props.modal.props.title || this.props.title,
-        onConfirm: createChainedFunction(this.close, this.props.onConfirm),
-        onCancel: createChainedFunction(this.close, this.props.onCancel)
+        onConfirm: createChainedFunction(this.props.onConfirm, this.close),
+        onCancel: createChainedFunction(this.props.onCancel, this.close)
       }
     );
   },
