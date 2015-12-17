@@ -11,4 +11,6 @@
 	- `disabled`: `bool` - 是否禁用；
 	- `header`: `bool` - 是否渲染为标题；
 	- `divider`: `bool` - 是否渲染为分隔线；
-	- `href`: `string` - 添加 `url` 地址，渲染成链接列表。
+	- `href`: `string` - 添加 `url` 地址，渲染成链接列表；
+	- `linkComponent`: `node` - 渲染链接的组件，用于传递 React Router Link 组件等需求；
+	- `linkProps`: `object` - 应用到 `linkComponent` 上的属性。

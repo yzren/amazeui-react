@@ -45,47 +45,56 @@ Breadcrumb.Item = React.createClass({
     href: React.PropTypes.string,
     title: React.PropTypes.string,
     target: React.PropTypes.string,
-    linkComponent: React.PropTypes.node,
+    component: React.PropTypes.any,
+    linkComponent: React.PropTypes.any,
     linkProps: React.PropTypes.object
   },
 
   getDefaultProps() {
     return {
-      linkComponent: 'a'
+      component: 'li'
     };
   },
 
   renderAnchor: function(classes) {
+    var Component = this.props.component;
+    var linkComponent = this.props.linkComponent || 'a';
+
     return (
-      <li
+      <Component
         {...this.props}
         className={classes}
       >
         {
-          React.createElement(this.props.linkComponent, assign({
-            href: this.props.href,
-            title: this.props.title,
-            target: this.props.target
-          }, this.props.linkProps), this.props.children)
+          React.createElement(
+            linkComponent,
+            assign({
+              href: this.props.href,
+              title: this.props.title,
+              target: this.props.target
+            }, this.props.linkProps),
+            this.props.children
+          )
         }
-      </li>
+      </Component>
     );
   },
 
   render: function() {
     var classes = classNames(this.props.className);
+    var Component = this.props.component;
 
-    if (this.props.href) {
+    if (this.props.href || this.props.linkComponent) {
       return this.renderAnchor(classes);
     }
 
     return (
-      <li
+      <Component
         {...this.props}
         className={classes}
       >
         {this.props.children}
-      </li>
+      </Component>
     );
   }
 });

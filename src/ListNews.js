@@ -141,6 +141,7 @@ var ListNews = React.createClass({
   },
 
   renderItemThumb: function(item, i) {
+    var Link = item.component || 'a';
     var cols = this.props.thumbPosition === 'top' ? 12 : 4;
 
     return item.img ? (
@@ -149,28 +150,31 @@ var ListNews = React.createClass({
         sm={cols}
         className={this.setClassNamespace('list-thumb')}
       >
-        <a href={item.link}>
+        <Link
+          href={item.link}
+        >
           <img src={item.img} alt={item.title} />
-        </a>
+        </Link>
         {this.renderItemMisc(item, 'thumbAddition')}
       </Col>
     ) : null;
   },
 
   renderItemMain: function(item, i) {
+    var Link = item.component || 'a';
     var position = this.props.thumbPosition;
     var date = this.renderItemMisc(item, 'date');
     var desc = this.renderItemMisc(item, 'desc');
     var addon = this.renderItemMisc(item, 'mainAddition');
     // title of list without thumbnail
     var itemWithoutThumbTitle = !position && item.title ? (
-      <a
+      <Link
         key={'title' + i}
         className={this.setClassNamespace('list-item-hd')}
         href={item.link}
       >
         {item.title}
-      </a>
+      </Link>
     ) : null;
     var cols = position === 'top' ? 12 : item.img ? 8 : 12;
 
@@ -190,11 +194,13 @@ var ListNews = React.createClass({
   },
 
   renderThumbItemTitle: function(item) {
+    var Link = item.component || 'a';
+
     return item.title ? (
       <h3 className={this.setClassNamespace('list-item-hd')}>
-        <a href={item.link}>
+        <Link href={item.link}>
           {item.title}
-        </a>
+        </Link>
       </h3>
     ) : null;
   },

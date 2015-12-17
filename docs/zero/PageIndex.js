@@ -13,6 +13,32 @@ var ButtonToolbar = require('../../src/ButtonToolbar');
 var Main = require('./DocMain');
 var assets = require('../utils').getAssetsPath();
 
+var data = [
+  {
+    title: '呼叫',
+    link: 'tel:123456789',
+    icon: 'phone'
+  },
+  {
+    title: 'GitHub',
+    link: 'https://github.com/allmobilize/amazeui',
+    icon: 'github'
+  },
+  {
+    title: '开始使用',
+    icon: 'download',
+    component: Link,
+    props: {
+      to: '/getting-started'
+    }
+  },
+  {
+    title: 'Bug 反馈',
+    link: 'https://github.com/allmobilize/amazeui/issues',
+    icon: 'location-arrow'
+  }
+];
+
 module.exports = React.createClass({
   render: function() {
     return (

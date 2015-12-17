@@ -5,6 +5,7 @@ var ReactDOM = require('react-dom');
 var babel = require('babel-core');
 var babelPresetReact = require('babel-preset-react');
 var CodeMirror = require('codemirror');
+var Link = require('react-router').Link;
 
 require('codemirror/mode/javascript/javascript');
 require('codemirror/addon/runmode/runmode');

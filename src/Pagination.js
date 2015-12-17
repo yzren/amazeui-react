@@ -3,6 +3,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var classNames = require('classnames');
+var assign = require('object-assign');
+var omit = require('object.omit');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 
 var Pagination = React.createClass({
@@ -127,13 +129,14 @@ Pagination.Item = React.createClass({
     prev: React.PropTypes.bool,
     next: React.PropTypes.bool,
     href: React.PropTypes.string,
-    component: React.PropTypes.node.isRequired
+    component: React.PropTypes.any,
+    linkComponent: React.PropTypes.any,
+    linkProps: React.PropTypes.object
   },
 
   getDefaultProps: function() {
     return {
       classPrefix: 'pagination',
-      href: '#',
       component: 'li'
     };
   },
@@ -142,6 +145,8 @@ Pagination.Item = React.createClass({
     var Component = this.props.component;
     var classSet = this.getClassSet(true);
     var props = this.props;
+    var linkComponent = this.props.linkComponent ||
+          (this.props.href ? 'a' : null);
 
     // .am-pagination-prev
     classSet[this.prefixClass('prev')] = props.prev;
@@ -151,17 +156,21 @@ Pagination.Item = React.createClass({
 
     return (
       <Component
-        {...this.props}
+        {...omit(this.props, ['href', 'title', 'target'])}
         className={classNames(classSet, this.props.className)}
       >
-        <a
-          href={this.props.href}
-          title={this.props.title}
-          target={this.props.target}
-          ref="anchor"
-        >
-          {this.props.children}
-        </a>
+        {linkComponent ?
+          React.createElement(
+            linkComponent,
+            assign({
+              href: this.props.href,
+              title: this.props.title,
+              target: this.props.target,
+              ref: 'anchor'
+            }, this.props.linkProps),
+            this.props.children
+          ) : this.props.children
+        }
       </Component>
     );
   }
