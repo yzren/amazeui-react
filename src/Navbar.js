@@ -38,11 +38,18 @@ var Navbar = React.createClass({
       >
         <ul className={this.prefixClass('nav')}>
           {this.props.data.map(function(item, i) {
+            var Link = item.component || 'a';
+            var LinkProps = item.props || {};
+
             return (
-              <li key={i}
-                  onClick={this.props.onSelect.bind(this, item.link)}
+              <li
+                key={i}
+                onClick={this.props.onSelect.bind(this, item.link)}
               >
-                <a href={item.link}>
+                <Link
+                  href={item.link}
+                  {...LinkProps}
+                >
                   {item.customIcon ? (
                     <img
                       src={item.customIcon}
@@ -57,7 +64,7 @@ var Navbar = React.createClass({
                       {item.title}
                     </span>
                   ) : null}
-                </a>
+                </Link>
               </li>
             );
           }.bind(this))}

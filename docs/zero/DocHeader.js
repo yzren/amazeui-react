@@ -5,6 +5,7 @@ var Container = require('../../src/Container');
 var Button = require('../../src/Button');
 var Icon = require('../../src/Icon');
 var Nav = require('../../src/Nav');
+var NavItem = require('../../src/NavItem');
 var Badge = require('../../src/Badge');
 var LinkItem = require('./DocLinkItem');
 var links = [
@@ -34,7 +35,15 @@ var DocHeader = React.createClass({
 
   render: function() {
     var linkElements = links.map(function(link) {
-      return <LinkItem key={link.name} to={link.name}>{link.title}</LinkItem>;
+      return (
+        <NavItem
+          component={LinkItem}
+          key={link.name}
+          to={link.name}
+        >
+          {link.title}
+        </NavItem>
+      );
     });
     var menuClass = this.state.menuActive ? ' am-in' : '';
 
@@ -61,8 +70,8 @@ var DocHeader = React.createClass({
             className={'am-collapse am-topbar-collapse' + menuClass} >
             <Nav pills topbar>
               {linkElements}
-              <li><a href="http://amazeui.org" target="_blank">jQuery 版</a></li>
-              <li><a href="http://t.amazeui.org" target="_blank">Touch</a></li>
+              <NavItem href="http://amazeui.org" target="_blank">jQuery 版</NavItem>
+              <NavItem href="http://t.amazeui.org" target="_blank">Touch</NavItem>
             </Nav>
           </div>
         </Container>

@@ -2,10 +2,10 @@
 
 var React = require('react');
 var classNames = require('classnames');
+var omit = require('object.omit');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var Icon = require('./Icon');
 var AvgGrid = require('./AvgGrid');
-var omit = require('object.omit');
 
 var Menu = React.createClass({
   mixins: [ClassNameMixin],
@@ -123,19 +123,26 @@ var Menu = React.createClass({
     var inClassName = this.setClassNamespace('in');
 
     return this.state.data.map(function(nav, i) {
+      var Link = nav.component || 'a';
+      var LinkProps = nav.props || {};
+
       return (
         <li
           key={i}
-          className={classNames(nav.subMenu ?
-          _this.setClassNamespace('parent') : null,
-          nav.subActive ? openClassName : null)}
+          className={
+            classNames(
+              nav.subMenu ? _this.setClassNamespace('parent') : null,
+              nav.subActive ? openClassName : null
+            )
+          }
         >
-          <a
+          <Link
             onClick={_this.handleClick.bind(_this, nav, i, false)}
             href={nav.link}
+            {...LinkProps}
           >
             {nav.title}
-          </a>
+          </Link>
           {nav.subMenu ? (
             <AvgGrid
               sm={nav.subCols || 1}
@@ -144,16 +151,20 @@ var Menu = React.createClass({
               nav.subActive ? inClassName : null)}
             >
               {nav.subMenu.map(function(subNav, index) {
+                var SubLink = subNav.component || 'a';
+                var SubLinkProps = subNav.props || {};
+
                 return (
                   <li key={index}>
-                    <a
+                    <SubLink
                       onClick={_this.handleClick.bind(_this, subNav,
                       [i, index], false)}
                       target={subNav.target}
                       href={subNav.link}
+                      {...SubLinkProps}
                     >
                       {subNav.title}
-                    </a>
+                    </SubLink>
                   </li>
                 );
               })}

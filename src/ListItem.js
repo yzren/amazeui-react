@@ -2,6 +2,7 @@
 
 var React = require('react');
 var classNames = require('classnames');
+var assign = require('object-assign');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 
 var ListItem = React.createClass({
@@ -10,7 +11,9 @@ var ListItem = React.createClass({
   propTypes: {
     href: React.PropTypes.string,
     truncate: React.PropTypes.bool,
-    component: React.PropTypes.node.isRequired
+    component: React.PropTypes.any.isRequired,
+    linkComponent: React.PropTypes.any,
+    linkProps: React.PropTypes.object
   },
 
   getDefaultProps: function() {
@@ -27,7 +30,7 @@ var ListItem = React.createClass({
     classes['am-text-truncate'] = this.props.truncate;
 
     // render Anchor
-    if (this.props.href) {
+    if (this.props.href || this.props.linkComponent) {
       return this.renderAnchor(classes);
     }
 
@@ -45,19 +48,25 @@ var ListItem = React.createClass({
     var props = this.props;
     var Component = props.component;
     var truncate = props.truncate ? 'am-text-truncate' : '';
+    var linkComponent = this.props.linkComponent || 'a';
 
     return (
       <Component
         {...props}
-        className={classNames(classes, this.props.className)}>
-        <a
-          className={truncate}
-          href={this.props.href}
-          title={this.props.title}
-          target={this.props.target}
-        >
-          {this.props.children}
-        </a>
+        className={classNames(classes, this.props.className)}
+      >
+        {
+          React.createElement(
+            linkComponent,
+            assign({
+              className: truncate,
+              href: this.props.href,
+              title: this.props.title,
+              target: this.props.target
+            }, this.props.linkProps),
+            this.props.children
+          )
+        }
       </Component>
     );
   }

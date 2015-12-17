@@ -2,6 +2,8 @@
 
 var React = require('react');
 var classNames = require('classnames');
+var assign = require('object-assign');
+var omit = require('object.omit');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 
 var NavItem = React.createClass({
@@ -13,7 +15,9 @@ var NavItem = React.createClass({
     header: React.PropTypes.bool,
     divider: React.PropTypes.bool,
     href: React.PropTypes.any,
-    component: React.PropTypes.node.isRequired
+    component: React.PropTypes.any,
+    linkComponent: React.PropTypes.any,
+    linkProps: React.PropTypes.object
   },
 
   getDefaultProps: function() {
@@ -35,7 +39,7 @@ var NavItem = React.createClass({
     classes[this.prefixClass('header')] = props.header;
     classes[this.prefixClass('divider')] = props.divider;
 
-    if (props.href) {
+    if (props.href || props.linkComponent) {
       return this.renderAnchor(classes);
     }
 
@@ -44,28 +48,37 @@ var NavItem = React.createClass({
         {...props}
         className={classNames(classes, props.className)}
       >
-          {this.props.children}
+        {this.props.children}
       </Component>
     );
   },
 
   renderAnchor: function(classes) {
     var Component = this.props.component;
+    var linkComponent = this.props.linkComponent || 'a';
+    var style = {};
+
+    this.props.disabled && (style.pointerEvents = 'none');
 
     var linkProps = {
       href: this.props.href,
       title: this.props.tilte,
-      target: this.props.target
+      target: this.props.target,
+      style: style
     };
 
     return (
       <Component
-        {...this.props}
+        {...omit(this.props, ['href', 'target', 'title', 'disabled'])}
         className={classNames(classes, this.props.className)}
       >
-        <a {...linkProps}>
-          {this.props.children}
-        </a>
+        {
+          React.createElement(
+            linkComponent,
+            assign(linkProps, this.props.linkProps),
+            this.props.children
+          )
+        }
       </Component>
     );
   }
@@ -74,4 +87,3 @@ var NavItem = React.createClass({
 module.exports = NavItem;
 
 // TODO: DropDown Tab 处理
-//       disabled 没有禁止链接跳转
