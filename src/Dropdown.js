@@ -20,7 +20,7 @@ var Dropdown = React.createClass({
     btnStyle: React.PropTypes.string,
     btnInlineStyle: React.PropTypes.object,
     contentInlineStyle: React.PropTypes.object,
-    contentTag: React.PropTypes.node,
+    contentComponent: React.PropTypes.node,
     toggleClassName: React.PropTypes.string,
     caretClassName: React.PropTypes.string,
     contentClassName: React.PropTypes.string,
@@ -31,7 +31,7 @@ var Dropdown = React.createClass({
   getDefaultProps: function() {
     return {
       classPrefix: 'dropdown',
-      contentTag: 'ul'
+      contentComponent: 'ul'
     };
   },
 
@@ -105,7 +105,7 @@ var Dropdown = React.createClass({
     var classSet = this.getClassSet();
     var Component = this.props.navItem ? 'li' : 'div';
     var btnClassPrefix = this.props.navItem ? '' : 'btn';
-    var btnComponentTag = this.props.navItem ? 'a' : null;
+    var btnComponent = this.props.navItem ? 'a' : null;
     var caret = (
       <Icon
         className={this.props.caretClassName}
@@ -115,7 +115,7 @@ var Dropdown = React.createClass({
     var animation = this.state.open ?
       this.setClassNamespace('animation-slide-top-fixed') :
       this.setClassNamespace('dropdown-animation');
-    var ContentTag = this.props.contentTag;
+    var ContentComponent = this.props.contentComponent;
 
     classSet[constants.CLASSES.active] = this.state.open;
     classSet[this.prefixClass('up')] = this.props.dropup;
@@ -123,7 +123,8 @@ var Dropdown = React.createClass({
     return (
       <Component
         btnStyle={null}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         <Button
           onClick={this.handleDropdownClick}
           amStyle={this.props.btnStyle}
@@ -131,19 +132,21 @@ var Dropdown = React.createClass({
           className={classNames(this.prefixClass('toggle'),
           this.props.toggleClassName)}
           classPrefix={btnClassPrefix}
-          componentTag={btnComponentTag}
-          ref="dropdownToggle">
+          component={btnComponent}
+          ref="dropdownToggle"
+        >
           {this.props.title}
           {' '}
           {caret}
         </Button>
-        <ContentTag
+        <ContentComponent
           ref="dropdownContent"
           style={this.props.contentInlineStyle}
           className={classNames(this.prefixClass('content'),
-          animation, this.props.contentClassName)}>
+          animation, this.props.contentClassName)}
+        >
           {this.props.children}
-        </ContentTag>
+        </ContentComponent>
       </Component>
     );
   }
@@ -174,7 +177,8 @@ Dropdown.Item = React.createClass({
           onClick={this.handleClick}
           href={this.props.href}
           target={this.props.target}
-          title={this.props.title}>
+          title={this.props.title}
+        >
           {this.props.children}
         </a>
       );
@@ -185,7 +189,8 @@ Dropdown.Item = React.createClass({
         {...this.props}
         title={null}
         href={null}
-        className={classNames(this.props.className, classSet)}>
+        className={classNames(this.props.className, classSet)}
+      >
         {children}
       </li>
     );
