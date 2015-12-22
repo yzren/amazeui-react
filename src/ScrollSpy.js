@@ -51,6 +51,7 @@ var ScrollSpy = React.createClass({
   },
 
   _removeEventLister: function() {
+    console.log('remove.....');
     this._scrollListener && this._scrollListener.off();
     this._resizeListener && this._resizeListener.off();
     this._orientationListener && this._orientationListener.off();
@@ -99,7 +100,7 @@ var ScrollSpy = React.createClass({
       className: classNames(child.props.className, animation),
       'data-am-scrollspy': 'animation', // style helper
       delay: this.props.delay,
-      componentWillMount: this._removeEventLister.bind(this)
+      componentWillMount: this._removeEventLister
     }));
   }
 });
