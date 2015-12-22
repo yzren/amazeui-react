@@ -20,7 +20,7 @@ var Modal = React.createClass({
     confirmText: React.PropTypes.string,
     cancelText: React.PropTypes.string,
     closeIcon: React.PropTypes.bool,
-    closeViaDimmer: React.PropTypes.bool
+    closeViaDimmer: React.PropTypes.bool,
   },
 
   getDefaultProps: function() {
@@ -246,7 +246,10 @@ var Modal = React.createClass({
       >
         <div className={this.prefixClass('dialog')}>
           {this.renderHeader()}
-          <div className={this.prefixClass('bd')} ref="modalBody">
+          <div
+            className={this.prefixClass('bd')}
+            ref="modalBody"
+          >
             {props.type === 'loading' ?
               (props.children ? props.children : <Icon icon="spinner" spin />) :
               props.children}
