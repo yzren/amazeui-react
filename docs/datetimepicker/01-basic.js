@@ -4,7 +4,13 @@ var onSelect = function(date) {
 
 var DateTimeInputInstance = (
   <div>
-    <DateTimeInput onSelect={onSelect} />
+    <table>
+      <tbody>
+        <tr>
+          <td><DateTimeInput onSelect={onSelect} /></td>
+        </tr>
+      </tbody>
+    </table>
     <DateTimeInput dateTime="2015-05-20 12:12" />
   </div>
 );
