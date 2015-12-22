@@ -56,15 +56,19 @@ var DateTimeInput = React.createClass({
     this.bindOuterHandlers();
 
     var positionNode = ReactDOM.findDOMNode(this.refs.dateInput);
+    // fixes #57
+    // @see http://stackoverflow.com/questions/1044988/getting-offsettop-of-element-in-a-table
+    var rect = positionNode.getBoundingClientRect();
     var offset = {
-      top: positionNode.offsetTop + positionNode.offsetHeight,
-      left: positionNode.offsetLeft
+      top: rect.top + positionNode.offsetHeight,
+      left: rect.left
     };
+
     var styles = {
       display: 'block',
       top: offset.top,
       left: offset.left,
-      position: 'absolute',
+      position: 'fixed',
       zIndex: 1120
     };
 
