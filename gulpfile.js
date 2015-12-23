@@ -281,9 +281,9 @@ gulp.task('examples', function() {
             }).transform('browserify-shim', {global: true})
               .transform('babelify')
               .bundle(function(err, src) {
-              res.setHeader('Content-Type', 'application/javascript');
-              res.end(src.toString());
-            });
+                res.setHeader('Content-Type', 'application/javascript');
+                res.end(src.toString());
+              });
           }
           next();
         },
