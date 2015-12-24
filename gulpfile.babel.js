@@ -57,9 +57,8 @@ gulp.task('build', () => {
 });
 
 var docBundler = () => {
-  var s = gulp.src('docs/app2.js')
-    .pipe(webpack(docsConfig))
-    .pipe($.replace('__VERSION__', pkg.version));
+  var s = gulp.src('docs/app.js')
+    .pipe(webpack(docsConfig));
 
   return !isProduction ? s.pipe(gulp.dest(paths.dist.docs))
     .pipe($.size({
@@ -80,31 +79,7 @@ var docBundler = () => {
     }));
 };
 
-gulp.task('docs:js', docBundler);
-
-gulp.task('docs:copy', () => {
-  return gulp.src('./docs/index.html')
-    .pipe($.replace(/{{assets.'(.+)'.{0,1}(|min)}}/g, function(match, $1, $2) {
-      var file = $1;
-
-      if ($2 && isProduction) {
-        var extname = path.extname($1);
-
-        file = $1.replace(extname, '.') + $2 + extname;
-      }
-      // return isProduction ? '/react/' + file : file;
-      return isProduction ? 'http://s.amazeui.org/assets/react/' + file : file;
-    }))
-    .pipe($.replace(/<script id="stat">[\s\S]*<\/script>/g, function(match) {
-      return isProduction ? match : '';
-    }))
-    .pipe($.replace(/__UICDN__/g, function(match, $1) {
-      return isProduction ? 'http://cdn.amazeui.org/amazeui/2.4.0/' : '';
-    }))
-    .pipe(gulp.dest(paths.dist.docs));
-});
-
-gulp.task('docs', ['docs:js', 'docs:copy']);
+gulp.task('docs', docBundler);
 
 // upload docs assets to Qiniu
 gulp.task('docs:qn', function() {
@@ -200,5 +175,3 @@ gulp.task('release', function(cb) {
 });
 
 gulp.task('default', ['dev', 'build', 'watch']);
-
-// 使用 https://www.npmjs.com/package/html-webpack-plugin 生成首页

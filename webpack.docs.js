@@ -1,9 +1,8 @@
-var path = require('path');
-
-/*import path from 'path';
+import path from 'path';
 import webpack from 'webpack';
 import marked from 'marked';
 import hl from 'highlight.js';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const codeRenderer = function(code, lang) {
@@ -20,20 +19,19 @@ const codeRenderer = function(code, lang) {
 };
 
 let renderer = new marked.Renderer();
-renderer.code = codeRenderer;*/
+renderer.code = codeRenderer;
 
-module.exports = {
-  // debug: !isProduction,
+export default {
+  debug: !isProduction,
   // devtool: !isProduction ? 'eval-source-map' : null,
-  entry: './docs/app2.js',
   output: {
     path: path.join(__dirname, 'www'),
-    filename: 'app.js',
+    filename: `app.[hash]${isProduction ? '.min' : ''}.js`,
   },
   module: {
     // noParse: /babel-core/,
     loaders: [
-      /*{
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
@@ -56,28 +54,41 @@ module.exports = {
       {
         test: /\.md$/,
         loader: 'html!markdown'
-      },*/
+      },
       {
         test: /\.jpe?g$|\.gif$|\.png|\.ico$/,
-        loader: 'file?name=[name].[ext]'
+        loader: 'file?name=[path][name].[ext]&context=docs/assets'
       },
     ]
   },
-  /*plugins: [
+  plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
       }
-    })
+    }),
+    new HTMLWebpackPlugin({
+      title: 'Amaze UI React',
+      template: 'docs/index.html',
+      UICDN: isProduction ? 'http://cdn.amazeui.org/amazeui/2.5.0/' : '',
+      assets: isProduction ? 'http://s.amazeui.org/assets/react/' : '',
+      minify: isProduction ? {
+        removeComments: true,
+        collapseWhitespace: true
+      } : null,
+    }),
+    isProduction ? new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }) : new webpack.BannerPlugin('devlopment version'),
+
   ],
   // watch: !isProduction,
   node: {
     fs: 'empty'
   },
-  resolveLoader: {
-    root: path.join(__dirname, "node_modules")
-  },
   markdownLoader: {
     renderer: renderer
-  }*/
+  }
 };
