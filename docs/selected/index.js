@@ -6,11 +6,11 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  multiple: fs.readFileSync(__dirname + '/02-multiple.js', 'utf-8'),
-  group: fs.readFileSync(__dirname + '/03-group.js', 'utf-8'),
-  searchBox: fs.readFileSync(__dirname + '/04-searchbox.js', 'utf-8'),
-  formSubmit: fs.readFileSync(__dirname + '/05-in-form.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  multiple: require('fs').readFileSync(__dirname + '/02-multiple.js', 'utf-8'),
+  group: require('fs').readFileSync(__dirname + '/03-group.js', 'utf-8'),
+  searchBox: require('fs').readFileSync(__dirname + '/04-searchbox.js', 'utf-8'),
+  formSubmit: require('fs').readFileSync(__dirname + '/05-in-form.js', 'utf-8')
 };
 
 module.exports = React.createClass({

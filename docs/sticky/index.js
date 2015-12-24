@@ -6,9 +6,9 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  top: fs.readFileSync(__dirname + '/02-top.js', 'utf-8'),
-  animation: fs.readFileSync(__dirname + '/03-animation.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  top: require('fs').readFileSync(__dirname + '/02-top.js', 'utf-8'),
+  animation: require('fs').readFileSync(__dirname + '/03-animation.js', 'utf-8')
 };
 
 module.exports = React.createClass({

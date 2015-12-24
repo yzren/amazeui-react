@@ -7,10 +7,10 @@ var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  title: fs.readFileSync(__dirname + '/02-title.js', 'utf-8'),
-  text: fs.readFileSync(__dirname + '/03-text.js', 'utf-8'),
-  thumbnails: fs.readFileSync(__dirname + '/04-thumbnails.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  title: require('fs').readFileSync(__dirname + '/02-title.js', 'utf-8'),
+  text: require('fs').readFileSync(__dirname + '/03-text.js', 'utf-8'),
+  thumbnails: require('fs').readFileSync(__dirname + '/04-thumbnails.js', 'utf-8')
 };
 
 module.exports = React.createClass({

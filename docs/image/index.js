@@ -6,9 +6,9 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  radius: fs.readFileSync(__dirname + '/02-radius.js', 'utf-8'),
-  thumbnail: fs.readFileSync(__dirname + '/03-thumbnail.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  radius: require('fs').readFileSync(__dirname + '/02-radius.js', 'utf-8'),
+  thumbnail: require('fs').readFileSync(__dirname + '/03-thumbnail.js', 'utf-8')
 };
 
 var GridDoc = React.createClass({

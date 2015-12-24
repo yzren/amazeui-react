@@ -1,13 +1,12 @@
 'use strict';
 
-var fs = require('fs');
 var React = require('react');
 var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  default: fs.readFileSync(__dirname + '/01-default.js', 'utf-8'),
-  others: fs.readFileSync(__dirname + '/02-others.js', 'utf-8')
+  default: require('fs').readFileSync(__dirname + '/01-default.js', 'utf-8'),
+  others: require('fs').readFileSync(__dirname + '/02-others.js', 'utf-8')
 };
 
 var AccordionDoc = React.createClass({

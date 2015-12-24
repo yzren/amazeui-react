@@ -1,6 +1,5 @@
 'use strict';
 
-var fs = require('fs');
 var React = require('react');
 var Button = require('../../src/Button');
 var ButtonToolbar = require('../../src/ButtonToolbar');
@@ -8,21 +7,21 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  radius: fs.readFileSync(__dirname + '/02-radius.js', 'utf-8'),
-  round: fs.readFileSync(__dirname + '/03-round.js', 'utf-8'),
-  active: fs.readFileSync(__dirname + '/04-active.js', 'utf-8'),
-  disable: fs.readFileSync(__dirname + '/05-disable.js', 'utf-8'),
-  sizes: fs.readFileSync(__dirname + '/06-sizes.js', 'utf-8'),
-  block: fs.readFileSync(__dirname + '/07-block.js', 'utf-8'),
-  icon: fs.readFileSync(__dirname + '/08-icon.js', 'utf-8'),
-  group: fs.readFileSync(__dirname + '/09-group.js', 'utf-8'),
-  toolbar: fs.readFileSync(__dirname + '/10-toolbar.js', 'utf-8'),
-  groupSizes: fs.readFileSync(__dirname + '/11-goup-sizes.js', 'utf-8'),
-  groupStacked: fs.readFileSync(__dirname + '/12-goup-stacked.js', 'utf-8'),
-  groupJustify: fs.readFileSync(__dirname + '/13-goup-justify.js', 'utf-8'),
-  loadingButton: fs.readFileSync(__dirname + '/14-loading-button.js', 'utf-8'),
-  checkButton: fs.readFileSync(__dirname + '/15-check-button.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  radius: require('fs').readFileSync(__dirname + '/02-radius.js', 'utf-8'),
+  round: require('fs').readFileSync(__dirname + '/03-round.js', 'utf-8'),
+  active: require('fs').readFileSync(__dirname + '/04-active.js', 'utf-8'),
+  disable: require('fs').readFileSync(__dirname + '/05-disable.js', 'utf-8'),
+  sizes: require('fs').readFileSync(__dirname + '/06-sizes.js', 'utf-8'),
+  block: require('fs').readFileSync(__dirname + '/07-block.js', 'utf-8'),
+  icon: require('fs').readFileSync(__dirname + '/08-icon.js', 'utf-8'),
+  group: require('fs').readFileSync(__dirname + '/09-group.js', 'utf-8'),
+  toolbar: require('fs').readFileSync(__dirname + '/10-toolbar.js', 'utf-8'),
+  groupSizes: require('fs').readFileSync(__dirname + '/11-goup-sizes.js', 'utf-8'),
+  groupStacked: require('fs').readFileSync(__dirname + '/12-goup-stacked.js', 'utf-8'),
+  groupJustify: require('fs').readFileSync(__dirname + '/13-goup-justify.js', 'utf-8'),
+  loadingButton: require('fs').readFileSync(__dirname + '/14-loading-button.js', 'utf-8'),
+  checkButton: require('fs').readFileSync(__dirname + '/15-check-button.js', 'utf-8')
 };
 
 var ButtonDoc = React.createClass({

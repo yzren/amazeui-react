@@ -8,7 +8,7 @@ var Markdown = utils.Markdown;
 var Doc = utils.Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8')
 };
 
 var NavDoc = React.createClass({

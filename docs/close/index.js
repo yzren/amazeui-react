@@ -7,9 +7,9 @@ var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  alt: fs.readFileSync(__dirname + '/02-alt.js', 'utf-8'),
-  spin: fs.readFileSync(__dirname + '/03-spin.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  alt: require('fs').readFileSync(__dirname + '/02-alt.js', 'utf-8'),
+  spin: require('fs').readFileSync(__dirname + '/03-spin.js', 'utf-8')
 };
 
 var CloseDoc = React.createClass({

@@ -6,21 +6,21 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basicForm: fs.readFileSync(__dirname + '/01-basic-form.js', 'utf-8'),
-  disableField: fs.readFileSync(__dirname + '/02-disable-fieldset.js', 'utf-8'),
-  horizontal: fs.readFileSync(__dirname + '/03-horizontal-form.js', 'utf-8'),
-  inline: fs.readFileSync(__dirname + '/04-inline-form.js', 'utf-8'),
-  withIcon: fs.readFileSync(__dirname + '/05-field-icon.js', 'utf-8'),
-  fieldState: fs.readFileSync(__dirname + '/06-field-state.js', 'utf-8'),
-  stateIcon: fs.readFileSync(__dirname + '/07-field-state-icon.js', 'utf-8'),
-  sizes: fs.readFileSync(__dirname + '/08-field-sizes.js', 'utf-8'),
-  fieldSet: fs.readFileSync(__dirname + '/09-field-set.js', 'utf-8'),
-  groupBasic: fs.readFileSync(__dirname + '/10-group-basic.js', 'utf-8'),
-  groupBtn: fs.readFileSync(__dirname + '/11-group-btn.js', 'utf-8'),
-  groupSize: fs.readFileSync(__dirname + '/12-group-size.js', 'utf-8'),
-  groupStyle: fs.readFileSync(__dirname + '/13-group-style.js', 'utf-8'),
-  validation: fs.readFileSync(__dirname + '/14-validation.js', 'utf-8'),
-  ucheck: fs.readFileSync(__dirname + '/15-ucheck.js', 'utf-8')
+  basicForm: require('fs').readFileSync(__dirname + '/01-basic-form.js', 'utf-8'),
+  disableField: require('fs').readFileSync(__dirname + '/02-disable-fieldset.js', 'utf-8'),
+  horizontal: require('fs').readFileSync(__dirname + '/03-horizontal-form.js', 'utf-8'),
+  inline: require('fs').readFileSync(__dirname + '/04-inline-form.js', 'utf-8'),
+  withIcon: require('fs').readFileSync(__dirname + '/05-field-icon.js', 'utf-8'),
+  fieldState: require('fs').readFileSync(__dirname + '/06-field-state.js', 'utf-8'),
+  stateIcon: require('fs').readFileSync(__dirname + '/07-field-state-icon.js', 'utf-8'),
+  sizes: require('fs').readFileSync(__dirname + '/08-field-sizes.js', 'utf-8'),
+  fieldSet: require('fs').readFileSync(__dirname + '/09-field-set.js', 'utf-8'),
+  groupBasic: require('fs').readFileSync(__dirname + '/10-group-basic.js', 'utf-8'),
+  groupBtn: require('fs').readFileSync(__dirname + '/11-group-btn.js', 'utf-8'),
+  groupSize: require('fs').readFileSync(__dirname + '/12-group-size.js', 'utf-8'),
+  groupStyle: require('fs').readFileSync(__dirname + '/13-group-style.js', 'utf-8'),
+  validation: require('fs').readFileSync(__dirname + '/14-validation.js', 'utf-8'),
+  ucheck: require('fs').readFileSync(__dirname + '/15-ucheck.js', 'utf-8')
 };
 
 var FormDoc = React.createClass({
