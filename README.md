@@ -21,22 +21,38 @@
 
 ```
 ├── package.json
-├── dist          # 构建目录
-├── docs          # 文档及测试示例
-├── src           # 组件源文件（JSX）
-└── utils
+├── dist          # UMD 包构建目录
+├── docs          # 文档源文件
+├── examples      # 示例
+├── lib           # npm 包构建目录
+├── www           # 文档构建目录
+└── src           # 组件源文件（JSX）
 ```
 
-### 开发及文档
+### 开发
+
+使用之前先安装相关依赖：
 
 ```
-gulp dev
+npm install gulp -g && npm install
 ```
 
-### 构建
+- 开发及文档
 
-```
-gulp build
-```
+  ```
+  npm start
+  ```
+
+- 构建
+
+  ```
+  npm run build
+  ```
+
+- 示例
+
+  ```
+  npm run examples
+  ```
 
 [amazeui]: https://github.com/allmobilize/amazeui
