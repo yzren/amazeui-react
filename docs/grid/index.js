@@ -6,16 +6,16 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basicGrid: fs.readFileSync(__dirname + '/01-basic-grid.js', 'utf-8'),
-  responsiveGrid: fs.readFileSync(__dirname + '/02-responsive-grid.js', 'utf-8'),
-  fixedGrid: fs.readFileSync(__dirname + '/03-fixed-grid.js', 'utf-8'),
-  container: fs.readFileSync(__dirname + '/04-fullwidth-col.js', 'utf-8'),
-  rows: fs.readFileSync(__dirname + '/05-rows.js', 'utf-8'),
-  endProp: fs.readFileSync(__dirname + '/06-end-prop.js', 'utf-8'),
-  colOffset: fs.readFileSync(__dirname + '/07-col-offset.js', 'utf-8'),
-  centered: fs.readFileSync(__dirname + '/08-centered.js', 'utf-8'),
-  pushPull: fs.readFileSync(__dirname + '/09-push-pull.js', 'utf-8'),
-  collapse: fs.readFileSync(__dirname + '/10-collapse.js', 'utf-8')
+  basicGrid: require('fs').readFileSync(__dirname + '/01-basic-grid.js', 'utf-8'),
+  responsiveGrid: require('fs').readFileSync(__dirname + '/02-responsive-grid.js', 'utf-8'),
+  fixedGrid: require('fs').readFileSync(__dirname + '/03-fixed-grid.js', 'utf-8'),
+  container: require('fs').readFileSync(__dirname + '/04-fullwidth-col.js', 'utf-8'),
+  rows: require('fs').readFileSync(__dirname + '/05-rows.js', 'utf-8'),
+  endProp: require('fs').readFileSync(__dirname + '/06-end-prop.js', 'utf-8'),
+  colOffset: require('fs').readFileSync(__dirname + '/07-col-offset.js', 'utf-8'),
+  centered: require('fs').readFileSync(__dirname + '/08-centered.js', 'utf-8'),
+  pushPull: require('fs').readFileSync(__dirname + '/09-push-pull.js', 'utf-8'),
+  collapse: require('fs').readFileSync(__dirname + '/10-collapse.js', 'utf-8')
 };
 
 var GridDoc = React.createClass({

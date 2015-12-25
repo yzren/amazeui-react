@@ -6,11 +6,11 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  default: fs.readFileSync(__dirname + '/01-default.js', 'utf-8'),
-  dropdown1: fs.readFileSync(__dirname + '/02-dropdown1.js', 'utf-8'),
-  dropdown2: fs.readFileSync(__dirname + '/03-dropdown2.js', 'utf-8'),
-  slide1: fs.readFileSync(__dirname + '/04-slide1.js', 'utf-8'),
-  stack: fs.readFileSync(__dirname + '/05-stack.js', 'utf-8')
+  default: require('fs').readFileSync(__dirname + '/01-default.js', 'utf-8'),
+  dropdown1: require('fs').readFileSync(__dirname + '/02-dropdown1.js', 'utf-8'),
+  dropdown2: require('fs').readFileSync(__dirname + '/03-dropdown2.js', 'utf-8'),
+  slide1: require('fs').readFileSync(__dirname + '/04-slide1.js', 'utf-8'),
+  stack: require('fs').readFileSync(__dirname + '/05-stack.js', 'utf-8')
 };
 
 module.exports = React.createClass({

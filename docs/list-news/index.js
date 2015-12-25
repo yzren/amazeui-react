@@ -6,12 +6,12 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  default: fs.readFileSync(__dirname + '/01-default.js', 'utf-8'),
-  desc: fs.readFileSync(__dirname + '/02-desc.js', 'utf-8'),
-  thumbTop: fs.readFileSync(__dirname + '/03-thumb-top.js', 'utf-8'),
-  thumbLeft: fs.readFileSync(__dirname + '/04-thumb-left.js', 'utf-8'),
-  thumbBottom: fs.readFileSync(__dirname + '/05-thumb-bottm.js', 'utf-8'),
-  withTitlebar: fs.readFileSync(__dirname + '/06-with-titlebar.js', 'utf-8')
+  default: require('fs').readFileSync(__dirname + '/01-default.js', 'utf-8'),
+  desc: require('fs').readFileSync(__dirname + '/02-desc.js', 'utf-8'),
+  thumbTop: require('fs').readFileSync(__dirname + '/03-thumb-top.js', 'utf-8'),
+  thumbLeft: require('fs').readFileSync(__dirname + '/04-thumb-left.js', 'utf-8'),
+  thumbBottom: require('fs').readFileSync(__dirname + '/05-thumb-bottm.js', 'utf-8'),
+  withTitlebar: require('fs').readFileSync(__dirname + '/06-with-titlebar.js', 'utf-8')
 };
 
 module.exports = React.createClass({

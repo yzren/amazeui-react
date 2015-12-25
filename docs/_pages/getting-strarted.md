@@ -58,8 +58,7 @@ Amaze UI React 源代码托管在 GitHub 上，你可以点击下面的按钮获
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
   <meta name="keywords" content="">
-  <meta name="viewport"
-        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Amaze UI React</title>
   <meta name="renderer" content="webkit">
   <!-- No Baidu Siteapp-->

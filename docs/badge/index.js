@@ -8,10 +8,10 @@ var Markdown = utils.Markdown;
 var Doc = utils.Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  round: fs.readFileSync(__dirname + '/02-round.js', 'utf-8'),
-  radius: fs.readFileSync(__dirname + '/03-radius.js', 'utf-8'),
-  size: fs.readFileSync(__dirname + '/04-size.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  round: require('fs').readFileSync(__dirname + '/02-round.js', 'utf-8'),
+  radius: require('fs').readFileSync(__dirname + '/03-radius.js', 'utf-8'),
+  size: require('fs').readFileSync(__dirname + '/04-size.js', 'utf-8')
 };
 
 var BadgeDoc = React.createClass({

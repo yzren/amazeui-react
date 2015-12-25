@@ -1,24 +1,36 @@
-'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactRouter, {
+  Router,
+  Route,
+  IndexRoute,
+} from 'react-router';
+import History, {
+  createHistory,
+  useBasename,
+} from 'history';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
-var History = require('history');
-var createHistory = History.createHistory;
-var useBasename = History.useBasename;
-var history = useBasename(createHistory)({
+const history = useBasename(createHistory)({
   basename: '/react'
 });
 
-var GoTop = require('../src/GoTop');
-var production = require('./utils').isProduction;
-var DocHeader = require('./zero/DocHeader');
-var DocFooter = require('./zero/DocFooter');
+// style
+import './docs.less';
 
-var App = React.createClass({
+// img
+// TODO: https://github.com/shama/webpack-stream/issues/99
+import './assets/i/app-icon72x72@2x.png';
+import './assets/i/favicon.png';
+import './assets/i/mascot-react.png';
+
+import GoTop from '../src/GoTop';
+import {
+  isProduction as production,
+} from './utils';
+import DocHeader from './_pages/DocHeader';
+import DocFooter from './_pages/DocFooter';
+
+const App = React.createClass({
   render: function() {
     return (
       <div className="amr-page">
@@ -32,13 +44,13 @@ var App = React.createClass({
 });
 
 // Pages
-var PageIndex = require('./zero/PageIndex');
-var PageGettingStarted = require('./zero/PageGettingStarted');
-var PageComponents = require('./zero/PageComponents');
-var PageComponentsIndex = require('./zero/PageComponentsIndex');
-var PageComponentsDoc = require('./zero/PageComponentsDoc');
+import PageIndex from './_pages/PageIndex';
+import PageGettingStarted from './_pages/PageGettingStarted';
+import PageComponents from './_pages/PageComponents';
+import PageComponentsIndex from './_pages/PageComponentsIndex';
+import PageComponentsDoc from './_pages/PageComponentsDoc';
 
-var routes = (
+const routes = (
   <Router history={production ? history : null}>
     <Route path="/" component={App}>
       <Route path="getting-started" component={PageGettingStarted} />

@@ -8,12 +8,12 @@ var Markdown = utils.Markdown;
 var Doc = utils.Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  buttonStyle: fs.readFileSync(__dirname + '/02-button-style.js', 'utf-8'),
-  size: fs.readFileSync(__dirname + '/03-size.js', 'utf-8'),
-  spin: fs.readFileSync(__dirname + '/04-spin.js', 'utf-8'),
-  fw: fs.readFileSync(__dirname + '/05-fw.js', 'utf-8'),
-  anchor: fs.readFileSync(__dirname + '/06-anchor.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  buttonStyle: require('fs').readFileSync(__dirname + '/02-button-style.js', 'utf-8'),
+  size: require('fs').readFileSync(__dirname + '/03-size.js', 'utf-8'),
+  spin: require('fs').readFileSync(__dirname + '/04-spin.js', 'utf-8'),
+  fw: require('fs').readFileSync(__dirname + '/05-fw.js', 'utf-8'),
+  anchor: require('fs').readFileSync(__dirname + '/06-anchor.js', 'utf-8')
 };
 
 var IconDoc = React.createClass({

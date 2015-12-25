@@ -8,11 +8,11 @@ var Markdown = utils.Markdown;
 var Doc = utils.Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  truncate: fs.readFileSync(__dirname + '/02-truncate.js', 'utf-8'),
-  border: fs.readFileSync(__dirname + '/03-border.js', 'utf-8'),
-  striped: fs.readFileSync(__dirname + '/04-striped.js', 'utf-8'),
-  badge: fs.readFileSync(__dirname + '/05-badge.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  truncate: require('fs').readFileSync(__dirname + '/02-truncate.js', 'utf-8'),
+  border: require('fs').readFileSync(__dirname + '/03-border.js', 'utf-8'),
+  striped: require('fs').readFileSync(__dirname + '/04-striped.js', 'utf-8'),
+  badge: require('fs').readFileSync(__dirname + '/05-badge.js', 'utf-8')
 };
 
 var ListDoc = React.createClass({

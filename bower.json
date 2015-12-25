@@ -1,6 +1,5 @@
 {
   "name": "amazeui-react",
-  "version": "1.0.0",
   "description": "Amaze UI components build with React.",
   "keywords": [
     "css",
@@ -16,10 +15,14 @@
     "react",
     "amazeui-react"
   ],
-  "homepage": "http://amazeui.org/react",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
   "main": [
-    "dist/js/amazeui.react.js",
-    "dist/js/amazeui.react.min.js"
+    "dist/amazeui.react.js",
+    "dist/amazeui.react.min.js"
   ],
   "ignore": [
     "/.*",
@@ -47,8 +50,9 @@
     "url": "git://github.com/amazeui/amazeui-react.git"
   },
   "dependencies": {
-    "react": "^0.13.3",
-    "amazeui": "^2.4.0"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "amazeui": "^2.5.0"
   },
   "license": "MIT"
 }

@@ -8,9 +8,9 @@ var Markdown = utils.Markdown;
 var Doc = utils.Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  slash: fs.readFileSync(__dirname + '/02-slash.js', 'utf-8'),
-  icon: fs.readFileSync(__dirname + '/03-icon.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  slash: require('fs').readFileSync(__dirname + '/02-slash.js', 'utf-8'),
+  icon: require('fs').readFileSync(__dirname + '/03-icon.js', 'utf-8')
 };
 
 var BreadcrumbDoc = React.createClass({

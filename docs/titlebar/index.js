@@ -6,9 +6,9 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  default: fs.readFileSync(__dirname + '/01-default.js', 'utf-8'),
-  multi: fs.readFileSync(__dirname + '/02-multi.js', 'utf-8'),
-  cols: fs.readFileSync(__dirname + '/03-cols.js', 'utf-8')
+  default: require('fs').readFileSync(__dirname + '/01-default.js', 'utf-8'),
+  multi: require('fs').readFileSync(__dirname + '/02-multi.js', 'utf-8'),
+  cols: require('fs').readFileSync(__dirname + '/03-cols.js', 'utf-8')
 };
 
 module.exports = React.createClass({

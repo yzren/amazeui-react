@@ -6,10 +6,10 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  default: fs.readFileSync(__dirname + '/01-default.js', 'utf-8'),
-  customIcon: fs.readFileSync(__dirname + '/01-default-customicon.js', 'utf-8'),
-  iconText: fs.readFileSync(__dirname + '/01-default-icontext.js', 'utf-8'),
-  multIcon: fs.readFileSync(__dirname + '/01-default-multicon.js', 'utf-8')
+  default: require('fs').readFileSync(__dirname + '/01-default.js', 'utf-8'),
+  customIcon: require('fs').readFileSync(__dirname + '/01-default-customicon.js', 'utf-8'),
+  iconText: require('fs').readFileSync(__dirname + '/01-default-icontext.js', 'utf-8'),
+  multIcon: require('fs').readFileSync(__dirname + '/01-default-multicon.js', 'utf-8')
 };
 
 module.exports = React.createClass({

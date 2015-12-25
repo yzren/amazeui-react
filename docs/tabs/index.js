@@ -6,13 +6,13 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  setActive: fs.readFileSync(__dirname + '/02-setActive.js', 'utf-8'),
-  select: fs.readFileSync(__dirname + '/03-select.js', 'utf-8'),
-  justify: fs.readFileSync(__dirname + '/04-justify.js', 'utf-8'),
-  animation: fs.readFileSync(__dirname + '/05-animation.js', 'utf-8'),
-  data: fs.readFileSync(__dirname + '/06-data.js', 'utf-8'),
-  d2: fs.readFileSync(__dirname + '/06-data-d2.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  setActive: require('fs').readFileSync(__dirname + '/02-setActive.js', 'utf-8'),
+  select: require('fs').readFileSync(__dirname + '/03-select.js', 'utf-8'),
+  justify: require('fs').readFileSync(__dirname + '/04-justify.js', 'utf-8'),
+  animation: require('fs').readFileSync(__dirname + '/05-animation.js', 'utf-8'),
+  data: require('fs').readFileSync(__dirname + '/06-data.js', 'utf-8'),
+  d2: require('fs').readFileSync(__dirname + '/06-data-d2.js', 'utf-8')
 };
 
 var TabsDoc = React.createClass({

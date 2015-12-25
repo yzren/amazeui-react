@@ -6,15 +6,15 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  default: fs.readFileSync(__dirname + '/01-default.js', 'utf-8'),
-  defaultThumb: fs.readFileSync(__dirname + '/01-default-thumb.js', 'utf-8'),
-  defaultTitle: fs.readFileSync(__dirname + '/01-default-title.js', 'utf-8'),
-  a: fs.readFileSync(__dirname + '/02-a.js', 'utf-8'),
-  b: fs.readFileSync(__dirname + '/03-b.js', 'utf-8'),
-  c: fs.readFileSync(__dirname + '/04-c.js', 'utf-8'),
-  d1: fs.readFileSync(__dirname + '/05-d1.js', 'utf-8'),
-  d2: fs.readFileSync(__dirname + '/05-d2.js', 'utf-8'),
-  d3: fs.readFileSync(__dirname + '/05-d3.js', 'utf-8')
+  default: require('fs').readFileSync(__dirname + '/01-default.js', 'utf-8'),
+  defaultThumb: require('fs').readFileSync(__dirname + '/01-default-thumb.js', 'utf-8'),
+  defaultTitle: require('fs').readFileSync(__dirname + '/01-default-title.js', 'utf-8'),
+  a: require('fs').readFileSync(__dirname + '/02-a.js', 'utf-8'),
+  b: require('fs').readFileSync(__dirname + '/03-b.js', 'utf-8'),
+  c: require('fs').readFileSync(__dirname + '/04-c.js', 'utf-8'),
+  d1: require('fs').readFileSync(__dirname + '/05-d1.js', 'utf-8'),
+  d2: require('fs').readFileSync(__dirname + '/05-d2.js', 'utf-8'),
+  d3: require('fs').readFileSync(__dirname + '/05-d3.js', 'utf-8')
 };
 
 var SliderDoc = React.createClass({

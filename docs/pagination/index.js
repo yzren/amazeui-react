@@ -7,12 +7,12 @@ var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  centered: fs.readFileSync(__dirname + '/02-centered.js', 'utf-8'),
-  right: fs.readFileSync(__dirname + '/03-right.js', 'utf-8'),
-  prevNext: fs.readFileSync(__dirname + '/04-prevNext.js', 'utf-8'),
-  dataDefault: fs.readFileSync(__dirname + '/05-data.js', 'utf-8'),
-  dataSelect: fs.readFileSync(__dirname + '/05-data-select.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  centered: require('fs').readFileSync(__dirname + '/02-centered.js', 'utf-8'),
+  right: require('fs').readFileSync(__dirname + '/03-right.js', 'utf-8'),
+  prevNext: require('fs').readFileSync(__dirname + '/04-prevNext.js', 'utf-8'),
+  dataDefault: require('fs').readFileSync(__dirname + '/05-data.js', 'utf-8'),
+  dataSelect: require('fs').readFileSync(__dirname + '/05-data-select.js', 'utf-8')
 };
 
 var PaginationDoc = React.createClass({

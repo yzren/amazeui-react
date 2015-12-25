@@ -6,9 +6,9 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  styles: fs.readFileSync(__dirname + '/02-styles.js', 'utf-8'),
-  closeAble: fs.readFileSync(__dirname + '/03-closeable.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  styles: require('fs').readFileSync(__dirname + '/02-styles.js', 'utf-8'),
+  closeAble: require('fs').readFileSync(__dirname + '/03-closeable.js', 'utf-8')
 };
 
 var GridDoc = React.createClass({

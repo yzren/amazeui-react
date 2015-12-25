@@ -6,8 +6,8 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  responsive: fs.readFileSync(__dirname + '/02-responsive.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  responsive: require('fs').readFileSync(__dirname + '/02-responsive.js', 'utf-8')
 };
 
 var GridDoc = React.createClass({

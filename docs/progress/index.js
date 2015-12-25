@@ -8,12 +8,12 @@ var Markdown = utils.Markdown;
 var Doc = utils.Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  style: fs.readFileSync(__dirname + '/02-style.js', 'utf-8'),
-  size: fs.readFileSync(__dirname + '/03-size.js', 'utf-8'),
-  striped: fs.readFileSync(__dirname + '/04-striped.js', 'utf-8'),
-  active: fs.readFileSync(__dirname + '/05-active.js', 'utf-8'),
-  stacked: fs.readFileSync(__dirname + '/06-stacked.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  style: require('fs').readFileSync(__dirname + '/02-style.js', 'utf-8'),
+  size: require('fs').readFileSync(__dirname + '/03-size.js', 'utf-8'),
+  striped: require('fs').readFileSync(__dirname + '/04-striped.js', 'utf-8'),
+  active: require('fs').readFileSync(__dirname + '/05-active.js', 'utf-8'),
+  stacked: require('fs').readFileSync(__dirname + '/06-stacked.js', 'utf-8')
 };
 
 var ProgressDoc = React.createClass({

@@ -6,8 +6,8 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  default: fs.readFileSync(__dirname + '/01-default.js', 'utf-8'),
-  data: fs.readFileSync(__dirname + '/02-data.js', 'utf-8')
+  default: require('fs').readFileSync(__dirname + '/01-default.js', 'utf-8'),
+  data: require('fs').readFileSync(__dirname + '/02-data.js', 'utf-8')
 };
 
 module.exports = React.createClass({

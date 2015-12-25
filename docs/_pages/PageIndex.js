@@ -1,9 +1,7 @@
 'use strict';
 
 var React = require('react');
-
 var Link = require('react-router').Link;
-
 var Grid = require('../../src/Grid');
 var Col = require('../../src/Col');
 var Container = require('../../src/Container');

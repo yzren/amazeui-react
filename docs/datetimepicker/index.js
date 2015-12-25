@@ -7,17 +7,17 @@ var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 
 var examples = {
-  basic: fs.readFileSync(__dirname + '/01-basic.js', 'utf-8'),
-  theme: fs.readFileSync(__dirname + '/02-theme.js', 'utf-8'),
-  format: fs.readFileSync(__dirname + '/03-format.js', 'utf-8'),
-  viewMode: fs.readFileSync(__dirname + '/04-view-mode.js', 'utf-8'),
-  minViewMode: fs.readFileSync(__dirname + '/05-min-view-mode.js', 'utf-8'),
-  disabled: fs.readFileSync(__dirname + '/06-disabled.js', 'utf-8'),
-  weekStart: fs.readFileSync(__dirname + '/07-week-start.js', 'utf-8'),
-  alone: fs.readFileSync(__dirname + '/08-alone.js', 'utf-8'),
-  language: fs.readFileSync(__dirname + '/09-language.js', 'utf-8'),
-  dateTimePicker: fs.readFileSync(__dirname + '/10-date-time-picker.js', 'utf-8'),
-  onClose: fs.readFileSync(__dirname + '/11-onClose.js', 'utf-8')
+  basic: require('fs').readFileSync(__dirname + '/01-basic.js', 'utf-8'),
+  theme: require('fs').readFileSync(__dirname + '/02-theme.js', 'utf-8'),
+  format: require('fs').readFileSync(__dirname + '/03-format.js', 'utf-8'),
+  viewMode: require('fs').readFileSync(__dirname + '/04-view-mode.js', 'utf-8'),
+  minViewMode: require('fs').readFileSync(__dirname + '/05-min-view-mode.js', 'utf-8'),
+  disabled: require('fs').readFileSync(__dirname + '/06-disabled.js', 'utf-8'),
+  weekStart: require('fs').readFileSync(__dirname + '/07-week-start.js', 'utf-8'),
+  alone: require('fs').readFileSync(__dirname + '/08-alone.js', 'utf-8'),
+  language: require('fs').readFileSync(__dirname + '/09-language.js', 'utf-8'),
+  dateTimePicker: require('fs').readFileSync(__dirname + '/10-date-time-picker.js', 'utf-8'),
+  onClose: require('fs').readFileSync(__dirname + '/11-onClose.js', 'utf-8')
 };
 
 var DateTimePickerDoc = React.createClass({

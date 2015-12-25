@@ -2,8 +2,10 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var babel = require('babel-core');
-var babelPresetReact = require('babel-preset-react');
+// WTF: babel-core 6 dose not work with webpack...
+// var babel = require('babel-core');
+// var babelPresetReact = require('babel-preset-react');
+var babel = require('babel-standalone');
 var CodeMirror = require('codemirror');
 var Link = require('react-router').Link;
 
@@ -219,7 +221,7 @@ var ReactBin = React.createClass({
 
     try {
       var code = babel.transform(this.state.code, {
-        presets: [babelPresetReact]
+        presets: ['react']
       }).code;
 
       if (this.props.renderCode) {

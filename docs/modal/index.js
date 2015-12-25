@@ -6,13 +6,13 @@ var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;
 var Doc = require('../utils').Doc;
 var examples = {
-  default: fs.readFileSync(__dirname + '/01-default.js', 'utf-8'),
-  alert: fs.readFileSync(__dirname + '/02-alert.js', 'utf-8'),
-  confirm: fs.readFileSync(__dirname + '/03-confirm.js', 'utf-8'),
-  prompt: fs.readFileSync(__dirname + '/04-prompt.js', 'utf-8'),
-  loading: fs.readFileSync(__dirname + '/05-loading.js', 'utf-8'),
-  actions: fs.readFileSync(__dirname + '/06-actions.js', 'utf-8'),
-  popup: fs.readFileSync(__dirname + '/07-popup.js', 'utf-8')
+  default: require('fs').readFileSync(__dirname + '/01-default.js', 'utf-8'),
+  alert: require('fs').readFileSync(__dirname + '/02-alert.js', 'utf-8'),
+  confirm: require('fs').readFileSync(__dirname + '/03-confirm.js', 'utf-8'),
+  prompt: require('fs').readFileSync(__dirname + '/04-prompt.js', 'utf-8'),
+  loading: require('fs').readFileSync(__dirname + '/05-loading.js', 'utf-8'),
+  actions: require('fs').readFileSync(__dirname + '/06-actions.js', 'utf-8'),
+  popup: require('fs').readFileSync(__dirname + '/07-popup.js', 'utf-8')
 };
 
 module.exports = React.createClass({
