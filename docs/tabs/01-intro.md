@@ -3,7 +3,7 @@
 - `defaultActiveKey`: `any` - 默认激活的标签页的 `eventKey`；
 - `animation`: `string` - ['fade'|'slide'] 动画效果。
 - `justify`: `bool` 标题宽度自适应；
-- `onSelect`: `func` 点击标签时回掉函数。
+- `onSelect`: `func` 点击标签时回调函数。
 
 `<Tabs.Item>`，标签面板，包含以下属性：
 

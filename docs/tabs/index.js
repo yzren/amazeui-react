@@ -32,7 +32,7 @@ var TabsDoc = React.createClass({
         <p>在<code>Tabs.Item</code> 增加 <code>disabled</code> 属性禁用该标签页。</p>
         <ReactBin code={examples.setActive} />
 
-        <h3>回掉函数</h3>
+        <h3>回调函数</h3>
         <ReactBin code={examples.select} />
 
         <h3>宽度自适应</h3>
