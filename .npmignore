@@ -1,9 +1,10 @@
 /.idea
 /node_modules
-/dist/docs
-/dist/*.zip
+/www
 /utils
 /docs
+/src
+/examples
 CONTRIBUTING.md
 .travis.yml
 gulpfile.js
@@ -11,6 +12,5 @@ gulpfile.js
 .eslintrc
 .editorconfig
 /bower.json
-/src
 preprocessor.js
-/examples
+/webpack.*.js

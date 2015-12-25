@@ -30,7 +30,6 @@ import {
 import DocHeader from './_pages/DocHeader';
 import DocFooter from './_pages/DocFooter';
 
-
 const App = React.createClass({
   render: function() {
     return (

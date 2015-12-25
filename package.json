@@ -5,7 +5,10 @@
   "description": "Amaze UI components build with React.",
   "main": "lib/AMUIReact.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/jest"
+    "test": "node ./node_modules/.bin/jest",
+    "start": "gulp",
+    "build": "NODE_ENV=production gulp build",
+    "examples": "gulp examples"
   },
   "repository": {
     "type": "git",

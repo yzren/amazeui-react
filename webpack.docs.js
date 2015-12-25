@@ -21,13 +21,55 @@ const codeRenderer = function(code, lang) {
 let renderer = new marked.Renderer();
 renderer.code = codeRenderer;
 
+const entry = './docs/app.js';
+const devEntry = [
+  'webpack/hot/dev-server',
+  'webpack-hot-middleware/client?reload=true',
+  entry,
+];
+const basePlugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }
+  }),
+  new HTMLWebpackPlugin({
+    title: 'Amaze UI React',
+    template: 'docs/index.html',
+    UICDN: isProduction ? 'http://cdn.amazeui.org/amazeui/2.5.0/' : '',
+    assets: isProduction ? 'http://s.amazeui.org/assets/react' : '',
+    minify: isProduction ? {
+      removeComments: true,
+      collapseWhitespace: true
+    } : null,
+  }),
+];
+const envPlugins = isProduction ? [
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }),
+  new webpack.BannerPlugin(`Last update: ${new Date().toString()}`),
+] : [
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin(),
+];
+
 export default {
   debug: !isProduction,
-  // devtool: !isProduction ? 'eval-source-map' : null,
+  devtool: !isProduction ? '#eval-source-map' : null,
+
+  entry: isProduction ? entry : devEntry,
+
   output: {
     path: path.join(__dirname, 'www'),
     filename: `app.[hash]${isProduction ? '.min' : ''}.js`,
+    chunkFilename: '[id].chunk.js',
+    publicPath: '/'
   },
+
   module: {
     // noParse: /babel-core/,
     loaders: [
@@ -35,6 +77,7 @@ export default {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
+          'react-hot',
           'transform/cacheable?brfs',
           'babel'
         ],
@@ -61,33 +104,14 @@ export default {
       },
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-      }
-    }),
-    new HTMLWebpackPlugin({
-      title: 'Amaze UI React',
-      template: 'docs/index.html',
-      UICDN: isProduction ? 'http://cdn.amazeui.org/amazeui/2.5.0/' : '',
-      assets: isProduction ? 'http://s.amazeui.org/assets/react/' : '',
-      minify: isProduction ? {
-        removeComments: true,
-        collapseWhitespace: true
-      } : null,
-    }),
-    isProduction ? new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }) : new webpack.BannerPlugin('devlopment version'),
 
-  ],
+  plugins: basePlugins.concat(envPlugins),
+
   // watch: !isProduction,
   node: {
     fs: 'empty'
   },
+
   markdownLoader: {
     renderer: renderer
   }

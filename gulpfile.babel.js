@@ -3,7 +3,10 @@ import pkg from './package.json';
 import del from 'del';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
-import webpack from 'webpack-stream';
+import webpack from 'webpack';
+import webpackStream from 'webpack-stream';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
 import gulp from 'gulp';
 import loadPlugins from 'gulp-load-plugins';
 
@@ -37,11 +40,10 @@ const banner = [
   'Licensed under <%= pkg.license %>',
   buildDate + ' */\n'
 ].join(' | ');
-const buildBanner = '/*! build: ' + buildDate + ' */';
 
-gulp.task('build', () => {
+gulp.task('build:pack', () => {
   return gulp.src(paths.src.build)
-    .pipe(webpack(buildConfig))
+    .pipe(webpackStream(buildConfig))
     .on('error', function(err) {
       console.log(err);
     })
@@ -56,34 +58,49 @@ gulp.task('build', () => {
     .pipe($.size({showFiles: true, gzip: true, title: 'gzipped'}));
 });
 
-var docBundler = () => {
-  var s = gulp.src('docs/app.js')
-    .pipe(webpack(docsConfig));
-
-  return !isProduction ? s.pipe(gulp.dest(paths.dist.docs))
-    .pipe($.size({
-      showFiles: true,
-      title: 'Docs bundle'
-    })) : s.pipe($.uglify())
-    .pipe($.rename({suffix: '.min'}))
-    .pipe($.header(buildBanner))
+gulp.task('build:docs', () => {
+  return gulp.src('docs/app.js')
+    .pipe(webpackStream(docsConfig))
+    .pipe($.replace('__VERSION__', pkg.version, {skipBinary: true}))
     .pipe(gulp.dest(paths.dist.docs))
     .pipe($.size({
       showFiles: true,
-      title: 'Docs bundle minified'
+      title: 'Docs bundle'
     }))
     .pipe($.size({
       showFiles: true,
       gzip: true,
       title: 'Docs bundle gzipped'
     }));
-};
+});
 
-gulp.task('docs', docBundler);
+gulp.task('build:jsx', () => {
+  return gulp.src(['src/**/*.js', '!src/__tests__/*.js'])
+    .pipe($.if(function(file) {
+      return file.path.indexOf('AMUIReact.js') > -1;
+    }, $.replace('__VERSION__', pkg.version)))
+    .pipe($.babel())
+    .pipe(gulp.dest(paths.dist.lib));
+});
+
+gulp.task('clean', () => {
+  return del([
+    paths.dist.lib,
+    paths.dist.build,
+    paths.dist.docs,
+  ]);
+});
+
+gulp.task('build', (cb) => {
+  runSequence(
+    'clean',
+    ['build:pack', 'build:docs', 'build:jsx'],
+    cb);
+});
 
 // upload docs assets to Qiniu
-gulp.task('docs:qn', function() {
-  gulp.src(['dist/docs/**/*', '!dist/docs/**/*.html'])
+gulp.task('publish:cdn', () => {
+  gulp.src(['www/**/*', '!www/**/*.html'])
     .pipe($.qndn.upload({
       prefix: 'assets/react',
       qn: {
@@ -95,56 +112,13 @@ gulp.task('docs:qn', function() {
     }));
 });
 
-gulp.task('dev', ['docs'], function() {
-  var bs = browserSync.create();
-  bs.init({
-    notify: false,
-    logPrefix: 'AMR',
-    server: {
-      baseDir: ['www', 'node_modules/amazeui/dist'],
-      // @see https://github.com/BrowserSync/browser-sync/issues/204
-      middleware: function(req, res, next) {
-        var match = req.url.match(/\/[css|fonts|i].+\..+|\/app\.js|\/app\.min\.js/g);
-        req.url = match ? match[0] : '/index.html';
-
-        return next();
-      }
-    }
-  });
-
-  gulp.watch('docs/**/*.less', ['docs:less']);
-  gulp.watch(paths.src.docs.i, ['docs:copy:i']);
-  gulp.watch(paths.src.docs.html, ['docs:copy:html']);
-  gulp.watch(['dist/**/*'], bs.reload);
-});
-
-gulp.task('watch', function() {
-  gulp.watch('src/**/*.js', ['build']);
-});
-
-gulp.task('npm:clean', function() {
-  return del([
-    paths.dist.lib,
-    paths.dist.build
-  ]);
-});
-
-gulp.task('npm:jsx', function() {
-  return gulp.src(['src/**/*.js', '!src/__tests__/*.js'])
-    .pipe($.if(function(file) {
-      return file.path.indexOf('AMUIReact.js') > -1;
-    }, $.replace('__VERSION__', pkg.version)))
-    .pipe($.babel())
-    .pipe(gulp.dest(paths.dist.lib));
-});
-
-gulp.task('npm:publish', function(done) {
+gulp.task('publish:npm', (done) => {
   require('child_process')
     .spawn('npm', ['publish'], {stdio: 'inherit'})
     .on('close', done);
 });
 
-gulp.task('release:tag', function(done) {
+gulp.task('publish:tag', function(done) {
   var v = 'v' + pkg.version;
   var message = 'Release ' + v;
 
@@ -161,17 +135,49 @@ gulp.task('release:tag', function(done) {
   });
 });
 
-// Publish to npm
-gulp.task('npm', function(cb) {
+// TODO: complete publish tasks.
+gulp.task('publish', function(cb) {
   runSequence(
-    'npm:clean',
-    ['npm:jsx', 'build'],
-    'npm:publish',
-    cb);
+    'build',
+    [
+      // to be
+    ],cb
+  );
 });
 
-gulp.task('release', function(cb) {
-  runSequence('npm', 'realese:tag', cb);
+gulp.task('dev', () => {
+  const bundler = webpack(docsConfig);
+  const bs = browserSync.create();
+
+  bs.init({
+    logPrefix: 'AMR',
+    server: {
+      baseDir: ['www', 'node_modules/amazeui/dist'],
+      middleware: [
+        // @see https://github.com/BrowserSync/browser-sync/issues/204
+        /*function(req, res, next) {
+          var match = req.url.match(/\/[css|fonts|i].+\..+|\/app\.js|\/app\.min\.js/g);
+          req.url = match ? match[0] : '/index.html';
+
+          return next();
+        },*/
+        webpackDevMiddleware(bundler, {
+          // IMPORTANT: dev middleware can't access config, so we should
+          // provide publicPath by ourselves
+          publicPath: docsConfig.output.publicPath,
+
+          // pretty colored output
+          stats: {colors: true}
+
+          // for other settings see
+          // http://webpack.github.io/docs/webpack-dev-middleware.html
+        }),
+
+        // bundler should be the same as above
+        webpackHotMiddleware(bundler)
+      ]
+    },
+  });
 });
 
-gulp.task('default', ['dev', 'build', 'watch']);
+gulp.task('default', ['dev']);
