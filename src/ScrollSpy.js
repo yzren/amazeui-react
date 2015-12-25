@@ -51,7 +51,6 @@ var ScrollSpy = React.createClass({
   },
 
   _removeEventLister: function() {
-    console.log('remove.....');
     this._scrollListener && this._scrollListener.off();
     this._resizeListener && this._resizeListener.off();
     this._orientationListener && this._orientationListener.off();
