@@ -18,7 +18,6 @@ const history = useBasename(createHistory)({
 import './docs.less';
 
 // img
-// TODO: https://github.com/shama/webpack-stream/issues/99
 import './assets/i/app-icon72x72@2x.png';
 import './assets/i/favicon.png';
 import './assets/i/mascot-react.png';

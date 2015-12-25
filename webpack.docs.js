@@ -65,7 +65,7 @@ export default {
 
   output: {
     path: path.join(__dirname, 'www'),
-    filename: `app.[hash]${isProduction ? '.min' : ''}.js`,
+    filename: `app.[hash:7]${isProduction ? '.min' : ''}.js`,
     chunkFilename: '[id].chunk.js',
     publicPath: '/'
   },
