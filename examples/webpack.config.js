@@ -19,6 +19,8 @@ var entries = fs.readdirSync(__dirname).reduce(function(entries, dir) {
   return entries;
 }, {});
 
+console.log(__dirname);
+
 module.exports = {
   debug: true,
   devtool: '#eval-source-map',
@@ -46,7 +48,7 @@ module.exports = {
   ],
 
   resolveLoader: {
-    root: path.join(__dirname, 'node_modules')
+    root: path.join(__dirname, '../node_modules')
   },
 
   module: {
