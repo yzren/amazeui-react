@@ -1,7 +1,63 @@
 @import url("../../node_modules/amazeui/less/variables");
 
-body {
-  color: @global-warning;
-  padding: 5px;
-  animation-delay: 0.5s;
+html,
+body,
+#app-root {
+  height: 100%;
+  overflow: hidden;
 }
+
+.adm-container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 51px;
+}
+
+.am-topbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.adm-sidebar {
+  position: absolute;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  overflow-y: auto;
+  background: #f2f2f2;
+  border-right: 1px solid #ccc;
+
+  .am-list a {
+    padding-left: 15px;
+    color: #444;
+
+    &.active {
+      background: #f8f8f8;
+      color: #333;
+    }
+
+    [class*="am-icon-"] {
+      color: #888;
+    }
+  }
+}
+
+.adm-sidebar-sub {
+  display: none;
+  padding-left: 1em;
+  margin: 0;
+  background: #f2f2f2;
+
+  .sub-active & {
+    display: block;
+  }
+}
+
+.adm-main {
+  margin-left: 260px;
+  height: 100%;
+}
+
+
