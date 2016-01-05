@@ -6,7 +6,7 @@ import {
   IndexRoute,
 } from 'react-router';
 import {
-  Breadcrumb,
+  Icon,
 } from 'amazeui-react';
 
 // style
@@ -15,22 +15,47 @@ import './app.less';
 // components
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import Home from './components/Home';
+import PageContainer from './components/PageContainer';
+import Home from './pages/Home';
+import About from './pages/About';
+
+const pages = {
+  home: Home,
+  about: About,
+};
 
 var App = React.createClass({
+  getInitialState() {
+    return {
+      sidebarActive: false,
+    };
+  },
+
+  toggleSidebar() {
+    this.setState({
+      sidebarActive: !this.state.sidebarActive
+    });
+  },
+
   render() {
+    const {
+      sidebarActive,
+      } = this.state;
+
     return (
       <div className="adm-container">
         <Header />
-        <Sidebar />
+        <Sidebar active={sidebarActive} />
         <div className="adm-main">
-          <Breadcrumb slash>
-            <Breadcrumb.Item href="http://www.amazeui.org">首页</Breadcrumb.Item>
-            <Breadcrumb.Item href="http://www.amazeui.org">分类</Breadcrumb.Item>
-            <Breadcrumb.Item active>内容</Breadcrumb.Item>
-          </Breadcrumb>
           {this.props.children}
         </div>
+        <Icon
+          button
+          amStyle="primary"
+          icon={sidebarActive ? 'close' : 'bars'}
+          className="adm-sidebar-toggle am-show-sm-only"
+          onClick={this.toggleSidebar}
+        />
       </div>
     );
   },
@@ -38,14 +63,28 @@ var App = React.createClass({
 
 const Page = React.createClass({
   render() {
+    const page = this.props.params.page;
+    const {query} = this.props.location;
+    const breadcrumb = query && query.breadcrumb;
+
+    if (pages[page]) {
+      return React.createElement(
+        pages[page],
+        {
+          breadcrumb: breadcrumb
+        }
+      );
+    }
+
     return (
-      <div>
-        page: {this.props.params.page}
-      </div>
+      <PageContainer
+        breadcrumb={breadcrumb}
+      >
+        你访问页面是: 「{this.props.params.page}」
+      </PageContainer>
     );
   }
 });
-
 
 const routes = (
   <Router>

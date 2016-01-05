@@ -17,14 +17,26 @@ const navs = [
   {
     id: 'group',
     title: '菜单组 1',
-    icon: 'folder-o',
+    icon: 'folder',
     subNav: 4,
   },
   {
     id: 'group',
     title: '菜单组 2',
-    icon: 'folder-o',
+    icon: 'folder',
     subNav: 5,
+  },
+  {
+    id: 'group',
+    title: '菜单组 3',
+    icon: 'folder',
+    subNav: 15,
+  },
+  {
+    id: 'group',
+    title: '菜单组 4',
+    icon: 'folder',
+    subNav: 3,
   },
   {
     id: 'about',
@@ -34,6 +46,10 @@ const navs = [
 ];
 
 const Siderbar = React.createClass({
+  propTypes: {
+    active: React.PropTypes.bool,
+  },
+
   getInitialState() {
     return {
       activeIndex: null
@@ -43,11 +59,9 @@ const Siderbar = React.createClass({
   handleClick(index, e) {
     e.preventDefault();
 
-    if (this.state.activeIndex !== index) {
       this.setState({
-        activeIndex: index
+        activeIndex: this.state.activeIndex === index ? null: index,
       });
-    }
   },
 
   renderSubNavs(lenth) {
@@ -60,6 +74,7 @@ const Siderbar = React.createClass({
         >
           <Link
             to={`page-${i}`}
+            query={{breadcrumb: `子页面 ${i}`}}
             activeClassName="active"
           >
             <Icon icon="angle-right" />
@@ -96,9 +111,10 @@ const Siderbar = React.createClass({
           <Link
             activeClassName="active"
             to={`/${id}`}
+            query={{breadcrumb: title}}
             onClick={subNav ? this.handleClick.bind(this, i) : null}
           >
-            <Icon icon={subActive ? 'folder-open-o' : icon} />
+            <Icon icon={subActive ? 'folder-open' : icon} />
             {` ${title}`}
           </Link>
           {subNav ? this.renderSubNavs(subNav) : null}
@@ -108,9 +124,11 @@ const Siderbar = React.createClass({
   },
 
   render() {
+    const active = this.props.active ? 'active' : '';
+
     return (
       <div
-        className="adm-sidebar"
+        className={`adm-sidebar ${active}`}
       >
         <List>
           {this.renderItems()}
