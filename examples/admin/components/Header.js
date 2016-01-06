@@ -1,5 +1,8 @@
 import React from 'react';
 import {
+  Link,
+} from 'react-router';
+import {
   Topbar,
   CollapsibleNav,
   Nav,
@@ -27,14 +30,24 @@ const Header = React.createClass({
               title={[<Icon icon="group" key="hey" />, ' Hey, Jude']}
               navItem
             >
-              <Dropdown.Item>
+              <Dropdown.Item
+                closeOnClick
+                linkComponent={Link}
+                linkProps={{to: '/profile', query: {breadcrumb: '个人资料'}}}
+              >
                 <Icon icon="user" /> {' 个人资料'}
               </Dropdown.Item>
               <Dropdown.Item>
                 <Icon icon="cog" /> {' 系统设置'}
               </Dropdown.Item>
             </Dropdown>
-            <NavItem href="http://www.amazeui.org">
+            <NavItem
+              linkComponent={Link}
+              linkProps={{
+                to: '/messages',
+                query: {breadcrumb: '通知'}
+              }}
+            >
               <Icon icon="envelope-o" />
               {' 通知 '}
               <Badge

@@ -1,18 +1,22 @@
 import React from 'react';
 import PageContainer from '../components/PageContainer';
 
-const About = React.createClass({
+const Messages = React.createClass({
   render() {
     return (
       <PageContainer
         {...this.props}
       >
-        <h2>系统信息</h2>
+        <h2>通知</h2>
         <hr />
-        <p>只是一个 Amaze UI React 后台模板骨架。欢迎完善。</p>
+        <ul>
+          <li>通知 1</li>
+          <li>通知 2</li>
+        </ul>
+        {this.props.children}
       </PageContainer>
     );
   }
 });
 
-export default About;
+export default Messages;

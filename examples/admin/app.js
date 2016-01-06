@@ -13,15 +13,24 @@ import {
 import './app.less';
 
 // components
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import PageContainer from './components/PageContainer';
-import Home from './pages/Home';
-import About from './pages/About';
+import {
+  Header,
+  Message,
+  Sidebar,
+  PageContainer,
+} from './components';
+import {
+  About,
+  Home,
+  Messages,
+  Profile,
+} from './pages';
 
 const pages = {
   home: Home,
   about: About,
+  profile: Profile,
+  messages: Messages,
 };
 
 var App = React.createClass({
@@ -89,6 +98,13 @@ const Page = React.createClass({
 const routes = (
   <Router>
     <Route path="/" component={App}>
+      <Route path="messages" component={Messages}>
+        {/* add some nested routes where we want the UI to nest */}
+        {/* render the stats page when at `/inbox` */}
+        {/*<IndexRoute component={InboxStats}/>*/}
+        {/* render the message component at /inbox/messages/123 */}
+        <Route path=":id" component={Message} />
+      </Route>
       <Route path=":page" component={Page} />
       <IndexRoute component={Home} />
     </Route>
