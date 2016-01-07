@@ -28,31 +28,39 @@ const BreadCrumbLink = React.createClass({
 
 const PageContainer = React.createClass({
   propTypes: {
-    breadcrumb: React.PropTypes.string
+    breadcrumb: React.PropTypes.string,
+    noBreadcrumb: React.PropTypes.bool,
+  },
+
+  renderBreadcrumb() {
+    const {
+      noBreadcrumb,
+      breadcrumb,
+      } = this.props;
+
+    return noBreadcrumb ? null : (
+      <Breadcrumb slash>
+        <BreadCrumbLink
+          to="/home"
+          active={!!breadcrumb}
+        >
+          <Icon icon="home" />
+          首页
+        </BreadCrumbLink>
+
+        {breadcrumb ? (
+          <Breadcrumb.Item active>{breadcrumb}</Breadcrumb.Item>
+        ) : null}
+      </Breadcrumb>
+    );
   },
 
   render() {
-    const {
-      breadcrumb
-      } = this.props;
-
     return (
       <div
-        className="adm-page"
+        className={`adm-page ${this.props.className}`}
       >
-        <Breadcrumb slash>
-          <BreadCrumbLink
-            to="/home"
-            active={!!breadcrumb}
-          >
-            <Icon icon="home" />
-            首页
-          </BreadCrumbLink>
-
-          {breadcrumb ? (
-            <Breadcrumb.Item active>{breadcrumb}</Breadcrumb.Item>
-          ) : null}
-        </Breadcrumb>
+        {this.renderBreadcrumb()}
         {this.props.children}
       </div>
     );

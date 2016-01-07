@@ -201,3 +201,146 @@ body,
   font-size: 1.4rem;
   margin: 5px 0;
 }
+
+
+// Messages
+
+.adm-page-msg {
+  padding: 0;
+  overflow-y: hidden;
+
+  > .am-g {
+    &,
+    & > [class*="am-u-"] {
+      height: 100%;
+    }
+  }
+}
+
+.adm-msgs {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.adm-msg-col {
+  border-right: 1px solid #ddd;
+
+  @media @small-only {
+    .has-id & {
+      display: none;
+    }
+  }
+}
+
+@media @small-only {
+  .adm-msg-detail {
+    display: none;
+
+    .has-id & {
+      display: block;
+    }
+  }
+}
+
+.adm-msg-list {
+  padding-bottom: 51px;
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+
+  > li {
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  > li > a {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #444;
+  }
+
+  .adm-msg-list-main {
+    flex: 1;
+    margin-right: 5px;
+
+    em {
+      color: #888;
+      font-style: normal;
+    }
+
+    .am-badge {
+      margin-right: 5px;
+      font-weight: normal;
+    }
+  }
+}
+
+.adm-msg-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 32px;
+  color: #888;
+}
+
+.adm-msg-icon {
+  color: #ccc;
+}
+
+.adm-msg-default {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+
+  [class*="am-icon-"] {
+    font-size: 48px;
+  }
+}
+
+.adm-msg-bar {
+  height: 51px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  line-height: 50px;
+}
+
+.adm-msg-body {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.adm-msg-content {
+  padding: 15px 10px;
+
+  img {
+    max-width: 160px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  em {
+    margin-right: 5px;
+    font-style: normal;
+    color: #666;
+  }
+}
+
+.msg-avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

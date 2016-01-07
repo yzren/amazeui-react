@@ -16,6 +16,7 @@ import './app.less';
 import {
   Header,
   Message,
+   NoMessage,
   Sidebar,
   PageContainer,
 } from './components';
@@ -101,9 +102,9 @@ const routes = (
       <Route path="messages" component={Messages}>
         {/* add some nested routes where we want the UI to nest */}
         {/* render the stats page when at `/inbox` */}
-        {/*<IndexRoute component={InboxStats}/>*/}
         {/* render the message component at /inbox/messages/123 */}
         <Route path=":id" component={Message} />
+        <IndexRoute component={NoMessage} />
       </Route>
       <Route path=":page" component={Page} />
       <IndexRoute component={Home} />
