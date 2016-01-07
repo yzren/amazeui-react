@@ -1,6 +1,5 @@
 'use strict';
 
-var fs = require('fs');
 var React = require('react');
 var ReactBin = require('../ReactBin');
 var Markdown = require('../utils').Markdown;

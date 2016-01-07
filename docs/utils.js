@@ -17,7 +17,8 @@ exports.Markdown = React.createClass({
     return (
       <Tag
         dangerouslySetInnerHTML={{__html: this.props.children}}
-        className={this.props.className || null} />
+        className={this.props.className || null}
+      />
     );
   }
 });
@@ -25,8 +26,10 @@ exports.Markdown = React.createClass({
 exports.Doc = React.createClass({
   render: function() {
     return (
-      <div {...this.props}
-        className={classnames('doc-content', this.props.className)}>
+      <div
+        {...this.props}
+        className={classnames('doc-content', this.props.className)}
+      >
         {this.props.children}
       </div>
     );
@@ -37,5 +40,4 @@ exports.getAssetsPath = function() {
   return '';
 };
 
-// MYTESTTTTTT
 exports.isProduction = process.env.NODE_ENV === 'production';

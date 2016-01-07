@@ -14,10 +14,6 @@ Amaze UI React 基于 React.js（`v0.14+`）开发，如果你没有使用过 Re
 
 ## 获取 Amaze UI React
 
-### 下载
-
-<div class="am-g"><div class="am-u-md-8 am-u-md-centered"><a id="doc-dl-btn" href="http://amazeui.org/download?branch=react&ver=__VERSION__" class="am-btn am-btn-block am-btn-secondary am-btn-lg" target="_blank"><i class="am-icon-download"></i> Amaze UI React v__VERSION__</a></div></div>
-
 ### 包管理工具
 
 #### NPM

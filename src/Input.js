@@ -130,7 +130,7 @@ var Input = React.createClass({
         input = (
           <Button
             {...this.props}
-            componentTag="input"
+            component="input"
             ref="field"
             key="field"
           />

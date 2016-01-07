@@ -3,12 +3,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var classNames = require('classnames');
+var assign = require('object-assign');
 var ClassNameMixin = require('./mixins/ClassNameMixin');
 var constants = require('./constants');
 var Button = require('./Button');
 var Icon = require('./Icon');
 var Events = require('./utils/Events');
 var isNodeInTree = require('./utils/isNodeInTree');
+var createChainedFunction = require('./utils/createChainedFunction');
 
 var Dropdown = React.createClass({
   mixins: [ClassNameMixin],
@@ -101,6 +103,29 @@ var Dropdown = React.createClass({
     this.setDropdown(!this.state.open);
   },
 
+  renderChildren: function() {
+    var _this = this;
+
+    return React.Children.map(this.props.children, (child, index) => {
+      var closeOnClick = child.props.closeOnClick;
+      var onClick = child.props.onClick;
+      var handleClick = closeOnClick ? createChainedFunction(
+        onClick,
+        function() {
+          _this.setDropdown(false);
+        }
+      ) : onClick;
+
+      return React.cloneElement(
+        child,
+        assign({}, child.props, {
+          key: child.props.key || `dropdownItem-${index}`,
+          onClick: handleClick
+        })
+      )
+    });
+  },
+
   render: function() {
     var classSet = this.getClassSet();
     var Component = this.props.navItem ? 'li' : 'div';
@@ -128,6 +153,7 @@ var Dropdown = React.createClass({
         <Button
           onClick={this.handleDropdownClick}
           amStyle={this.props.btnStyle}
+          amSize={this.props.btnSize}
           style={this.props.btnInlineStyle}
           className={classNames(this.prefixClass('toggle'),
           this.props.toggleClassName)}
@@ -145,7 +171,7 @@ var Dropdown = React.createClass({
           className={classNames(this.prefixClass('content'),
           animation, this.props.contentClassName)}
         >
-          {this.props.children}
+          {this.renderChildren()}
         </ContentComponent>
       </Component>
     );
@@ -156,11 +182,14 @@ Dropdown.Item = React.createClass({
   mixins: [ClassNameMixin],
 
   propTypes: {
+    closeOnClick: React.PropTypes.bool,
     href: React.PropTypes.string,
     target: React.PropTypes.string,
     title: React.PropTypes.string,
     header: React.PropTypes.bool,
-    divider: React.PropTypes.bool
+    divider: React.PropTypes.bool,
+    linkComponent: React.PropTypes.any,
+    linkProps: React.PropTypes.object
   },
 
   render: function() {
@@ -172,15 +201,18 @@ Dropdown.Item = React.createClass({
     if (this.props.header) {
       children = this.props.children;
     } else if (!this.props.divider) {
+      var Component = this.props.linkComponent || 'a';
+
       children = (
-        <a
+        <Component
           onClick={this.handleClick}
           href={this.props.href}
           target={this.props.target}
           title={this.props.title}
+          {...this.props.linkProps}
         >
           {this.props.children}
-        </a>
+        </Component>
       );
     }
 

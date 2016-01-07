@@ -21,6 +21,7 @@ var Modal = React.createClass({
     cancelText: React.PropTypes.string,
     closeIcon: React.PropTypes.bool,
     closeViaDimmer: React.PropTypes.bool,
+    onRequestClose: React.PropTypes.func
   },
 
   getDefaultProps: function() {
@@ -28,7 +29,8 @@ var Modal = React.createClass({
       classPrefix: 'modal',
       closeIcon: true,
       confirmText: '确定',
-      cancelText: '取消'
+      cancelText: '取消',
+      onRequestClose: function() {}
     };
   },
 

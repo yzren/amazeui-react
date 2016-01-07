@@ -13,9 +13,7 @@ import loadPlugins from 'gulp-load-plugins';
 import buildConfig from './webpack.build';
 import docsConfig from './webpack.docs';
 
-const isProduction = process.env.NODE_ENV === 'production';
 const $ = loadPlugins();
-
 const paths = {
   src: {
     docs: {
@@ -44,9 +42,6 @@ const banner = [
 gulp.task('build:pack', () => {
   return gulp.src(paths.src.build)
     .pipe(webpackStream(buildConfig))
-    .on('error', function(err) {
-      console.log(err);
-    })
     .pipe($.replace('__VERSION__', pkg.version))
     .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest(paths.dist.build))
@@ -76,7 +71,7 @@ gulp.task('build:docs', () => {
 
 gulp.task('build:jsx', () => {
   return gulp.src(['src/**/*.js', '!src/__tests__/*.js'])
-    .pipe($.if(function(file) {
+    .pipe($.if((file) => {
       return file.path.indexOf('AMUIReact.js') > -1;
     }, $.replace('__VERSION__', pkg.version)))
     .pipe($.babel())
@@ -118,15 +113,16 @@ gulp.task('publish:npm', (done) => {
     .on('close', done);
 });
 
-gulp.task('publish:tag', function(done) {
+gulp.task('publish:tag', (done) => {
   var v = 'v' + pkg.version;
   var message = 'Release ' + v;
 
-  $.git.tag(v, message, function(err) {
+  $.git.tag(v, message, (err) => {
     if (err) {
       throw err;
     }
-    $.git.push('origin', 'master', function(error) {
+
+    $.git.push('origin', 'master', (error) => {
       if (error) {
         throw error;
       }
@@ -136,7 +132,7 @@ gulp.task('publish:tag', function(done) {
 });
 
 // TODO: complete publish tasks.
-gulp.task('publish', function(cb) {
+gulp.task('publish', (cb) => {
   runSequence(
     'build',
     [
