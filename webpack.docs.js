@@ -59,7 +59,7 @@ const envPlugins = isProduction ? [
 
 export default {
   debug: !isProduction,
-  devtool: !isProduction ? '#eval-source-map' : null,
+  devtool: !isProduction ? '#eval' : null,
 
   entry: isProduction ? entry : devEntry,
 

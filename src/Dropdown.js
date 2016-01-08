@@ -20,6 +20,7 @@ var Dropdown = React.createClass({
     dropup: React.PropTypes.bool,
     navItem: React.PropTypes.bool,
     btnStyle: React.PropTypes.string,
+    btnSize: React.PropTypes.string,
     btnInlineStyle: React.PropTypes.object,
     contentInlineStyle: React.PropTypes.object,
     contentComponent: React.PropTypes.node,
@@ -107,22 +108,24 @@ var Dropdown = React.createClass({
     var _this = this;
 
     return React.Children.map(this.props.children, (child, index) => {
-      var closeOnClick = child.props.closeOnClick;
-      var onClick = child.props.onClick;
-      var handleClick = closeOnClick ? createChainedFunction(
-        onClick,
-        function() {
-          _this.setDropdown(false);
-        }
-      ) : onClick;
+      if (React.isValidElement(child)) {
+        var closeOnClick = child.props.closeOnClick;
+        var onClick = child.props.onClick;
+        var handleClick = closeOnClick ? createChainedFunction(
+          onClick,
+          function() {
+            _this.setDropdown(false);
+          }
+        ) : onClick;
 
-      return React.cloneElement(
-        child,
-        assign({}, child.props, {
-          key: child.props.key || `dropdownItem-${index}`,
-          onClick: handleClick
-        })
-      )
+        return React.cloneElement(
+          child,
+          assign({}, child.props, {
+            key: child.props.key || `dropdownItem-${index}`,
+            onClick: handleClick
+          })
+        )
+      }
     });
   },
 

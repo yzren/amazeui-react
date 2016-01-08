@@ -24,6 +24,7 @@ var Selected = React.createClass({
     dropup: React.PropTypes.bool,
     btnWidth: React.PropTypes.number,
     btnStyle: React.PropTypes.string,
+    btnSize: React.PropTypes.string,
     maxHeight: React.PropTypes.number,
 
     // delimiter to use to join multiple values
@@ -197,6 +198,7 @@ var Selected = React.createClass({
         title={status}
         onClose={this.clearFilterInput}
         btnStyle={this.props.btnStyle}
+        btnSize={this.props.btnSize}
         btnInlineStyle={{width: this.props.btnWidth}}
         contentInlineStyle={{minWidth: this.state.dropdownWidth}}
         toggleClassName={this.prefixClass('btn')}
