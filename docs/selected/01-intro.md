@@ -10,6 +10,7 @@
 - `onChange`: `func` - 值发生变化时的回调函数，接受一个参数，参数值组件当前的值；
 - `optionFilter`: `func` - 选项过滤函数，符合条件返回 `true`，接受两个参数 `(filterText, option)`， `filterText` 为用户输入的过滤字符，`option` 为要判断的选项；
 - `btnStyle`: `string` - 按钮风格；
+- `btnSize`: `string` - 按钮大小；
 - `btnWidth`: `number` - 设置按钮宽度；
 - `maxHeight`: `number` - 设置下拉的选项的最大高度；
 - `searchBox`:  `bool` - 是否显示过滤搜索框；
