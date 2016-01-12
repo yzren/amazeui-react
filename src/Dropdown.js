@@ -159,7 +159,7 @@ var Dropdown = React.createClass({
           amSize={this.props.btnSize}
           style={this.props.btnInlineStyle}
           className={classNames(this.prefixClass('toggle'),
-          this.props.toggleClassName)}
+            this.props.toggleClassName)}
           classPrefix={btnClassPrefix}
           component={btnComponent}
           ref="dropdownToggle"
