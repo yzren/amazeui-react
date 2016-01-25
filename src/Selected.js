@@ -99,7 +99,7 @@ var Selected = React.createClass({
       this.setValue(values.join(this.props.delimiter));
     } else {
       this.setValue(clickedValue);
-      this.refs.dropdown.setDropdownState(false);
+      this.refs.dropdown.setDropdown(false);
     }
   },
 
