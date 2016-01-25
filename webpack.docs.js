@@ -38,6 +38,7 @@ const basePlugins = [
     template: 'docs/index.html',
     UICDN: isProduction ? 'http://cdn.amazeui.org/amazeui/2.5.0/' : '',
     assets: isProduction ? 'http://s.amazeui.org/assets/react' : '',
+    stat: isProduction,
     minify: isProduction ? {
       removeComments: true,
       collapseWhitespace: true
