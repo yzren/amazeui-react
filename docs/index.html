@@ -12,20 +12,20 @@
   <meta name="renderer" content="webkit">
   <!-- No Baidu Siteapp-->
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
-  <link rel="alternate icon" type="image/png" href="{%= o.htmlWebpackPlugin.options.assets %}/i/favicon.png">
+  <link rel="alternate icon" type="image/png" href="<%= htmlWebpackPlugin.options.assets %>/i/favicon.png">
   <link rel="apple-touch-icon-precomposed"
-        href="{%= o.htmlWebpackPlugin.options.assets %}/i/app-icon72x72@2x.png">
+        href="<%= htmlWebpackPlugin.options.assets %>/i/app-icon72x72@2x.png">
 
   <meta name="apple-mobile-web-app-title" content="AMUI React"/>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <link rel="stylesheet" href="{%= o.htmlWebpackPlugin.options.UICDN %}css/amazeui.min.css"/>
-  <!--<script src="{%= o.htmlWebpackPlugin.options.assets %}app.js"></script>-->
-  {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
-  <script src="{%= o.htmlWebpackPlugin.options.assets %}{%= o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
-  {% } %}
-  {% if (o.htmlWebpackPlugin.options.stat) { %}
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.UICDN %>css/amazeui.min.css"/>
+  <!--<script src="<%= htmlWebpackPlugin.options.assets %>app.js"></script>-->
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script src="<%= htmlWebpackPlugin.options.assets %><%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <% } %>
+  <% if (htmlWebpackPlugin.options.stat) { %>
   <script id="stat">
     var _hmt = _hmt || [];
     (function() {
@@ -35,7 +35,7 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-  {% } %}
+  <% } %>
 </head>
 <body>
 <div id="root"></div>

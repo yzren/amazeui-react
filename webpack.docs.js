@@ -36,7 +36,8 @@ const basePlugins = [
   new HTMLWebpackPlugin({
     title: 'Amaze UI React',
     template: 'docs/index.html',
-    UICDN: isProduction ? 'http://cdn.amazeui.org/amazeui/2.5.0/' : '',
+    inject: false,
+    UICDN: isProduction ? 'http://cdn.amazeui.org/amazeui/2.5.1/' : '',
     assets: isProduction ? 'http://s.amazeui.org/assets/react' : '',
     stat: isProduction,
     minify: isProduction ? {

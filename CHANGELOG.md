@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.0 (2016/01/25 14:40 +08:00)
+
+- [df31b13](https://github.com/amazeui/amazeui-react/commit/df31b13fb0bcbff6ab481152b698151d9f6407cc) [fixed] Selected method reference error, resolved #93
+
 ### v1.0.0 (2016/01/12 14:18 +08:00)
 - [98c5403](https://github.com/amazeui/amazeui-react/commit/98c5403c6beb9c09afe757cc19ecd7c7010b2731) bump version to v1.0.0 (@minwe)
 - [0865218](https://github.com/amazeui/amazeui-react/commit/0865218b9c7c3a32f3d8c6b996491bbda817ef82) add `btnSize` props to Dropdown, resolves #84 (@minwe)

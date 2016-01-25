@@ -1,4 +1,4 @@
-/*! Amaze UI React v1.0.0 | by Amaze UI Team | (c) 2016 AllMobilize, Inc. | Licensed under MIT | 2016-01-12T14:15:06+0800 */
+/*! Amaze UI React v1.0.0 | by Amaze UI Team | (c) 2016 AllMobilize, Inc. | Licensed under MIT | 2016-01-25T14:40:15+0800 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("react"), require("react-dom"));
@@ -7883,7 +7883,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.setValue(values.join(this.props.delimiter));
 	    } else {
 	      this.setValue(clickedValue);
-	      this.refs.dropdown.setDropdownState(false);
+	      this.refs.dropdown.setDropdown(false);
 	    }
 	  },
 
